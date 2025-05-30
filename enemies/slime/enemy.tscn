@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=4 uid="uid://vd2578l10703"]
 
-[ext_resource type="Script" path="res://enemies/slime/art/enemy.gd" id="1_dquuq"]
+[ext_resource type="Script" path="res://enemies/slime/enemy.gd" id="1_ceugh"]
 [ext_resource type="PackedScene" uid="uid://psxbquae7xrg" path="res://state_machine/state_machine.tscn" id="2_clk05"]
 [ext_resource type="Script" path="res://enemies/slime/states/state_moving.gd" id="3_myphy"]
 [ext_resource type="Script" path="res://enemies/slime/states/state_falling.gd" id="4_cq1ws"]
@@ -183,7 +183,7 @@ radius = 0.283496
 [node name="Enemy" type="CharacterBody3D"]
 collision_layer = 8
 collision_mask = 6
-script = ExtResource("1_dquuq")
+script = ExtResource("1_ceugh")
 
 [node name="Armature" type="Node3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.0218954, 0.0221056, -0.0346194)

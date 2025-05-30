@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b0tmdnp32vajq" path="res://player/player.tscn" id="3_lhl68"]
 [ext_resource type="PackedScene" uid="uid://x78dyqw72isr" path="res://coin/coin.tscn" id="4_4x20i"]
 [ext_resource type="PackedScene" uid="uid://buemyqcf4b5dv" path="res://HUD/hud.tscn" id="6_4esbh"]
-[ext_resource type="PackedScene" uid="uid://b4ukjiong4gww" path="res://enemies/slime/art/enemy.tscn" id="7_mau5v"]
+[ext_resource type="PackedScene" uid="uid://vd2578l10703" path="res://enemies/slime/enemy.tscn" id="7_vqx6e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_alkhh"]
 sky_top_color = Color(0.55, 0.2365, 0.51865, 1)
@@ -84,12 +84,12 @@ shape = SubResource("WorldBoundaryShape3D_75ys4")
 
 [node name="Enemies" type="Node3D" parent="."]
 
-[node name="Enemy" parent="Enemies" instance=ExtResource("7_mau5v")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 3, 3)
-move_velocity = Vector3(-1, 0, 0)
+[node name="Enemy" parent="Enemies" instance=ExtResource("7_vqx6e")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+move_velocity = Vector3(1, 0, 0)
 
-[node name="Enemy2" parent="Enemies" instance=ExtResource("7_mau5v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47395, 0)
-move_velocity = Vector3(0, 0, 1)
+[node name="Enemy2" parent="Enemies" instance=ExtResource("7_vqx6e")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 3, -2)
+move_velocity = Vector3(0, 0, -1)
 
 [connection signal="body_entered" from="FallZone" to="player" method="_on_area_3d_body_entered"]
