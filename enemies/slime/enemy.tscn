@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://db7oit2gtpwjc"]
+[gd_scene load_steps=19 format=4 uid="uid://vd2578l10703"]
 
 [ext_resource type="Script" path="res://enemies/slime/art/enemy.gd" id="1_dquuq"]
 [ext_resource type="PackedScene" uid="uid://psxbquae7xrg" path="res://state_machine/state_machine.tscn" id="2_clk05"]

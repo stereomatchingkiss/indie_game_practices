@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b0tmdnp32vajq" path="res://player/player.tscn" id="3_lhl68"]
 [ext_resource type="PackedScene" uid="uid://x78dyqw72isr" path="res://coin/coin.tscn" id="4_4x20i"]
 [ext_resource type="PackedScene" uid="uid://buemyqcf4b5dv" path="res://HUD/hud.tscn" id="6_4esbh"]
-[ext_resource type="PackedScene" uid="uid://db7oit2gtpwjc" path="res://enemies/slime/art/enemy.tscn" id="7_mau5v"]
+[ext_resource type="PackedScene" uid="uid://b4ukjiong4gww" path="res://enemies/slime/art/enemy.tscn" id="7_mau5v"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_alkhh"]
 sky_top_color = Color(0.55, 0.2365, 0.51865, 1)
