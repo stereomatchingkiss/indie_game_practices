@@ -1,0 +1,95 @@
+[gd_scene load_steps=12 format=3 uid="uid://chuor4p3aeqcv"]
+
+[ext_resource type="Script" path="res://stage1/stage_1.gd" id="1_bxaci"]
+[ext_resource type="MeshLibrary" uid="uid://dkkj7c5oqauu6" path="res://stage1/art/world-block-v1.tres" id="1_yaoww"]
+[ext_resource type="PackedScene" uid="uid://ctfk3hvod0js0" path="res://block/block.tscn" id="2_452sq"]
+[ext_resource type="PackedScene" uid="uid://b0tmdnp32vajq" path="res://player/player.tscn" id="3_lhl68"]
+[ext_resource type="PackedScene" uid="uid://x78dyqw72isr" path="res://coin/coin.tscn" id="4_4x20i"]
+[ext_resource type="PackedScene" uid="uid://buemyqcf4b5dv" path="res://HUD/hud.tscn" id="6_4esbh"]
+[ext_resource type="PackedScene" uid="uid://db7oit2gtpwjc" path="res://enemies/slime/art/enemy.tscn" id="7_mau5v"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_alkhh"]
+sky_top_color = Color(0.55, 0.2365, 0.51865, 1)
+sky_horizon_color = Color(0.2881, 0.32629, 0.67, 1)
+sky_curve = 0.15529
+
+[sub_resource type="Sky" id="Sky_vbj0h"]
+sky_material = SubResource("ProceduralSkyMaterial_alkhh")
+
+[sub_resource type="Environment" id="Environment_6r243"]
+background_mode = 2
+sky = SubResource("Sky_vbj0h")
+ambient_light_source = 2
+ambient_light_color = Color(0.52, 0.404733, 0.3224, 1)
+ssr_enabled = true
+ssao_enabled = true
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_75ys4"]
+
+[node name="Stage1" type="Node3D"]
+script = ExtResource("1_bxaci")
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.266874)
+mesh_library = ExtResource("1_yaoww")
+collision_layer = 2
+collision_mask = 13
+data = {
+"cells": PackedInt32Array(-65534, 6, 0, -65534, 5, 0, -65534, 4, 0, -65534, 3, 0, -65534, 2, 0, -65534, 1, 0, -65534, 0, 0, -65534, 65535, 0, -65534, 65534, 0, -65534, 65533, 0, -65534, 65532, 0, -65535, 65532, 0, -65536, 65532, 0, -1, 65532, 0, -2, 65532, 0, -3, 65532, 0, -4, 65532, 0, -5, 65532, 0, -6, 65532, 0, -7, 65532, 0, -7, 65533, 0, -8, 65534, 0, -8, 65535, 0, -9, 0, 0, -9, 1, 0, -10, 1, 0, -10, 2, 0, -10, 3, 0, -11, 3, 0, -11, 4, 0, -9, 3, 0, -9, 2, 0, -8, 2, 0, -8, 1, 0, -7, 1, 0, -6, 1, 0, -5, 1, 0, -4, 1, 0, -4, 0, 0, -3, 0, 0, -2, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65535, 65535, 0, -65536, 65535, 0, -1, 65535, 0, -2, 65535, 0, -5, 0, 0, -6, 0, 0, -7, 0, 0, -8, 0, 0, -7, 65535, 0, -7, 65534, 0, -6, 65534, 0, -5, 65534, 0, -5, 65533, 0, -4, 65533, 0, -3, 65533, 0, -3, 65534, 0, -4, 65535, 0, -5, 65535, 0, -6, 65535, 0, -6, 65533, 0, -4, 65534, 0, -3, 65535, 0, -65535, 65534, 0, -65536, 65534, 0, -1, 65534, 0, -2, 65534, 0, -2, 65533, 0, -1, 65533, 0, -65536, 65533, 0, -65535, 65533, 0, -8, 65532, 0, -8, 65533, 0, -11, 2, 0, -11, 1, 0, -11, 0, 0, -10, 0, 0, -10, 65535, 0, -10, 65534, 0, -9, 65535, 0, -9, 65534, 0, -9, 65533, 0, -9, 65532, 0, -10, 65532, 0, -10, 65533, 0, -11, 65535, 0, -11, 65534, 0, -11, 65533, 0, -11, 65532, 0, -65535, 6, 0, -65536, 6, 0, -1, 6, 0, -2, 6, 0, -3, 6, 0, -4, 6, 0, -5, 6, 0, -6, 6, 0, -7, 6, 0, -8, 6, 0, -9, 6, 0, -10, 6, 0, -11, 5, 0, -65535, 5, 0, -65536, 5, 0, -1, 5, 0, -2, 5, 0, -3, 5, 0, -4, 5, 0, -5, 5, 0, -6, 5, 0, -7, 5, 0, -8, 5, 0, -9, 5, 0, -10, 5, 0, -10, 4, 0, -9, 4, 0, -8, 4, 0, -7, 4, 0, -6, 4, 0, -5, 4, 0, -4, 4, 0, -3, 4, 0, -2, 4, 0, -1, 4, 0, -65536, 4, 0, -65535, 4, 0, -65535, 3, 0, -65536, 3, 0, -3, 3, 0, -4, 3, 0, -5, 3, 0, -6, 3, 0, -7, 3, 0, -8, 3, 0, -7, 2, 0, -6, 2, 0, -5, 2, 0, -65535, 2, 0, -65536, 2, 0, -1, 2, 0, -2, 2, 0, -3, 2, 0, -4, 2, 0, -3, 1, 0, -2, 1, 0, -1, 1, 0, -65536, 1, 0, -65535, 1, 0, 3, 65532, 1048578, 4, 65532, 1441793, 5, 65532, 262145, 6, 65532, 262145, 3, 7, 1048576, 3, 65531, 1048576, 65524, 65531, 1048576, 65524, 7, 1048576, 65534, 65533, 1048576, 65534, 65534, 1048576, 65534, 65535, 1048576, 65534, 0, 1048576, 65534, 1, 1048576, 65534, 2, 1048576, 65534, 65531, 1048576, 2, 1, 0, -65533, 6, 0, -65533, 5, 0, -65533, 4, 0, -65533, 3, 0, -65533, 2, 0, -65532, 2, 0, -65532, 1, 0, -65532, 0, 0, -65532, 65535, 0, -2, 3, 0, -1, 3, 0, 0, 4, 5, 2, 65534, 0, 2, 65535, 0, 2, 0, 0, 2, 2, 0, 65535, 65533, 0, 0, 65533, 0, 1, 65533, 0)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.061275, 0.998121, 0, -0.998121, 0.061275, 4.88741, 12.0124, -2.49354)
+shadow_enabled = true
+
+[node name="Blocks" type="Node3D" parent="."]
+
+[node name="Block" parent="Blocks" instance=ExtResource("2_452sq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.0377, 8.46364, 0)
+
+[node name="Block2" parent="Blocks" instance=ExtResource("2_452sq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5625, 16.9273, 11.2334)
+
+[node name="Block3" parent="Blocks" instance=ExtResource("2_452sq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.6702, 12.4677)
+
+[node name="Block4" parent="Blocks" instance=ExtResource("2_452sq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.37655, 24.3075, 0)
+
+[node name="Block5" parent="Blocks" instance=ExtResource("2_452sq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.75772, 13.7508, 10.7684)
+
+[node name="Block6" parent="Blocks" instance=ExtResource("2_452sq")]
+transform = Transform3D(0.974539, 0, 0.22422, -0.072099, 0.946891, 0.313368, -0.212312, -0.321555, 0.922782, -14.2096, 19.3789, 7.52746)
+
+[node name="player" parent="." instance=ExtResource("3_lhl68")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.71659, 6.18381, 0.321063)
+collision_mask = 30
+
+[node name="Coin" parent="." instance=ExtResource("4_4x20i")]
+transform = Transform3D(-8.74228e-08, 2, 0, -2, -8.74228e-08, 0, 0, 0, 2, 4.30992, 1, 7.67175)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6r243")
+
+[node name="FallZone" type="Area3D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FallZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -18.7695, 0)
+shape = SubResource("WorldBoundaryShape3D_75ys4")
+
+[node name="HUD" parent="." instance=ExtResource("6_4esbh")]
+
+[node name="Enemies" type="Node3D" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("7_mau5v")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 3, 3)
+move_velocity = Vector3(-1, 0, 0)
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("7_mau5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47395, 0)
+move_velocity = Vector3(0, 0, 1)
+
+[connection signal="body_entered" from="FallZone" to="player" method="_on_area_3d_body_entered"]

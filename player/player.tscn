@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://b0tmdnp32vajq"]
+
+[ext_resource type="Script" path="res://player/character_body_3d.gd" id="1_5outl"]
+[ext_resource type="PackedScene" uid="uid://b6gtb788rfo5h" path="res://player/avatar_sample_b.scn" id="2_lv4i7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g3ynn"]
+radius = 0.25
+height = 1.43286
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yp6or"]
+albedo_color = Color(0.43, 0.5725, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_r82yf"]
+material = SubResource("StandardMaterial3D_yp6or")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ljd13"]
+
+[node name="player" type="CharacterBody3D"]
+collision_mask = 22
+script = ExtResource("1_5outl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.665754, 0)
+shape = SubResource("CapsuleShape3D_g3ynn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_r82yf")
+
+[node name="Face" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(0.868872, 0, 0, 0, -4.99572e-09, -0.67162, 0, 0.114289, -2.93574e-08, 0, 2.52812e-08, -0.578365)
+visible = false
+mesh = SubResource("CylinderMesh_ljd13")
+skeleton = NodePath("../..")
+
+[node name="CameraController" type="Node3D" parent="."]
+top_level = true
+
+[node name="CameraTarget" type="Node3D" parent="CameraController"]
+transform = Transform3D(1, 0, 0, 0, 0.963486, 0.26776, 0, -0.26776, 0.963486, 0, 2.16665, 5.53812)
+
+[node name="Camera3D" type="Camera3D" parent="CameraController/CameraTarget"]
+transform = Transform3D(1, 0, 0, 0, 0.969851, 0.2437, 0, -0.2437, 0.969851, 0, 0, 0)
+current = true
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+top_level = true
+collision_mask = 2
+
+[node name="AvatarSample_B" parent="." instance=ExtResource("2_lv4i7")]
