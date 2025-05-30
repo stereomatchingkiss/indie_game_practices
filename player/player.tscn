@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://b0tmdnp32vajq"]
 
-[ext_resource type="Script" path="res://player/character_body_3d.gd" id="1_5outl"]
+[ext_resource type="Script" path="res://player/player.gd" id="1_3rm2q"]
 [ext_resource type="PackedScene" uid="uid://b6gtb788rfo5h" path="res://player/avatar_sample_b.scn" id="2_lv4i7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g3ynn"]
@@ -17,7 +17,7 @@ material = SubResource("StandardMaterial3D_yp6or")
 
 [node name="player" type="CharacterBody3D"]
 collision_mask = 22
-script = ExtResource("1_5outl")
+script = ExtResource("1_3rm2q")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.665754, 0)
