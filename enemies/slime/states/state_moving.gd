@@ -1,7 +1,9 @@
 extends State
 
 @export
-var state_turn_around: State
+var state_step_on : State
+@export
+var state_turn_around : State
 
 var move_velocity := Vector3(-1,0,0)
 
@@ -9,7 +11,9 @@ func init() -> void:
 	move_velocity = parent.move_velocity
 
 func process_physics(delta: float) -> State:
-	if parent.is_on_wall():
+	if parent.step_on:
+		return state_step_on
+	elif parent.is_on_wall():
 		#print_debug(parent.name, " = is on wall, from move to turn around")
 		return state_turn_around
 		

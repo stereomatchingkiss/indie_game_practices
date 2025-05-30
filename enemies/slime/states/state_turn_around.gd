@@ -1,13 +1,16 @@
 extends State
 
 @export
-var state_moving: State
+var state_moving : State
+@export
+var state_step_on : State
 
 var turning := false
 
 func process_physics(delta: float) -> State:
-	## Add the gravity.
-	if parent.is_on_wall() and not turning:
+	if parent.step_on:
+		return state_step_on		
+	elif parent.is_on_wall() and not turning:
 		turn_around()		
 	elif not parent.is_on_wall() and not turning:
 		#print_debug(parent.name, " = return state moving")
