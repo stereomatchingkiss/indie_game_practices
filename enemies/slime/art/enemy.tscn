@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=4 uid="uid://db7oit2gtpwjc"]
+[gd_scene load_steps=19 format=4 uid="uid://db7oit2gtpwjc"]
 
 [ext_resource type="Script" path="res://enemies/slime/art/enemy.gd" id="1_dquuq"]
 [ext_resource type="PackedScene" uid="uid://psxbquae7xrg" path="res://state_machine/state_machine.tscn" id="2_clk05"]
 [ext_resource type="Script" path="res://enemies/slime/states/state_moving.gd" id="3_myphy"]
 [ext_resource type="Script" path="res://enemies/slime/states/state_falling.gd" id="4_cq1ws"]
 [ext_resource type="Script" path="res://enemies/slime/states/state_turn_around.gd" id="5_stait"]
+[ext_resource type="Script" path="res://enemies/slime/states/state_step_on.gd" id="6_8w5l0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v4dns"]
 resource_name = "Material"
@@ -194,14 +195,14 @@ bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 bones/0/enabled = true
 bones/0/position = Vector3(0, 0, 0)
 bones/0/rotation = Quaternion(0, 0, 0, 1)
-bones/0/scale = Vector3(1.13282, 0.827154, 1.13282)
+bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "FaceBone"
 bones/1/parent = 0
 bones/1/rest = Transform3D(1, -1.06581e-14, -2.38418e-07, 6.95617e-08, 0.956491, 0.291763, 2.28045e-07, -0.291763, 0.956491, 0, 1.2925, 0.862106)
 bones/1/enabled = true
-bones/1/position = Vector3(1.86265e-09, 1.31693, 0.936467)
-bones/1/rotation = Quaternion(-0.202368, -1.16814e-07, 2.60848e-08, 0.97931)
-bones/1/scale = Vector3(0.882906, 1.16644, 0.93952)
+bones/1/position = Vector3(1.86266e-09, 1.31547, 0.911313)
+bones/1/rotation = Quaternion(-0.11366, -1.18437e-07, 1.35494e-08, 0.99352)
+bones/1/scale = Vector3(1, 1, 1)
 
 [node name="Cube" type="MeshInstance3D" parent="Armature/Skeleton3D"]
 mesh = SubResource("ArrayMesh_h352o")
@@ -220,20 +221,26 @@ shape = SubResource("SphereShape3D_sldro")
 [node name="StateMachine" parent="." node_paths=PackedStringArray("starting_state") instance=ExtResource("2_clk05")]
 starting_state = NodePath("state_falling")
 
-[node name="state_moving" type="Node" parent="StateMachine" node_paths=PackedStringArray("state_turn_around")]
-script = ExtResource("3_myphy")
-state_turn_around = NodePath("../state_turn_around")
-
 [node name="state_falling" type="Node" parent="StateMachine" node_paths=PackedStringArray("state_moving")]
 script = ExtResource("4_cq1ws")
 state_moving = NodePath("../state_moving")
 
-[node name="state_turn_around" type="Node" parent="StateMachine" node_paths=PackedStringArray("state_moving")]
+[node name="state_moving" type="Node" parent="StateMachine" node_paths=PackedStringArray("state_step_on", "state_turn_around")]
+script = ExtResource("3_myphy")
+state_step_on = NodePath("../state_step_on")
+state_turn_around = NodePath("../state_turn_around")
+
+[node name="state_turn_around" type="Node" parent="StateMachine" node_paths=PackedStringArray("state_moving", "state_step_on")]
 script = ExtResource("5_stait")
 state_moving = NodePath("../state_moving")
+state_step_on = NodePath("../state_step_on")
+
+[node name="state_step_on" type="Node" parent="StateMachine"]
+script = ExtResource("6_8w5l0")
 
 [node name="AreaAttackPlayer" type="Area3D" parent="."]
 transform = Transform3D(0.499863, -0.0116839, 0, 0.0116839, 0.499863, 0, 0, 0, 0.5, 0.0102395, 0.384488, 0.048121)
+collision_layer = 8
 
 [node name="ColShapeAttackPlayer" type="CollisionShape3D" parent="AreaAttackPlayer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0611521, -0.357018, 0)
@@ -241,6 +248,7 @@ shape = SubResource("CylinderShape3D_pqfp6")
 
 [node name="AreaStepOn" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0424922, 0)
+collision_layer = 8
 
 [node name="ColShapeStepOn" type="CollisionShape3D" parent="AreaStepOn"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.551729, 0)
