@@ -1,7 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://b0tmdnp32vajq"]
+[gd_scene load_steps=12 format=3 uid="uid://b0tmdnp32vajq"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_3rm2q"]
 [ext_resource type="PackedScene" uid="uid://b6gtb788rfo5h" path="res://player/avatar_sample_b.scn" id="2_lv4i7"]
+[ext_resource type="PackedScene" uid="uid://psxbquae7xrg" path="res://state_machine/state_machine.tscn" id="3_7sd5g"]
+[ext_resource type="Script" path="res://player/states/state_moving.gd" id="4_e1crk"]
+[ext_resource type="Script" path="res://player/states/state_falling.gd" id="4_opk38"]
+[ext_resource type="Script" path="res://player/auxiliary_functions.gd" id="6_ip7oc"]
+[ext_resource type="Script" path="res://player/state_jumping.gd" id="6_kf165"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g3ynn"]
 radius = 0.25
@@ -34,6 +39,7 @@ mesh = SubResource("CylinderMesh_ljd13")
 skeleton = NodePath("../..")
 
 [node name="CameraController" type="Node3D" parent="."]
+unique_name_in_owner = true
 top_level = true
 
 [node name="CameraTarget" type="Node3D" parent="CameraController"]
@@ -48,3 +54,26 @@ top_level = true
 collision_mask = 2
 
 [node name="AvatarSample_B" parent="." instance=ExtResource("2_lv4i7")]
+unique_name_in_owner = true
+
+[node name="StateMachine" parent="." node_paths=PackedStringArray("starting_state") instance=ExtResource("3_7sd5g")]
+starting_state = NodePath("state_falling")
+
+[node name="state_falling" type="Node" parent="StateMachine" node_paths=PackedStringArray("state_moving")]
+script = ExtResource("4_opk38")
+state_moving = NodePath("../state_moving")
+
+[node name="state_moving" type="Node" parent="StateMachine" node_paths=PackedStringArray("state_falling", "state_jump")]
+script = ExtResource("4_e1crk")
+state_falling = NodePath("../state_falling")
+state_jump = NodePath("../state_jumping")
+
+[node name="state_jumping" type="Node" parent="StateMachine" node_paths=PackedStringArray("state_falling", "state_moving")]
+script = ExtResource("6_kf165")
+state_falling = NodePath("../state_falling")
+state_moving = NodePath("../state_moving")
+
+[node name="AuxiliaryFunctions" type="Node" parent="." node_paths=PackedStringArray("state_moving")]
+unique_name_in_owner = true
+script = ExtResource("6_ip7oc")
+state_moving = NodePath("../StateMachine/state_moving")

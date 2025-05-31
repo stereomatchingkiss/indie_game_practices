@@ -7,10 +7,6 @@ var state_moving : State
 
 @onready
 var aux_func := %AuxiliaryFunctions
-@onready
-var avatar_sample_b := %AvatarSample_B
-@onready
-var camera_controller := %CameraController
 
 func process_physics(delta: float) -> State:
 	print("falling")
