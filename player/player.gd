@@ -30,7 +30,7 @@ func _physics_process(delta: float) -> void:
 		camera_controller.rotate_y(deg_to_rad(CAM_ROTATE_DEG))
 
 	camera_follow_character()
-	adjust_player_rotation(aux_func.get_input_dir())
+	adjust_player_rotation(aux_func.get_input_direction())
 	align_character(delta)
 
 func _unhandled_input(event: InputEvent) -> void:

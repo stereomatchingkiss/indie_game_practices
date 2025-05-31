@@ -12,11 +12,11 @@ var avatar_sample_b := %AvatarSample_B
 @onready
 var camera_controller := %CameraController
 
-func get_input_dir() -> Vector2:
+func get_input_direction() -> Vector2:
 	return Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 
 func move_character(player : Player):
-	var input_dir := get_input_dir()
+	var input_dir := get_input_direction()
 	var direction = (camera_controller.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		player.velocity.x = direction.x * SPEED
