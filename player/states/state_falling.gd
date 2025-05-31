@@ -1,7 +1,5 @@
 extends State
 
-const SPEED = 5.0
-
 @export
 var state_moving : State
 
