@@ -70,8 +70,9 @@ state_falling = NodePath("../state_falling")
 state_idle = NodePath("../state_idle")
 state_jump = NodePath("../state_jumping")
 
-[node name="state_jumping" type="Node" parent="StateMachine"]
+[node name="state_jumping" type="Node" parent="StateMachine" node_paths=PackedStringArray("state_moving")]
 script = ExtResource("6_j0c4e")
+state_moving = NodePath("../state_moving")
 
 [node name="state_idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("state_jump", "state_moving")]
 script = ExtResource("7_7qosy")

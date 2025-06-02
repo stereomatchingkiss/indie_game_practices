@@ -1,7 +1,5 @@
 extends State
 
-const JUMP_VELOCITY = 8.5
-
 @export
 var state_moving : State
 
@@ -9,12 +7,13 @@ var state_moving : State
 var aux_func := %AuxiliaryFunctions
 
 func process_physics(delta: float) -> State:	
-	#print("jumping")
+	print_debug("jumping, ", Time.get_unix_time_from_system())
 	if parent.is_on_floor():
-		if Input.is_action_just_pressed("ui_accept"):
-			parent.velocity.y = JUMP_VELOCITY
+		print_debug("jump to floor, ", Time.get_unix_time_from_system())
+		if Input.is_action_just_pressed('ui_accept'):
+			parent.velocity.y = aux_func.JUMP_VELOCITY
 		else:
-			return state_moving	
+			return state_moving
 	else:
 		aux_func.move_character(parent)
 		

@@ -2,6 +2,7 @@ class_name AuxiliaryFunctionsPlayer
 
 extends Node
 
+const JUMP_VELOCITY = 8.5
 const SPEED = 5.0
 
 @export
