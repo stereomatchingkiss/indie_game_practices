@@ -36,3 +36,4 @@ func _on_area_attack_player_body_entered(body: Node3D) -> void:
 func _on_area_step_on_body_entered(body: Node3D) -> void:
 	if body.name == "player":
 		step_on = true
+		body.step_on = true

@@ -3,6 +3,9 @@ extends State
 @export
 var state_moving : State
 
+@export
+var state_step_on : State
+
 @onready
 var aux_func := %AuxiliaryFunctions
 
@@ -15,6 +18,10 @@ func process_physics(delta: float) -> State:
 		else:
 			return state_moving
 	else:
+		print_debug("jumping not on floor, step on = ", parent.step_on, ", velocity = ", parent.velocity, ",", Time.get_unix_time_from_system())
+		if parent.step_on:
+			return state_step_on
+		
 		aux_func.move_character(parent)
 		
 	parent.move_and_slide()

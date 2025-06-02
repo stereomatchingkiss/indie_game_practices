@@ -4,6 +4,7 @@ extends CharacterBody3D
 
 const CAM_ROTATE_DEG = 30
 
+var step_on := false
 var xnorm : Transform3D
 
 @onready
