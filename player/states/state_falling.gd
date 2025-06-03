@@ -7,7 +7,7 @@ var state_moving : State
 var aux_func := %AuxiliaryFunctions
 
 func process_physics(delta: float) -> State:
-	print_debug("falling")
+	print_debug("falling, ", Time.get_unix_time_from_system())
 	if parent.is_on_floor():
 		return state_moving
 		

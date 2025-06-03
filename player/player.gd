@@ -23,6 +23,7 @@ func _ready() -> void:
 	state_machine.init(self)	
 	
 func _physics_process(delta: float) -> void:
+	#print_debug("player process process, ", Time.get_unix_time_from_system())
 	state_machine.process_physics(delta)
 	
 	if Input.is_action_just_pressed("cam_left"):
@@ -35,6 +36,7 @@ func _physics_process(delta: float) -> void:
 	align_character(delta)
 
 func _unhandled_input(event: InputEvent) -> void:
+	#print_debug("player process input, ", Time.get_unix_time_from_system())
 	state_machine.process_input(event)
 	
 func adjust_player_rotation(input_dir : Vector2):

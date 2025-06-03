@@ -17,7 +17,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func move():
 	while(1):
-		print_debug("call move loop =", Time.get_unix_time_from_system())
+		print_debug("call moving platform loop =", Time.get_unix_time_from_system())
 		var tween = create_tween()
 		tween.tween_property(self, "position", pos_end, move_duration).set_delay(end_point_delay)
 		tween.tween_property(self, "position", pos_begin, move_duration).set_delay(end_point_delay)
