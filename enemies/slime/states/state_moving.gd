@@ -13,9 +13,9 @@ func init() -> void:
 func process_physics(delta: float) -> State:
 	if parent.step_on:
 		return state_step_on
-	elif parent.is_on_wall():
+	elif parent.is_on_wall() or (not %RayCast3D.is_colliding() and parent.is_on_floor()):
 		#print_debug(parent.name, " = is on wall, from move to turn around")
-		return state_turn_around
+		return state_turn_around	
 		
 	#print_debug(parent.name, " = not on wall, moving = ", move_velocity)
 	parent.velocity = move_velocity	

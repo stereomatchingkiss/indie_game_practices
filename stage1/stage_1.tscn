@@ -64,7 +64,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.75772, 13.7508, 10.7684)
 transform = Transform3D(0.974539, 0, 0.22422, -0.072099, 0.946891, 0.313368, -0.212312, -0.321555, 0.922782, -14.2096, 19.3789, 7.52746)
 
 [node name="player" parent="." instance=ExtResource("3_lhl68")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.71659, 6.18381, 0.321063)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.71659, 6.18381, 8.8119)
 collision_mask = 30
 
 [node name="Coin" parent="." instance=ExtResource("4_4x20i")]
@@ -91,5 +91,9 @@ move_velocity = Vector3(1, 0, 0)
 [node name="Enemy2" parent="Enemies" instance=ExtResource("7_vqx6e")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 3, -2)
 move_velocity = Vector3(0, 0, -1)
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("7_vqx6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00071, 2, 11)
+move_velocity = Vector3(0, 0, 1)
 
 [connection signal="body_entered" from="FallZone" to="player" method="_on_area_3d_body_entered"]
