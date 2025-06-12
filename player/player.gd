@@ -40,8 +40,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	state_machine.process_input(event)
 	
 func adjust_player_rotation(input_dir : Vector2):
-	if input_dir != Vector2():
-		avatar_sample_b.rotation_degrees.y = camera_controller.rotation_degrees.y - rad_to_deg(input_dir.angle()) + 90	
+	if input_dir != Vector2():		
+		avatar_sample_b.rotation_degrees.y = camera_controller.rotation_degrees.y - rad_to_deg(input_dir.angle())		
 
 func align_character(delta : float):
 	#$RayCast3D.position = position

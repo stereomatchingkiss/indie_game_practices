@@ -65,7 +65,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67254, 3.69113, 19.0091)
 transform = Transform3D(0.974539, 0, 0.22422, -0.072099, 0.946891, 0.313368, -0.212312, -0.321555, 0.922782, -14.2096, 19.3789, 7.52746)
 
 [node name="player" parent="." instance=ExtResource("3_lhl68")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10382, 2.95949, 11.7693)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.98252, 1, 11.2382)
 collision_mask = 30
 
 [node name="Coin" parent="." instance=ExtResource("4_4x20i")]
