@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://player/states/state_idle.gd" id="7_7qosy"]
 [ext_resource type="Script" path="res://player/states/state_step_on.gd" id="8_ln2qe"]
 [ext_resource type="Script" path="res://player/states_limbo/states_air.gd" id="10_h5f1v"]
-[ext_resource type="Script" path="res://player/states_limbo/state_air_jumping.gd" id="11_3mphp"]
+[ext_resource type="Script" path="res://player/states_limbo/state_ground_jumping.gd" id="11_6lqsp"]
 [ext_resource type="Script" path="res://player/states_limbo/states_ground.gd" id="11_y07bu"]
 [ext_resource type="Script" path="res://player/states_limbo/state_air_falling.gd" id="12_fsxun"]
 [ext_resource type="Script" path="res://player/states_limbo/state_ground_idle.gd" id="13_s60hd"]
@@ -103,10 +103,6 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 script = ExtResource("10_h5f1v")
 
-[node name="state_air_jumping" type="LimboState" parent="LimboHSM"]
-unique_name_in_owner = true
-script = ExtResource("11_3mphp")
-
 [node name="state_air_falling" type="LimboState" parent="LimboHSM"]
 unique_name_in_owner = true
 script = ExtResource("12_fsxun")
@@ -114,6 +110,10 @@ script = ExtResource("12_fsxun")
 [node name="states_ground" type="LimboState" parent="LimboHSM"]
 unique_name_in_owner = true
 script = ExtResource("11_y07bu")
+
+[node name="state_ground_jumping" type="LimboState" parent="LimboHSM"]
+unique_name_in_owner = true
+script = ExtResource("11_6lqsp")
 
 [node name="state_ground_idle" type="LimboState" parent="LimboHSM"]
 unique_name_in_owner = true

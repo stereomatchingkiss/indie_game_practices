@@ -32,23 +32,25 @@ var limbo_hsm := %LimboHSM
 var states_air := %states_air
 @onready
 var states_ground := %states_ground
+@onready
+var state_ground_jumping := %state_ground_jumping
 
 @onready
 var state_air_falling := %state_air_falling
-@onready
-var state_air_jumping := %state_air_jumping
 
 @onready
 var state_ground_idle := %state_ground_idle
 
 func _init_state_machine() -> void:
-	limbo_hsm.add_transition(limbo_hsm.ANYSTATE, states_ground, "air_to_ground")
-	limbo_hsm.add_transition(limbo_hsm.ANYSTATE, states_air, "ground_to_air")
+	limbo_hsm.add_transition(limbo_hsm.ANYSTATE, states_ground, &"air_to_ground")
+	limbo_hsm.add_transition(limbo_hsm.ANYSTATE, states_air, &"ground_to_air")
+		
+	limbo_hsm.add_transition(states_air, state_air_falling, &"air_to_falling")
 	
-	limbo_hsm.add_transition(states_air, state_air_jumping, "air_to_jumping")
-	limbo_hsm.add_transition(states_air, state_air_falling, "air_to_falling")
-	
-	limbo_hsm.add_transition(states_ground, state_ground_idle, "ground_to_idle")
+	limbo_hsm.add_transition(states_ground, state_ground_idle, &"ground_to_idle")
+	limbo_hsm.add_transition(state_ground_jumping, state_ground_idle, &"ground_to_idle")
+	limbo_hsm.add_transition(states_ground, state_ground_jumping, &"ground_to_jumping")
+	limbo_hsm.add_transition(state_ground_idle, state_ground_jumping, &"ground_to_jumping")
 	
 	for child in limbo_hsm.get_children():
 		print(child.name)
@@ -70,6 +72,9 @@ func _physics_process(delta: float) -> void:
 		camera_controller.rotate_y(deg_to_rad(-CAM_ROTATE_DEG))
 	elif Input.is_action_just_pressed("cam_right"):
 		camera_controller.rotate_y(deg_to_rad(CAM_ROTATE_DEG))
+		
+	input_direction = aux_func.get_input_direction()
+	jump_press = Input.is_action_just_pressed("ui_accept")	
 
 	camera_follow_character()
 	adjust_player_rotation(aux_func.get_input_direction())
