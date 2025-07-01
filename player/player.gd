@@ -19,12 +19,52 @@ var camera_controller := %CameraController
 @onready
 var state_machine := $StateMachine
 
+var input_direction : Vector2
+
+@onready
+var jump_press := false
+
+@onready
+var limbo_hsm := %LimboHSM
+
+#limbo states
+@onready
+var states_air := %states_air
+@onready
+var states_ground := %states_ground
+
+@onready
+var state_air_falling := %state_air_falling
+@onready
+var state_air_jumping := %state_air_jumping
+
+@onready
+var state_ground_idle := %state_ground_idle
+
+func _init_state_machine() -> void:
+	limbo_hsm.add_transition(limbo_hsm.ANYSTATE, states_ground, "air_to_ground")
+	limbo_hsm.add_transition(limbo_hsm.ANYSTATE, states_air, "ground_to_air")
+	
+	limbo_hsm.add_transition(states_air, state_air_jumping, "air_to_jumping")
+	limbo_hsm.add_transition(states_air, state_air_falling, "air_to_falling")
+	
+	limbo_hsm.add_transition(states_ground, state_ground_idle, "ground_to_idle")
+	
+	for child in limbo_hsm.get_children():
+		print(child.name)
+		child.agent = self
+	
+	limbo_hsm.initial_state = states_air
+	limbo_hsm.initialize(self)
+	limbo_hsm.set_active(true)
+
 func _ready() -> void:
-	state_machine.init(self)	
+	#state_machine.init(self)	
+	_init_state_machine()
 	
 func _physics_process(delta: float) -> void:
 	#print_debug("player process process, ", Time.get_unix_time_from_system())
-	state_machine.process_physics(delta)
+	#state_machine.process_physics(delta)
 	
 	if Input.is_action_just_pressed("cam_left"):
 		camera_controller.rotate_y(deg_to_rad(-CAM_ROTATE_DEG))
@@ -34,10 +74,13 @@ func _physics_process(delta: float) -> void:
 	camera_follow_character()
 	adjust_player_rotation(aux_func.get_input_direction())
 	align_character(delta)
+	
+	move_and_slide()
 
 func _unhandled_input(event: InputEvent) -> void:
 	#print_debug("player process input, ", Time.get_unix_time_from_system())
-	state_machine.process_input(event)
+	#state_machine.process_input(event)
+	pass
 	
 func adjust_player_rotation(input_dir : Vector2):
 	if input_dir != Vector2():		
