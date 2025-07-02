@@ -10,15 +10,11 @@ func _enter() -> void:
 	first_time = true
 
 func _update(delta: float) -> void:
-	if first_time:
-		print_debug("enter ground jumping state")
-		first_time = false
-		if agent.is_on_floor():
-			agent.velocity.y = aux_func.JUMP_VELOCITY
-			
 	if agent.is_on_floor():
-		if agent.jump_press:
+		print_debug("enter ground jump_press jumping state")
+		if first_time:
 			agent.velocity.y = aux_func.JUMP_VELOCITY
+			first_time = false
 		else:
 			get_root().dispatch(&"ground_to_idle")
 	else:

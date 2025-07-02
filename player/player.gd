@@ -34,6 +34,8 @@ var states_air := %states_air
 var states_ground := %states_ground
 @onready
 var state_ground_jumping := %state_ground_jumping
+@onready
+var state_ground_moving := %state_ground_moving
 
 @onready
 var state_air_falling := %state_air_falling
@@ -49,8 +51,12 @@ func _init_state_machine() -> void:
 	
 	limbo_hsm.add_transition(states_ground, state_ground_idle, &"ground_to_idle")
 	limbo_hsm.add_transition(state_ground_jumping, state_ground_idle, &"ground_to_idle")
+	limbo_hsm.add_transition(state_ground_moving, state_ground_idle, &"ground_to_idle")
 	limbo_hsm.add_transition(states_ground, state_ground_jumping, &"ground_to_jumping")
 	limbo_hsm.add_transition(state_ground_idle, state_ground_jumping, &"ground_to_jumping")
+	limbo_hsm.add_transition(state_ground_moving, state_ground_jumping, &"ground_to_jumping")
+	limbo_hsm.add_transition(states_ground, state_ground_moving, &"ground_to_moving")
+	limbo_hsm.add_transition(state_ground_idle, state_ground_moving, &"ground_to_moving")
 	
 	for child in limbo_hsm.get_children():
 		print(child.name)

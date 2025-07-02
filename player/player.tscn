@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b0tmdnp32vajq"]
+[gd_scene load_steps=20 format=3 uid="uid://b0tmdnp32vajq"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_3rm2q"]
 [ext_resource type="PackedScene" uid="uid://b6gtb788rfo5h" path="res://player/avatar_sample_b.scn" id="2_lv4i7"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://player/states_limbo/states_ground.gd" id="11_y07bu"]
 [ext_resource type="Script" path="res://player/states_limbo/state_air_falling.gd" id="12_fsxun"]
 [ext_resource type="Script" path="res://player/states_limbo/state_ground_idle.gd" id="13_s60hd"]
+[ext_resource type="Script" path="res://player/states_limbo/state_ground_moving.gd" id="15_pavog"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g3ynn"]
 radius = 0.25
@@ -118,3 +119,7 @@ script = ExtResource("11_6lqsp")
 [node name="state_ground_idle" type="LimboState" parent="LimboHSM"]
 unique_name_in_owner = true
 script = ExtResource("13_s60hd")
+
+[node name="state_ground_moving" type="LimboState" parent="LimboHSM"]
+unique_name_in_owner = true
+script = ExtResource("15_pavog")
