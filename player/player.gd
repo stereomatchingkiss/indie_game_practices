@@ -11,7 +11,7 @@ var xnorm : Transform3D
 var aux_func := %AuxiliaryFunctions
 
 @onready
-var avatar_sample_b := %AvatarSample_B
+var avatar_sample_b := %Rogue_Hooded
 
 @onready
 var camera_controller := %CameraController
