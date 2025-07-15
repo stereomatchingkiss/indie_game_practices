@@ -3,10 +3,13 @@ extends LimboState
 @onready
 var aux_func := %AuxiliaryFunctions
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+@export
+var animation_player : AnimationPlayer
 
+# Called when the node enters the scene tree for the first time.
+func _enter() -> void:
+	print_debug("Limbo Idle, play Idle")
+	animation_player.play("Idle")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _update(delta: float) -> void:	

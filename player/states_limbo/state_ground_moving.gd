@@ -3,9 +3,12 @@ extends LimboState
 @onready
 var aux_func := %AuxiliaryFunctions
 
+@export
+var animation_player : AnimationPlayer
+
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _enter() -> void:
+	animation_player.play("Walking_A")
 
 func _update(delta: float) -> void:
 	if not agent.is_on_floor():
