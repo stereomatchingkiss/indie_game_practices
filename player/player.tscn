@@ -1,13 +1,7 @@
-[gd_scene load_steps=114 format=4 uid="uid://b0tmdnp32vajq"]
+[gd_scene load_steps=108 format=4 uid="uid://b0tmdnp32vajq"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_3rm2q"]
-[ext_resource type="PackedScene" uid="uid://psxbquae7xrg" path="res://state_machine/state_machine.tscn" id="3_7sd5g"]
-[ext_resource type="Script" path="res://player/states/state_moving.gd" id="4_e1crk"]
-[ext_resource type="Script" path="res://player/states/state_falling.gd" id="4_opk38"]
 [ext_resource type="Script" path="res://player/auxiliary_functions.gd" id="6_ip7oc"]
-[ext_resource type="Script" path="res://player/states/state_jump.gd" id="6_j0c4e"]
-[ext_resource type="Script" path="res://player/states/state_idle.gd" id="7_7qosy"]
-[ext_resource type="Script" path="res://player/states/state_step_on.gd" id="8_ln2qe"]
 [ext_resource type="Script" path="res://player/states_limbo/states_air.gd" id="10_h5f1v"]
 [ext_resource type="Script" path="res://player/states_limbo/state_ground_jumping.gd" id="11_6lqsp"]
 [ext_resource type="Script" path="res://player/states_limbo/states_ground.gd" id="11_y07bu"]
@@ -31209,37 +31203,10 @@ current = true
 top_level = true
 collision_mask = 2
 
-[node name="StateMachine" parent="." node_paths=PackedStringArray("starting_state") instance=ExtResource("3_7sd5g")]
-starting_state = NodePath("state_falling")
-
-[node name="state_falling" type="Node" parent="StateMachine" node_paths=PackedStringArray("state_moving")]
-script = ExtResource("4_opk38")
-state_moving = NodePath("../state_moving")
-
-[node name="state_moving" type="Node" parent="StateMachine" node_paths=PackedStringArray("state_falling", "state_idle", "state_jump")]
-script = ExtResource("4_e1crk")
-state_falling = NodePath("../state_falling")
-state_idle = NodePath("../state_idle")
-state_jump = NodePath("../state_jumping")
-
-[node name="state_jumping" type="Node" parent="StateMachine" node_paths=PackedStringArray("state_moving", "state_step_on")]
-script = ExtResource("6_j0c4e")
-state_moving = NodePath("../state_moving")
-state_step_on = NodePath("../state_step_on")
-
-[node name="state_idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("state_jump", "state_moving")]
-script = ExtResource("7_7qosy")
-state_jump = NodePath("../state_jumping")
-state_moving = NodePath("../state_moving")
-
-[node name="state_step_on" type="Node" parent="StateMachine" node_paths=PackedStringArray("state_jumping")]
-script = ExtResource("8_ln2qe")
-state_jumping = NodePath("../state_jumping")
-
 [node name="AuxiliaryFunctions" type="Node" parent="." node_paths=PackedStringArray("state_moving")]
 unique_name_in_owner = true
 script = ExtResource("6_ip7oc")
-state_moving = NodePath("../StateMachine/state_moving")
+state_moving = NodePath("")
 
 [node name="LimboHSM" type="LimboHSM" parent="."]
 unique_name_in_owner = true
@@ -31655,7 +31622,7 @@ mesh = SubResource("ArrayMesh_q6yow")
 skeleton = NodePath("")
 
 [node name="Rogue_Cape" type="BoneAttachment3D" parent="Rogue_Hooded/Rig/Skeleton3D"]
-transform = Transform3D(1, 1.25214e-21, 0, -1.25214e-21, 1, 0, 0, 0, 1, 0, 1.20228, 0)
+transform = Transform3D(1, 1.25214e-21, 0, -1.25214e-21, 1, 4.30479e-42, 0, -4.30479e-42, 1, 0, 1.20228, 0)
 bone_name = "Rogue_Cape"
 bone_idx = 20
 
@@ -31691,3 +31658,4 @@ skin = SubResource("Skin_xgtpj")
 libraries = {
 "": SubResource("AnimationLibrary_1xa5g")
 }
+speed_scale = 2.991
