@@ -1,10 +1,11 @@
-[gd_scene load_steps=109 format=4 uid="uid://b0tmdnp32vajq"]
+[gd_scene load_steps=110 format=4 uid="uid://b0tmdnp32vajq"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_3rm2q"]
 [ext_resource type="Script" path="res://player/auxiliary_functions.gd" id="6_ip7oc"]
 [ext_resource type="Script" path="res://player/states_limbo/state_shoot.gd" id="9_7hm77"]
 [ext_resource type="Script" path="res://player/states_limbo/states_air.gd" id="10_h5f1v"]
 [ext_resource type="Script" path="res://player/states_limbo/state_ground_jumping.gd" id="11_6lqsp"]
+[ext_resource type="Script" path="res://utils/input_cache.gd" id="11_um52r"]
 [ext_resource type="Script" path="res://player/states_limbo/states_ground.gd" id="11_y07bu"]
 [ext_resource type="Script" path="res://player/states_limbo/state_air_falling.gd" id="12_fsxun"]
 [ext_resource type="Script" path="res://player/states_limbo/state_ground_idle.gd" id="13_s60hd"]
@@ -31582,7 +31583,7 @@ bones/46/rotation = Quaternion(0.758253, 1.82539e-07, -0.651961, 1.11759e-08)
 bones/46/scale = Vector3(1, 1, 1)
 
 [node name="Knife_Offhand" type="BoneAttachment3D" parent="Rogue_Hooded/Rig/Skeleton3D"]
-transform = Transform3D(3.00349e-07, 0.262865, 0.964832, 0.999999, -3.09948e-07, 8.62283e-07, 8.83186e-07, 0.964832, -0.262864, 0.507764, 0.636706, -0.0185362)
+transform = Transform3D(2.40744e-07, 0.262865, 0.964832, 0.999999, -3.09948e-07, 8.02678e-07, 8.08681e-07, 0.964832, -0.262864, 0.507764, 0.636706, -0.0185361)
 bone_name = "Knife_Offhand"
 bone_idx = 9
 
@@ -31591,7 +31592,7 @@ mesh = SubResource("ArrayMesh_pvh60")
 skeleton = NodePath("")
 
 [node name="1H_Crossbow" type="BoneAttachment3D" parent="Rogue_Hooded/Rig/Skeleton3D"]
-transform = Transform3D(0.988701, -0.149894, 1.78913e-07, -8.98623e-07, -1.02438e-06, -0.999999, 0.149894, 0.988701, -1.49706e-06, -0.489505, 0.745658, 0.0963392)
+transform = Transform3D(0.988701, -0.149894, 1.4911e-07, -1.04763e-06, -1.2926e-06, -0.999999, 0.149894, 0.988701, -1.80998e-06, -0.489505, 0.745658, 0.0963391)
 bone_name = "1H_Crossbow"
 bone_idx = 15
 
@@ -31600,7 +31601,7 @@ mesh = SubResource("ArrayMesh_r3bex")
 skeleton = NodePath("")
 
 [node name="2H_Crossbow" type="BoneAttachment3D" parent="Rogue_Hooded/Rig/Skeleton3D"]
-transform = Transform3D(0.988701, -0.149894, 1.78913e-07, -8.98623e-07, -1.02438e-06, -0.999999, 0.149894, 0.988701, -1.49706e-06, -0.489505, 0.745658, 0.0963392)
+transform = Transform3D(0.988701, -0.149894, 1.4911e-07, -1.04763e-06, -1.2926e-06, -0.999999, 0.149894, 0.988701, -1.80998e-06, -0.489505, 0.745658, 0.0963391)
 bone_name = "2H_Crossbow"
 bone_idx = 16
 
@@ -31609,7 +31610,7 @@ mesh = SubResource("ArrayMesh_4q25c")
 skeleton = NodePath("")
 
 [node name="Knife" type="BoneAttachment3D" parent="Rogue_Hooded/Rig/Skeleton3D"]
-transform = Transform3D(-1.74733e-07, -0.149894, 0.988702, 0.999999, -8.76192e-07, -8.80383e-07, 1.34781e-06, 0.988701, 0.149893, -0.491058, 0.64103, 0.10658)
+transform = Transform3D(-1.44931e-07, -0.149894, 0.988702, 0.999999, -1.14441e-06, -1.0294e-06, 1.66074e-06, 0.988701, 0.149894, -0.491058, 0.64103, 0.10658)
 bone_name = "Knife"
 bone_idx = 17
 
@@ -31618,7 +31619,7 @@ mesh = SubResource("ArrayMesh_122dg")
 skeleton = NodePath("")
 
 [node name="Throwable" type="BoneAttachment3D" parent="Rogue_Hooded/Rig/Skeleton3D"]
-transform = Transform3D(-1.58993e-07, -0.149894, 0.988701, 0.999999, -8.6146e-07, -8.9407e-07, 1.3353e-06, 0.988701, 0.149894, -0.518076, 0.64103, 0.28479)
+transform = Transform3D(-1.29191e-07, -0.149894, 0.988701, 0.999999, -1.12968e-06, -1.04308e-06, 1.64822e-06, 0.988701, 0.149894, -0.518076, 0.64103, 0.28479)
 bone_name = "Throwable"
 bone_idx = 18
 
@@ -31664,3 +31665,7 @@ libraries = {
 "": SubResource("AnimationLibrary_1xa5g")
 }
 speed_scale = 2.027
+
+[node name="InputCache" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("11_um52r")

@@ -19,10 +19,9 @@ var camera_controller := %CameraController
 @onready
 var state_machine := $StateMachine
 
-var input_direction : Vector2
-
 @onready
-var jump_press := false
+var input_cache := %InputCache
+
 @onready
 var shoot_press := false
 
@@ -85,12 +84,10 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_just_pressed("cam_right"):
 		camera_controller.rotate_y(deg_to_rad(CAM_ROTATE_DEG))
 		
-	input_direction = aux_func.get_input_direction()
-	jump_press = Input.is_action_just_pressed("ui_accept")
-	shoot_press = Input.is_action_just_pressed("shoot")
-
+	input_cache.cache_input()
+		
 	camera_follow_character()
-	adjust_player_rotation(aux_func.get_input_direction())
+	adjust_player_rotation(input_cache.get_input_direction())
 	align_character(delta)
 	
 	move_and_slide()
