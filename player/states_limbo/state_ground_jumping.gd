@@ -12,7 +12,6 @@ var first_time : bool
 func _enter() -> void:
 	first_time = true
 	animation_player.play("Jump_Start")
-	pass
 
 func _update(delta: float) -> void:
 	if agent.is_on_floor():
