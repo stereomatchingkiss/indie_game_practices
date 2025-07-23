@@ -19,5 +19,7 @@ func _update(delta: float) -> void:
 	elif agent.input_direction != Vector2():
 		print_debug("limbo : state_ground_idle to ground_to_move, ", Time.get_unix_time_from_system())
 		get_root().dispatch(&"ground_to_moving")
+	elif agent.shoot_press:
+		get_root().dispatch(&"shoot")
 	else:
 		aux_func.move_character(agent)

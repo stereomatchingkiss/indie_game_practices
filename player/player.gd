@@ -23,6 +23,8 @@ var input_direction : Vector2
 
 @onready
 var jump_press := false
+@onready
+var shoot_press := false
 
 @onready
 var limbo_hsm := %LimboHSM
@@ -38,6 +40,9 @@ var state_ground_jumping := %state_ground_jumping
 var state_ground_moving := %state_ground_moving
 
 @onready
+var state_shoot := %state_shoot
+
+@onready
 var state_air_falling := %state_air_falling
 
 @onready
@@ -46,6 +51,7 @@ var state_ground_idle := %state_ground_idle
 func _init_state_machine() -> void:
 	limbo_hsm.add_transition(limbo_hsm.ANYSTATE, states_ground, &"air_to_ground")
 	limbo_hsm.add_transition(limbo_hsm.ANYSTATE, states_air, &"ground_to_air")
+	limbo_hsm.add_transition(limbo_hsm.ANYSTATE, state_shoot, &"shoot")
 		
 	limbo_hsm.add_transition(states_air, state_air_falling, &"air_to_falling")
 	
@@ -80,7 +86,8 @@ func _physics_process(delta: float) -> void:
 		camera_controller.rotate_y(deg_to_rad(CAM_ROTATE_DEG))
 		
 	input_direction = aux_func.get_input_direction()
-	jump_press = Input.is_action_just_pressed("ui_accept")	
+	jump_press = Input.is_action_just_pressed("ui_accept")
+	shoot_press = Input.is_action_just_pressed("shoot")
 
 	camera_follow_character()
 	adjust_player_rotation(aux_func.get_input_direction())
