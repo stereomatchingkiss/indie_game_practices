@@ -7,8 +7,8 @@ var aux_func := %AuxiliaryFunctions
 var animation_player : AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
-func _enter() -> void:
-	print_debug("Limbo Idle, play Idle")
+func _enter() -> void:	
+	agent.input_cache.reset_input_direction()
 	animation_player.play("Idle")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,6 +20,8 @@ func _update(delta: float) -> void:
 		print_debug("limbo : state_ground_idle to ground_to_move, ", Time.get_unix_time_from_system())
 		get_root().dispatch(&"ground_to_moving")
 	elif agent.input_cache.get_shoot():
+		print_debug("limbo : state_ground_idle to shoot, ", Time.get_unix_time_from_system())
 		get_root().dispatch(&"shoot")
 	else:
+		#print_debug("limbo : state_ground_idle , ", Time.get_unix_time_from_system())
 		aux_func.move_character(agent)
