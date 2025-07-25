@@ -12,8 +12,6 @@ func cache_input() -> void:
 		pressed_jump = Input.is_action_just_pressed("ui_accept")
 	if pressed_shoot == false:
 		pressed_shoot = Input.is_action_just_pressed("shoot")
-	
-	print_debug("cache input jump = ", pressed_jump, ",", Time.get_unix_time_from_system())
 
 func get_input_direction() -> Vector2:
 	return input_direction
