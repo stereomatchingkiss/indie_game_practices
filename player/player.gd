@@ -74,13 +74,10 @@ func _init_state_machine() -> void:
 	limbo_hsm.initialize(self)
 	limbo_hsm.set_active(true)
 
-func _ready() -> void:
-	#state_machine.init(self)	
+func _ready() -> void:	
 	_init_state_machine()
 	
 func _physics_process(delta: float) -> void:
-	#print_debug("player process process, ", Time.get_unix_time_from_system())
-	#state_machine.process_physics(delta)
 	
 	if Input.is_action_just_pressed("cam_left"):
 		camera_controller.rotate_y(deg_to_rad(-CAM_ROTATE_DEG))
@@ -93,7 +90,12 @@ func _physics_process(delta: float) -> void:
 	adjust_player_rotation(input_cache.get_input_direction())
 	align_character(delta)
 	
+	#print_debug("player rotation = ", avatar_sample_b.rotation_degrees.y, ", ", Time.get_unix_time_from_system())	
+	
 	move_and_slide()
+	
+func player_direction() -> int:
+	return avatar_sample_b.rotation_degrees.y
 
 func _unhandled_input(event: InputEvent) -> void:
 	#print_debug("player process input, ", Time.get_unix_time_from_system())
