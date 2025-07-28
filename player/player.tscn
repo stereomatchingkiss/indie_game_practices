@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=4 uid="uid://b0tmdnp32vajq"]
+[gd_scene load_steps=111 format=4 uid="uid://b0tmdnp32vajq"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_3rm2q"]
 [ext_resource type="Script" path="res://player/auxiliary_functions.gd" id="6_ip7oc"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://utils/input_cache.gd" id="11_um52r"]
 [ext_resource type="Script" path="res://player/states_limbo/states_ground.gd" id="11_y07bu"]
 [ext_resource type="Script" path="res://player/states_limbo/state_air_falling.gd" id="12_fsxun"]
+[ext_resource type="Script" path="res://player/states_limbo/state_machine_utils.gd" id="12_q3wfk"]
 [ext_resource type="Script" path="res://player/states_limbo/state_ground_idle.gd" id="13_s60hd"]
 [ext_resource type="Script" path="res://player/states_limbo/state_ground_moving.gd" id="15_pavog"]
 [ext_resource type="Texture2D" uid="uid://ci4tp2wjpivau" path="res://player/art/Rogue_Hooded_rogue_texture.png" id="16_ko8rl"]
@@ -31669,3 +31670,7 @@ speed_scale = 2.027
 [node name="InputCache" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("11_um52r")
+
+[node name="state_machine_utils" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("12_q3wfk")

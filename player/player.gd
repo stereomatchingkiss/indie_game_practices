@@ -8,74 +8,19 @@ var step_on := false
 var xnorm : Transform3D
 
 @onready
-var aux_func := %AuxiliaryFunctions
-
-@onready
 var avatar_sample_b := %Rogue_Hooded
 
 @onready
 var camera_controller := %CameraController
 
 @onready
-var state_machine := $StateMachine
-
-@onready
 var input_cache := %InputCache
 
 @onready
-var shoot_press := false
-
-@onready
-var limbo_hsm := %LimboHSM
-
-#limbo states
-@onready
-var states_air := %states_air
-@onready
-var states_ground := %states_ground
-@onready
-var state_ground_jumping := %state_ground_jumping
-@onready
-var state_ground_moving := %state_ground_moving
-
-@onready
-var state_shoot := %state_shoot
-
-@onready
-var state_air_falling := %state_air_falling
-
-@onready
-var state_ground_idle := %state_ground_idle
-
-func _init_state_machine() -> void:
-	limbo_hsm.add_transition(limbo_hsm.ANYSTATE, states_ground, &"air_to_ground")
-	limbo_hsm.add_transition(limbo_hsm.ANYSTATE, states_air, &"ground_to_air")
-	limbo_hsm.add_transition(limbo_hsm.ANYSTATE, state_shoot, &"shoot")
-		
-	limbo_hsm.add_transition(states_air, state_air_falling, &"air_to_falling")
-	
-	limbo_hsm.add_transition(states_ground, state_ground_idle, &"ground_to_idle")
-	limbo_hsm.add_transition(state_ground_jumping, state_ground_idle, &"ground_to_idle")
-	limbo_hsm.add_transition(state_ground_moving, state_ground_idle, &"ground_to_idle")
-	limbo_hsm.add_transition(state_shoot, state_ground_idle, &"shoot_to_idle")
-	limbo_hsm.add_transition(states_ground, state_ground_jumping, &"ground_to_jumping")
-	limbo_hsm.add_transition(state_ground_idle, state_ground_jumping, &"ground_to_jumping")
-	limbo_hsm.add_transition(state_ground_moving, state_ground_jumping, &"ground_to_jumping")
-	limbo_hsm.add_transition(state_shoot, state_ground_jumping, &"shoot_to_jumping")
-	limbo_hsm.add_transition(states_ground, state_ground_moving, &"ground_to_moving")
-	limbo_hsm.add_transition(state_ground_idle, state_ground_moving, &"ground_to_moving")
-	limbo_hsm.add_transition(state_shoot, state_ground_moving, &"shoot_to_moving")
-	
-	for child in limbo_hsm.get_children():
-		print(child.name)
-		child.agent = self
-	
-	limbo_hsm.initial_state = states_air
-	limbo_hsm.initialize(self)
-	limbo_hsm.set_active(true)
+var state_machine_utils := %state_machine_utils
 
 func _ready() -> void:	
-	_init_state_machine()
+	state_machine_utils.init(self)
 	
 func _physics_process(delta: float) -> void:
 	
