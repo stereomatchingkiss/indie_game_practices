@@ -31206,10 +31206,6 @@ current = true
 top_level = true
 collision_mask = 2
 
-[node name="AuxiliaryFunctions" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("6_ip7oc")
-
 [node name="LimboHSM" type="LimboHSM" parent="."]
 unique_name_in_owner = true
 
@@ -31666,6 +31662,10 @@ libraries = {
 "": SubResource("AnimationLibrary_1xa5g")
 }
 speed_scale = 2.027
+
+[node name="AuxiliaryFunctions" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("6_ip7oc")
 
 [node name="InputCache" type="Node" parent="."]
 unique_name_in_owner = true
