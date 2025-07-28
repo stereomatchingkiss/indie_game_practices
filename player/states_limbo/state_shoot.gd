@@ -45,3 +45,7 @@ func _update(delta: float) -> void:
 			else:
 				#without this line, the character will slide before enter idle state
 				aux_func.move_character(agent)
+	else:
+		aux_func.move_character(agent)
+		if !animation_player.is_playing():
+			get_root().dispatch(&"shoot_to_idle")

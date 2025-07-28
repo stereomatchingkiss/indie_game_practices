@@ -21,3 +21,5 @@ func _update(delta: float) -> void:
 			get_root().dispatch(&"ground_to_idle")
 	else:
 		aux_func.move_character(agent)
+		if agent.input_cache.get_shoot():
+			get_root().dispatch(&"shoot")
