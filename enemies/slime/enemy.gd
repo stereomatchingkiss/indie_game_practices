@@ -5,8 +5,9 @@ var move_velocity : Vector3
 
 @onready
 var animations := $AnimationPlayer
+
 @onready
-var state_machine := $StateMachine
+var state_machine_utils := %state_machine_utils
 
 var step_on := false
 
@@ -22,11 +23,13 @@ func disable_attack_player_mask():
 func disable_player_step_on_mask():
 	$AreaStepOn.set_collision_mask_value(1, false)	
 
-func _ready() -> void:
-	state_machine.init(self)	
+func _ready() -> void:	
+	self.velocity = move_velocity
+	state_machine_utils.init(self)
 	
 func _physics_process(delta: float) -> void:
-	state_machine.process_physics(delta)
+	#state_machine.process_physics(delta)	
+	move_and_slide()
 
 func _on_area_attack_player_body_entered(body: Node3D) -> void:
 	if body.name == "player":

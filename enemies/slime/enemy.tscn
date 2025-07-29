@@ -1,11 +1,11 @@
 [gd_scene load_steps=19 format=4 uid="uid://vd2578l10703"]
 
 [ext_resource type="Script" path="res://enemies/slime/enemy.gd" id="1_ceugh"]
-[ext_resource type="PackedScene" uid="uid://psxbquae7xrg" path="res://state_machine/state_machine.tscn" id="2_clk05"]
-[ext_resource type="Script" path="res://enemies/slime/states/state_moving.gd" id="3_myphy"]
-[ext_resource type="Script" path="res://enemies/slime/states/state_falling.gd" id="4_cq1ws"]
-[ext_resource type="Script" path="res://enemies/slime/states/state_turn_around.gd" id="5_stait"]
-[ext_resource type="Script" path="res://enemies/slime/states/state_step_on.gd" id="6_8w5l0"]
+[ext_resource type="Script" path="res://enemies/slime/states_limbo/state_falling.gd" id="7_cuexb"]
+[ext_resource type="Script" path="res://enemies/slime/states_limbo/state_moving.gd" id="8_3ycyt"]
+[ext_resource type="Script" path="res://enemies/slime/states_limbo/state_turn_around.gd" id="9_7djdf"]
+[ext_resource type="Script" path="res://enemies/slime/states_limbo/state_step_on.gd" id="10_lapbn"]
+[ext_resource type="Script" path="res://enemies/slime/states_limbo/state_machine_utils.gd" id="11_m7ci7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v4dns"]
 resource_name = "Material"
@@ -218,26 +218,6 @@ autoplay = "blob"
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.015784, 0.218608, 0)
 shape = SubResource("SphereShape3D_sldro")
 
-[node name="StateMachine" parent="." node_paths=PackedStringArray("starting_state") instance=ExtResource("2_clk05")]
-starting_state = NodePath("state_falling")
-
-[node name="state_falling" type="Node" parent="StateMachine" node_paths=PackedStringArray("state_moving")]
-script = ExtResource("4_cq1ws")
-state_moving = NodePath("../state_moving")
-
-[node name="state_moving" type="Node" parent="StateMachine" node_paths=PackedStringArray("state_step_on", "state_turn_around")]
-script = ExtResource("3_myphy")
-state_step_on = NodePath("../state_step_on")
-state_turn_around = NodePath("../state_turn_around")
-
-[node name="state_turn_around" type="Node" parent="StateMachine" node_paths=PackedStringArray("state_moving", "state_step_on")]
-script = ExtResource("5_stait")
-state_moving = NodePath("../state_moving")
-state_step_on = NodePath("../state_step_on")
-
-[node name="state_step_on" type="Node" parent="StateMachine"]
-script = ExtResource("6_8w5l0")
-
 [node name="AreaAttackPlayer" type="Area3D" parent="."]
 transform = Transform3D(0.499863, -0.0116839, 0, 0.0116839, 0.499863, 0, 0, 0, 0.5, 0.0102395, 0.384488, 0.048121)
 collision_layer = 8
@@ -259,6 +239,29 @@ unique_name_in_owner = true
 transform = Transform3D(0.999986, -0.00523596, 0, 0.00523596, 0.999986, 0, 0, 0, 1, 0, 0, 0.36289)
 target_position = Vector3(0, -0.3, 0)
 collision_mask = 2
+
+[node name="LimboHSM" type="LimboHSM" parent="."]
+unique_name_in_owner = true
+
+[node name="state_falling" type="LimboState" parent="LimboHSM"]
+unique_name_in_owner = true
+script = ExtResource("7_cuexb")
+
+[node name="state_moving" type="LimboState" parent="LimboHSM"]
+unique_name_in_owner = true
+script = ExtResource("8_3ycyt")
+
+[node name="state_turn_around" type="LimboState" parent="LimboHSM"]
+unique_name_in_owner = true
+script = ExtResource("9_7djdf")
+
+[node name="state_step_on" type="LimboState" parent="LimboHSM"]
+unique_name_in_owner = true
+script = ExtResource("10_lapbn")
+
+[node name="state_machine_utils" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("11_m7ci7")
 
 [connection signal="body_entered" from="AreaAttackPlayer" to="." method="_on_area_attack_player_body_entered"]
 [connection signal="body_entered" from="AreaStepOn" to="." method="_on_area_step_on_body_entered"]
