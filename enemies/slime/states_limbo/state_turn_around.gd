@@ -11,7 +11,7 @@ func _enter() -> void:
 func _update(delta: float) -> void:	
 	if agent.step_on:
 		get_root().dispatch(&"turn_around_to_step_on")
-	elif (is_on_wall or not %RayCast3D.is_colliding()) and not turning:
+	elif (is_on_wall or not %RayCastFloorDetector.is_colliding()) and not turning:
 		turn_around()
 	elif not is_on_wall and not turning:		
 		get_root().dispatch(&"turn_around_to_moving")
