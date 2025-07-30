@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://chuor4p3aeqcv"]
+[gd_scene load_steps=13 format=3 uid="uid://dfnsj40eciydt"]
 
 [ext_resource type="Script" path="res://stage1/stage_1.gd" id="1_bxaci"]
 [ext_resource type="MeshLibrary" uid="uid://byb8omge7l0sd" path="res://gridmap/art/tres/world-block-v1.tres" id="2_2rlla"]
