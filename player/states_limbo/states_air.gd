@@ -7,7 +7,7 @@ func _ready() -> void:
 func _update(delta: float) -> void:
 	#print_debug("falling, ", Time.get_unix_time_from_system())
 	if agent.is_on_floor():		
-		if agent.jump_press:
+		if agent.input_cache.get_jump():
 			print_debug("limbo : states_air dispatch air_to_jumping, ", Time.get_unix_time_from_system())
 			get_root().dispatch(&"air_to_jumping")
 		else:
