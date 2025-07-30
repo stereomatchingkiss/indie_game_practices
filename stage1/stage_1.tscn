@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://chuor4p3aeqcv"]
 
 [ext_resource type="Script" path="res://stage1/stage_1.gd" id="1_bxaci"]
-[ext_resource type="MeshLibrary" uid="uid://dkkj7c5oqauu6" path="res://stage1/art/world-block-v1.tres" id="1_yaoww"]
+[ext_resource type="MeshLibrary" uid="uid://byb8omge7l0sd" path="res://gridmap/art/tres/world-block-v1.tres" id="2_2rlla"]
 [ext_resource type="PackedScene" uid="uid://ctfk3hvod0js0" path="res://block/block.tscn" id="2_452sq"]
 [ext_resource type="PackedScene" uid="uid://b0tmdnp32vajq" path="res://player/player.tscn" id="3_lhl68"]
 [ext_resource type="PackedScene" uid="uid://x78dyqw72isr" path="res://coin/coin.tscn" id="4_4x20i"]
@@ -32,7 +32,7 @@ script = ExtResource("1_bxaci")
 
 [node name="GridMap" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.266874)
-mesh_library = ExtResource("1_yaoww")
+mesh_library = ExtResource("2_2rlla")
 collision_layer = 2
 collision_mask = 13
 data = {
