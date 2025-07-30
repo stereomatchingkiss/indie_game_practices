@@ -76,4 +76,4 @@ func camera_follow_character():
 #Kill player if fall into the hole
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.name == "player":
-		get_tree().change_scene_to_file("res://stage1/stage_1.tscn")
+		get_tree().change_scene_to_file("res://stages/1/stage_1.tscn")
