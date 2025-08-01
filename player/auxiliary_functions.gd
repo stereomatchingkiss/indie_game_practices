@@ -2,8 +2,8 @@ class_name AuxiliaryFunctionsPlayer
 
 extends Node
 
-const JUMP_VELOCITY = 8.5
-const SPEED = 5.0
+const JUMP_VELOCITY = 5.5
+const SPEED = 2.0
 
 @onready
 var avatar_sample_b := %AvatarSample_B
