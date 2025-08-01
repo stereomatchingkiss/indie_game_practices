@@ -31,7 +31,7 @@ func _physics_process(delta: float) -> void:
 		
 	input_cache.cache_input()
 		
-	camera_follow_character()
+	#camera_follow_character()
 	adjust_player_rotation(input_cache.get_input_direction())
 	align_character(delta)
 	

@@ -1,16 +1,16 @@
 [gd_scene load_steps=111 format=4 uid="uid://b0tmdnp32vajq"]
 
-[ext_resource type="Script" path="res://player/player.gd" id="1_3rm2q"]
-[ext_resource type="Script" path="res://player/auxiliary_functions.gd" id="6_ip7oc"]
-[ext_resource type="Script" path="res://player/states_limbo/state_shoot.gd" id="9_7hm77"]
-[ext_resource type="Script" path="res://player/states_limbo/states_air.gd" id="10_h5f1v"]
-[ext_resource type="Script" path="res://player/states_limbo/state_ground_jumping.gd" id="11_6lqsp"]
-[ext_resource type="Script" path="res://utils/input_cache.gd" id="11_um52r"]
-[ext_resource type="Script" path="res://player/states_limbo/states_ground.gd" id="11_y07bu"]
-[ext_resource type="Script" path="res://player/states_limbo/state_air_falling.gd" id="12_fsxun"]
-[ext_resource type="Script" path="res://player/states_limbo/state_machine_utils.gd" id="12_q3wfk"]
-[ext_resource type="Script" path="res://player/states_limbo/state_ground_idle.gd" id="13_s60hd"]
-[ext_resource type="Script" path="res://player/states_limbo/state_ground_moving.gd" id="15_pavog"]
+[ext_resource type="Script" uid="uid://dmbrlygix3io8" path="res://player/player.gd" id="1_3rm2q"]
+[ext_resource type="Script" uid="uid://cbva52lyo1vcd" path="res://player/auxiliary_functions.gd" id="6_ip7oc"]
+[ext_resource type="Script" uid="uid://dxslytsrd2u0b" path="res://player/states_limbo/state_shoot.gd" id="9_7hm77"]
+[ext_resource type="Script" uid="uid://b1541nx3gulkm" path="res://player/states_limbo/states_air.gd" id="10_h5f1v"]
+[ext_resource type="Script" uid="uid://busxlpipl0qi3" path="res://player/states_limbo/state_ground_jumping.gd" id="11_6lqsp"]
+[ext_resource type="Script" uid="uid://bxapnd30lbc8s" path="res://utils/input_cache.gd" id="11_um52r"]
+[ext_resource type="Script" uid="uid://ch7ryycuvjq2p" path="res://player/states_limbo/states_ground.gd" id="11_y07bu"]
+[ext_resource type="Script" uid="uid://8yp0bjxhvrxq" path="res://player/states_limbo/state_air_falling.gd" id="12_fsxun"]
+[ext_resource type="Script" uid="uid://c217q0xt7pdt8" path="res://player/states_limbo/state_machine_utils.gd" id="12_q3wfk"]
+[ext_resource type="Script" uid="uid://dx3isl26p5dtm" path="res://player/states_limbo/state_ground_idle.gd" id="13_s60hd"]
+[ext_resource type="Script" uid="uid://5m75cc5jgp1r" path="res://player/states_limbo/state_ground_moving.gd" id="15_pavog"]
 [ext_resource type="Texture2D" uid="uid://ci4tp2wjpivau" path="res://player/art/Rogue_Hooded_rogue_texture.png" id="16_ko8rl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g3ynn"]
@@ -31104,82 +31104,82 @@ tracks/56/keys = PackedFloat32Array(0, 1, 0.674362, -0.0851905, -0.727687, 0.091
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1xa5g"]
 _data = {
-"1H_Melee_Attack_Chop": SubResource("Animation_cle6m"),
-"1H_Melee_Attack_Slice_Diagonal": SubResource("Animation_ycll0"),
-"1H_Melee_Attack_Slice_Horizontal": SubResource("Animation_vnx2t"),
-"1H_Melee_Attack_Stab": SubResource("Animation_hrbk6"),
-"1H_Ranged_Aiming": SubResource("Animation_boc1c"),
-"1H_Ranged_Reload": SubResource("Animation_ychjn"),
-"1H_Ranged_Shoot": SubResource("Animation_onl0j"),
-"1H_Ranged_Shooting": SubResource("Animation_6bk07"),
-"2H_Melee_Attack_Chop": SubResource("Animation_6qacd"),
-"2H_Melee_Attack_Slice": SubResource("Animation_2ipmu"),
-"2H_Melee_Attack_Spin": SubResource("Animation_a3qm8"),
-"2H_Melee_Attack_Spinning": SubResource("Animation_vngq5"),
-"2H_Melee_Attack_Stab": SubResource("Animation_maw32"),
-"2H_Melee_Idle": SubResource("Animation_jlco1"),
-"2H_Ranged_Aiming": SubResource("Animation_i6q0e"),
-"2H_Ranged_Reload": SubResource("Animation_ywwf2"),
-"2H_Ranged_Shoot": SubResource("Animation_ydgis"),
-"2H_Ranged_Shooting": SubResource("Animation_jn1fv"),
-"Block": SubResource("Animation_csmm4"),
-"Block_Attack": SubResource("Animation_x7w26"),
-"Block_Hit": SubResource("Animation_v84re"),
-"Blocking": SubResource("Animation_ck32r"),
-"Cheer": SubResource("Animation_aify0"),
-"Death_A": SubResource("Animation_oaxmw"),
-"Death_A_Pose": SubResource("Animation_i3y5i"),
-"Death_B": SubResource("Animation_2hbvk"),
-"Death_B_Pose": SubResource("Animation_2vbxb"),
-"Dodge_Backward": SubResource("Animation_28qc1"),
-"Dodge_Forward": SubResource("Animation_cwtn3"),
-"Dodge_Left": SubResource("Animation_7mw4y"),
-"Dodge_Right": SubResource("Animation_3yrux"),
-"Dualwield_Melee_Attack_Chop": SubResource("Animation_1y53c"),
-"Dualwield_Melee_Attack_Slice": SubResource("Animation_dv51u"),
-"Dualwield_Melee_Attack_Stab": SubResource("Animation_f5xmk"),
-"Hit_A": SubResource("Animation_ye147"),
-"Hit_B": SubResource("Animation_g8txu"),
-"Idle": SubResource("Animation_icuv7"),
-"Interact": SubResource("Animation_uhebl"),
-"Jump_Full_Long": SubResource("Animation_y2tuc"),
-"Jump_Full_Short": SubResource("Animation_roj16"),
-"Jump_Idle": SubResource("Animation_ussbv"),
-"Jump_Land": SubResource("Animation_yxwdq"),
-"Jump_Start": SubResource("Animation_04e5y"),
-"Lie_Down": SubResource("Animation_01ucc"),
-"Lie_Idle": SubResource("Animation_wst1s"),
-"Lie_Pose": SubResource("Animation_yeew6"),
-"Lie_StandUp": SubResource("Animation_noxnt"),
-"PickUp": SubResource("Animation_tjh6d"),
-"Running_A": SubResource("Animation_66ckp"),
-"Running_B": SubResource("Animation_ie2p2"),
-"Running_Strafe_Left": SubResource("Animation_fggtn"),
-"Running_Strafe_Right": SubResource("Animation_iau5y"),
-"Sit_Chair_Down": SubResource("Animation_exdik"),
-"Sit_Chair_Idle": SubResource("Animation_htmpd"),
-"Sit_Chair_Pose": SubResource("Animation_1ycqf"),
-"Sit_Chair_StandUp": SubResource("Animation_k45vs"),
-"Sit_Floor_Down": SubResource("Animation_k58i7"),
-"Sit_Floor_Idle": SubResource("Animation_yqnyo"),
-"Sit_Floor_Pose": SubResource("Animation_qmjg2"),
-"Sit_Floor_StandUp": SubResource("Animation_lhmda"),
-"Spellcast_Long": SubResource("Animation_2aeow"),
-"Spellcast_Raise": SubResource("Animation_ob0qn"),
-"Spellcast_Shoot": SubResource("Animation_us8h2"),
-"Spellcasting": SubResource("Animation_ss3ky"),
-"T-Pose": SubResource("Animation_vjbu6"),
-"Throw": SubResource("Animation_oftov"),
-"Unarmed_Idle": SubResource("Animation_cdjtm"),
-"Unarmed_Melee_Attack_Kick": SubResource("Animation_rvim2"),
-"Unarmed_Melee_Attack_Punch_A": SubResource("Animation_dp7bc"),
-"Unarmed_Melee_Attack_Punch_B": SubResource("Animation_e7ru3"),
-"Unarmed_Pose": SubResource("Animation_hmh57"),
-"Use_Item": SubResource("Animation_qeq3x"),
-"Walking_A": SubResource("Animation_r2a6n"),
-"Walking_B": SubResource("Animation_as2ge"),
-"Walking_Backwards": SubResource("Animation_0i7qb"),
-"Walking_C": SubResource("Animation_dtlwb")
+&"1H_Melee_Attack_Chop": SubResource("Animation_cle6m"),
+&"1H_Melee_Attack_Slice_Diagonal": SubResource("Animation_ycll0"),
+&"1H_Melee_Attack_Slice_Horizontal": SubResource("Animation_vnx2t"),
+&"1H_Melee_Attack_Stab": SubResource("Animation_hrbk6"),
+&"1H_Ranged_Aiming": SubResource("Animation_boc1c"),
+&"1H_Ranged_Reload": SubResource("Animation_ychjn"),
+&"1H_Ranged_Shoot": SubResource("Animation_onl0j"),
+&"1H_Ranged_Shooting": SubResource("Animation_6bk07"),
+&"2H_Melee_Attack_Chop": SubResource("Animation_6qacd"),
+&"2H_Melee_Attack_Slice": SubResource("Animation_2ipmu"),
+&"2H_Melee_Attack_Spin": SubResource("Animation_a3qm8"),
+&"2H_Melee_Attack_Spinning": SubResource("Animation_vngq5"),
+&"2H_Melee_Attack_Stab": SubResource("Animation_maw32"),
+&"2H_Melee_Idle": SubResource("Animation_jlco1"),
+&"2H_Ranged_Aiming": SubResource("Animation_i6q0e"),
+&"2H_Ranged_Reload": SubResource("Animation_ywwf2"),
+&"2H_Ranged_Shoot": SubResource("Animation_ydgis"),
+&"2H_Ranged_Shooting": SubResource("Animation_jn1fv"),
+&"Block": SubResource("Animation_csmm4"),
+&"Block_Attack": SubResource("Animation_x7w26"),
+&"Block_Hit": SubResource("Animation_v84re"),
+&"Blocking": SubResource("Animation_ck32r"),
+&"Cheer": SubResource("Animation_aify0"),
+&"Death_A": SubResource("Animation_oaxmw"),
+&"Death_A_Pose": SubResource("Animation_i3y5i"),
+&"Death_B": SubResource("Animation_2hbvk"),
+&"Death_B_Pose": SubResource("Animation_2vbxb"),
+&"Dodge_Backward": SubResource("Animation_28qc1"),
+&"Dodge_Forward": SubResource("Animation_cwtn3"),
+&"Dodge_Left": SubResource("Animation_7mw4y"),
+&"Dodge_Right": SubResource("Animation_3yrux"),
+&"Dualwield_Melee_Attack_Chop": SubResource("Animation_1y53c"),
+&"Dualwield_Melee_Attack_Slice": SubResource("Animation_dv51u"),
+&"Dualwield_Melee_Attack_Stab": SubResource("Animation_f5xmk"),
+&"Hit_A": SubResource("Animation_ye147"),
+&"Hit_B": SubResource("Animation_g8txu"),
+&"Idle": SubResource("Animation_icuv7"),
+&"Interact": SubResource("Animation_uhebl"),
+&"Jump_Full_Long": SubResource("Animation_y2tuc"),
+&"Jump_Full_Short": SubResource("Animation_roj16"),
+&"Jump_Idle": SubResource("Animation_ussbv"),
+&"Jump_Land": SubResource("Animation_yxwdq"),
+&"Jump_Start": SubResource("Animation_04e5y"),
+&"Lie_Down": SubResource("Animation_01ucc"),
+&"Lie_Idle": SubResource("Animation_wst1s"),
+&"Lie_Pose": SubResource("Animation_yeew6"),
+&"Lie_StandUp": SubResource("Animation_noxnt"),
+&"PickUp": SubResource("Animation_tjh6d"),
+&"Running_A": SubResource("Animation_66ckp"),
+&"Running_B": SubResource("Animation_ie2p2"),
+&"Running_Strafe_Left": SubResource("Animation_fggtn"),
+&"Running_Strafe_Right": SubResource("Animation_iau5y"),
+&"Sit_Chair_Down": SubResource("Animation_exdik"),
+&"Sit_Chair_Idle": SubResource("Animation_htmpd"),
+&"Sit_Chair_Pose": SubResource("Animation_1ycqf"),
+&"Sit_Chair_StandUp": SubResource("Animation_k45vs"),
+&"Sit_Floor_Down": SubResource("Animation_k58i7"),
+&"Sit_Floor_Idle": SubResource("Animation_yqnyo"),
+&"Sit_Floor_Pose": SubResource("Animation_qmjg2"),
+&"Sit_Floor_StandUp": SubResource("Animation_lhmda"),
+&"Spellcast_Long": SubResource("Animation_2aeow"),
+&"Spellcast_Raise": SubResource("Animation_ob0qn"),
+&"Spellcast_Shoot": SubResource("Animation_us8h2"),
+&"Spellcasting": SubResource("Animation_ss3ky"),
+&"T-Pose": SubResource("Animation_vjbu6"),
+&"Throw": SubResource("Animation_oftov"),
+&"Unarmed_Idle": SubResource("Animation_cdjtm"),
+&"Unarmed_Melee_Attack_Kick": SubResource("Animation_rvim2"),
+&"Unarmed_Melee_Attack_Punch_A": SubResource("Animation_dp7bc"),
+&"Unarmed_Melee_Attack_Punch_B": SubResource("Animation_e7ru3"),
+&"Unarmed_Pose": SubResource("Animation_hmh57"),
+&"Use_Item": SubResource("Animation_qeq3x"),
+&"Walking_A": SubResource("Animation_r2a6n"),
+&"Walking_B": SubResource("Animation_as2ge"),
+&"Walking_Backwards": SubResource("Animation_0i7qb"),
+&"Walking_C": SubResource("Animation_dtlwb")
 }
 
 [node name="player" type="CharacterBody3D"]
@@ -31193,11 +31193,10 @@ shape = SubResource("CapsuleShape3D_g3ynn")
 
 [node name="CameraController" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00921237, -0.00890732)
 top_level = true
 
 [node name="CameraTarget" type="Node3D" parent="CameraController"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.16665, 4.56857)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004776, 2.16665, 4.56857)
 
 [node name="Camera3D" type="Camera3D" parent="CameraController/CameraTarget"]
 transform = Transform3D(1, 0, 0, 0, 0.996195, 0.0871558, 0, -0.0871558, 0.996195, 0, 0, 0)
@@ -31660,7 +31659,7 @@ skin = SubResource("Skin_xgtpj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Rogue_Hooded"]
 libraries = {
-"": SubResource("AnimationLibrary_1xa5g")
+&"": SubResource("AnimationLibrary_1xa5g")
 }
 speed_scale = 2.027
 
