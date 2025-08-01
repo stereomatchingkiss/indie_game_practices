@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://x78dyqw72isr"]
 
-[ext_resource type="Script" path="res://coin/coin.gd" id="1_0tb2v"]
+[ext_resource type="Script" uid="uid://85xwubm8iget" path="res://coin/coin.gd" id="1_0tb2v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gl0ae"]
 albedo_color = Color(0.978, 1, 0.34, 1)
@@ -48,8 +48,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1n3dr"]
 _data = {
-"RESET": SubResource("Animation_swlep"),
-"jump": SubResource("Animation_i8wxd")
+&"RESET": SubResource("Animation_swlep"),
+&"jump": SubResource("Animation_i8wxd")
 }
 
 [node name="Coin" type="Area3D"]

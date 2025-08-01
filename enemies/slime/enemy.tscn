@@ -1,11 +1,11 @@
 [gd_scene load_steps=19 format=4 uid="uid://vd2578l10703"]
 
-[ext_resource type="Script" path="res://enemies/slime/enemy.gd" id="1_ceugh"]
-[ext_resource type="Script" path="res://enemies/slime/states_limbo/state_falling.gd" id="7_cuexb"]
-[ext_resource type="Script" path="res://enemies/slime/states_limbo/state_moving.gd" id="8_3ycyt"]
-[ext_resource type="Script" path="res://enemies/slime/states_limbo/state_turn_around.gd" id="9_7djdf"]
-[ext_resource type="Script" path="res://enemies/slime/states_limbo/state_step_on.gd" id="10_lapbn"]
-[ext_resource type="Script" path="res://enemies/slime/states_limbo/state_machine_utils.gd" id="11_m7ci7"]
+[ext_resource type="Script" uid="uid://dqku1fpgx70th" path="res://enemies/slime/enemy.gd" id="1_ceugh"]
+[ext_resource type="Script" uid="uid://0w3a2g7rcjwd" path="res://enemies/slime/states_limbo/state_falling.gd" id="7_cuexb"]
+[ext_resource type="Script" uid="uid://dnbnrlvwolg2l" path="res://enemies/slime/states_limbo/state_moving.gd" id="8_3ycyt"]
+[ext_resource type="Script" uid="uid://crc5bryy0lsdo" path="res://enemies/slime/states_limbo/state_turn_around.gd" id="9_7djdf"]
+[ext_resource type="Script" uid="uid://c8j7ram6l05er" path="res://enemies/slime/states_limbo/state_step_on.gd" id="10_lapbn"]
+[ext_resource type="Script" uid="uid://dw7ehcs03lvxo" path="res://enemies/slime/states_limbo/state_machine_utils.gd" id="11_m7ci7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v4dns"]
 resource_name = "Material"
@@ -166,8 +166,8 @@ tracks/3/keys = PackedFloat32Array(0, 1, 1, 1.54355, 1.06238, 0.0333333, 1, 1, 1
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mdqgw"]
 _data = {
-"blob": SubResource("Animation_qggge"),
-"squash": SubResource("Animation_1dau5")
+&"blob": SubResource("Animation_qggge"),
+&"squash": SubResource("Animation_1dau5")
 }
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_sldro"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=4 uid="uid://ih4goxi0an8k"]
 
-[ext_resource type="Script" path="res://moving_platforms/2x_4_moving_platform_block.gd" id="1_0dcgo"]
+[ext_resource type="Script" uid="uid://dpaxqam8pq2id" path="res://moving_platforms/2x_4_moving_platform_block.gd" id="1_0dcgo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_36ki6"]
 resource_name = "WhiteRoad"

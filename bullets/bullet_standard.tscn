@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=4 uid="uid://c4grr1i4f8s4f"]
 
 [ext_resource type="Texture2D" uid="uid://b2e4sigdm1t40" path="res://bullets/art/rogue_texture.png" id="1_dk2sa"]
-[ext_resource type="Script" path="res://bullets/bullet_standard.gd" id="1_s1v8b"]
+[ext_resource type="Script" uid="uid://cb6nomg1lnegs" path="res://bullets/bullet_standard.gd" id="1_s1v8b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vos4h"]
 resource_name = "rogue_texture"
