@@ -31581,6 +31581,7 @@ bones/46/scale = Vector3(1, 1, 1)
 
 [node name="Knife_Offhand" type="BoneAttachment3D" parent="Rogue_Hooded/Rig/Skeleton3D"]
 transform = Transform3D(2.40744e-07, 0.262865, 0.964832, 0.999999, -3.09948e-07, 8.02678e-07, 8.08681e-07, 0.964832, -0.262864, 0.507764, 0.636706, -0.0185361)
+visible = false
 bone_name = "Knife_Offhand"
 bone_idx = 9
 
@@ -31599,6 +31600,7 @@ skeleton = NodePath("")
 
 [node name="2H_Crossbow" type="BoneAttachment3D" parent="Rogue_Hooded/Rig/Skeleton3D"]
 transform = Transform3D(0.988701, -0.149894, 1.4911e-07, -1.04763e-06, -1.2926e-06, -0.999999, 0.149894, 0.988701, -1.80998e-06, -0.489505, 0.745658, 0.0963391)
+visible = false
 bone_name = "2H_Crossbow"
 bone_idx = 16
 
@@ -31608,6 +31610,7 @@ skeleton = NodePath("")
 
 [node name="Knife" type="BoneAttachment3D" parent="Rogue_Hooded/Rig/Skeleton3D"]
 transform = Transform3D(-1.44931e-07, -0.149894, 0.988702, 0.999999, -1.14441e-06, -1.0294e-06, 1.66074e-06, 0.988701, 0.149894, -0.491058, 0.64103, 0.10658)
+visible = false
 bone_name = "Knife"
 bone_idx = 17
 
@@ -31617,6 +31620,7 @@ skeleton = NodePath("")
 
 [node name="Throwable" type="BoneAttachment3D" parent="Rogue_Hooded/Rig/Skeleton3D"]
 transform = Transform3D(-1.29191e-07, -0.149894, 0.988701, 0.999999, -1.12968e-06, -1.04308e-06, 1.64822e-06, 0.988701, 0.149894, -0.518076, 0.64103, 0.28479)
+visible = false
 bone_name = "Throwable"
 bone_idx = 18
 
