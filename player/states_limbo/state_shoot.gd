@@ -21,6 +21,11 @@ func _spawn_bullet() -> void:
 		fnode.player_direction = Vector3(-1, 0, 0)
 		fnode.rotation_degrees.y = 90
 
+func _shoot_bullet_again() -> void:
+	if agent.input_cache.get_shoot():
+			_spawn_bullet()
+			agent.input_cache.reset_shoot()
+
 # Called when the node enters the scene tree for the first time.
 func _enter() -> void:
 	print_debug("limbo : enter state_shoot, ", Time.get_unix_time_from_system())
@@ -39,6 +44,7 @@ func _update(delta: float) -> void:
 			print_debug("limbo : state_shoot to shoot_to_move, ", Time.get_unix_time_from_system())
 			get_root().dispatch(&"shoot_to_moving")
 		elif agent.input_cache.get_input_direction() == Vector2():
+			_shoot_bullet_again()
 			if !animation_player.is_playing():
 				print_debug("limbo : state_shoot to shoot_to_idle, ", Time.get_unix_time_from_system())
 				get_root().dispatch(&"shoot_to_idle")
@@ -46,6 +52,12 @@ func _update(delta: float) -> void:
 				#without this line, the character will slide before enter idle state
 				aux_func.move_character(agent)
 	else:
+		#print_debug("limbo : state_shoot on air, ", Time.get_unix_time_from_system())	
 		aux_func.move_character(agent)
-		if !animation_player.is_playing():
-			get_root().dispatch(&"shoot_to_idle")
+		if agent.input_cache.get_shoot():
+			_spawn_bullet()
+			agent.input_cache.reset_shoot()
+		#if !animation_player.is_playing():
+			#get_root().dispatch(&"shoot_to_idle")
+		#else:
+			#get_root().dispatch(&"shoot")
