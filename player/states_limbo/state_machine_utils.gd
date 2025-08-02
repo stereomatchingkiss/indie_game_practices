@@ -44,6 +44,11 @@ func _init_ground_states():
 	limbo_hsm.add_transition(states_ground, state_ground_moving, &"ground_to_moving")
 	limbo_hsm.add_transition(state_ground_idle, state_ground_moving, &"ground_to_moving")
 	limbo_hsm.add_transition(state_shoot, state_ground_moving, &"shoot_to_moving")
+	
+	limbo_hsm.get_active_state()
+	
+func get_active_state() -> LimboState:
+	return limbo_hsm.get_active_state()
 
 func init(player : CharacterBody3D) -> void:
 	_init_any_states()

@@ -5,13 +5,16 @@ var input_direction : Vector2
 var pressed_jump := false
 var pressed_shoot := false
 
-func cache_input() -> void:
+func cache_input(state : LimboState) -> void:	
 	if input_direction == Vector2():
 		input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	if pressed_jump == false:
-		pressed_jump = Input.is_action_just_pressed("ui_accept")
-	if pressed_shoot == false:
-		pressed_shoot = Input.is_action_just_pressed("shoot")
+		
+	if state.name != "states_air" and state.name != "state_air_falling" and state.name != "state_ground_jumping":
+		if pressed_jump == false:
+			pressed_jump = Input.is_action_just_pressed("ui_accept")
+	if state.name == "state_ground_idle" or state.name == "state_ground_jumping" or state.name == "state_air_falling":
+		if pressed_shoot == false:
+			pressed_shoot = Input.is_action_just_pressed("shoot")
 
 func get_input_direction() -> Vector2:
 	return input_direction

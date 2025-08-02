@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_just_pressed("cam_right"):
 		camera_controller.rotate_y(deg_to_rad(CAM_ROTATE_DEG))
 		
-	input_cache.cache_input()
+	input_cache.cache_input(state_machine_utils.get_active_state())
 		
 	#camera_follow_character()
 	adjust_player_rotation(input_cache.get_input_direction())
