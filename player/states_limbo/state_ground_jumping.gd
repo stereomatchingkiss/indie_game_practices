@@ -8,6 +8,7 @@ var animation_player : AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _enter() -> void:	
+	print_debug("enter jump state")
 	animation_player.play("Jump_Start")
 
 func _update(delta: float) -> void:

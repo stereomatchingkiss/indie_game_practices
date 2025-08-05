@@ -2,6 +2,7 @@ extends LimboState
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print_debug("enter states_air")
 	pass
 
 func _update(delta: float) -> void:

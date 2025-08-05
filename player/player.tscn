@@ -1,6 +1,7 @@
-[gd_scene load_steps=111 format=4 uid="uid://b0tmdnp32vajq"]
+[gd_scene load_steps=112 format=4 uid="uid://b0tmdnp32vajq"]
 
 [ext_resource type="Script" uid="uid://dmbrlygix3io8" path="res://player/player.gd" id="1_3rm2q"]
+[ext_resource type="Script" uid="uid://dfciox233tq5p" path="res://player/states_limbo/state_ground_coyote_jump.gd" id="2_yllr7"]
 [ext_resource type="Script" uid="uid://cbva52lyo1vcd" path="res://player/auxiliary_functions.gd" id="6_ip7oc"]
 [ext_resource type="Script" uid="uid://dxslytsrd2u0b" path="res://player/states_limbo/state_shoot.gd" id="9_7hm77"]
 [ext_resource type="Script" uid="uid://b1541nx3gulkm" path="res://player/states_limbo/states_air.gd" id="10_h5f1v"]
@@ -31226,6 +31227,14 @@ script = ExtResource("11_y07bu")
 unique_name_in_owner = true
 script = ExtResource("11_6lqsp")
 animation_player = NodePath("../../Rogue_Hooded/AnimationPlayer")
+
+[node name="state_ground_coyote_jump" type="LimboState" parent="LimboHSM"]
+unique_name_in_owner = true
+script = ExtResource("2_yllr7")
+
+[node name="timer_coyote_jump" type="Timer" parent="LimboHSM/state_ground_coyote_jump"]
+unique_name_in_owner = true
+wait_time = 0.15
 
 [node name="state_ground_idle" type="LimboState" parent="LimboHSM" node_paths=PackedStringArray("animation_player")]
 unique_name_in_owner = true

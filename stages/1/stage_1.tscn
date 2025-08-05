@@ -1,17 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://dfnsj40eciydt"]
+[gd_scene load_steps=10 format=3 uid="uid://dfnsj40eciydt"]
 
 [ext_resource type="Script" uid="uid://curb3uow6k0e1" path="res://stages/1/stage_1.gd" id="1_bxaci"]
 [ext_resource type="MeshLibrary" uid="uid://bnlfwlm4vsa0g" path="res://gridmap/art/tres/KayKitBlockBits.tres" id="2_qrw2f"]
+[ext_resource type="Texture2D" uid="uid://diiewht8lbxu6" path="res://skybox/AllSky_Overcast4_Low.png" id="2_v6sno"]
 [ext_resource type="PackedScene" uid="uid://b0tmdnp32vajq" path="res://player/player.tscn" id="3_lhl68"]
 [ext_resource type="PackedScene" uid="uid://buemyqcf4b5dv" path="res://HUD/hud.tscn" id="6_4esbh"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_alkhh"]
-sky_top_color = Color(0.55, 0.2365, 0.51865, 1)
-sky_horizon_color = Color(0.2881, 0.32629, 0.67, 1)
-sky_curve = 0.15529
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_2v1o7"]
+panorama = ExtResource("2_v6sno")
 
 [sub_resource type="Sky" id="Sky_vbj0h"]
-sky_material = SubResource("ProceduralSkyMaterial_alkhh")
+sky_material = SubResource("PanoramaSkyMaterial_2v1o7")
 
 [sub_resource type="Environment" id="Environment_6r243"]
 background_mode = 2
@@ -34,7 +33,7 @@ transform = Transform3D(0.841322, 0.0415915, -0.538931, 0.540534, -0.0647357, 0.
 shadow_enabled = true
 
 [node name="player" parent="." instance=ExtResource("3_lhl68")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.18114, 2.92086, 0.445906)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.18114, 0.425285, 0.227034)
 collision_mask = 30
 
 [node name="FallZone" type="Area3D" parent="."]
