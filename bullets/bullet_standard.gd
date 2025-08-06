@@ -1,6 +1,6 @@
 extends Area3D
 
-@export var speed := 1
+@export var speed := 3
 #@export var damage := 500
 
 var player_direction : Vector3
@@ -12,8 +12,6 @@ func _ready() -> void:
 func _process(delta):	
 	global_position += Vector3(player_direction.x, 0, 0) * speed * delta
 	#print("bullet position = ", global_position)
-
-#func _on_body_entered(body):
-	#if body.is_in_group("enemies"):
-		#body.take_damage(damage)
-		#queue_free()
+	
+func get_bullet_name() -> StringName:
+	return &"standard_bullet"
