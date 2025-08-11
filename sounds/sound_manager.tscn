@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bomgdx4r2x68e"]
+[gd_scene load_steps=6 format=3 uid="uid://bomgdx4r2x68e"]
 
 [ext_resource type="Script" uid="uid://pusbq1o2w287" path="res://sounds/sound_manager.gd" id="1_f05am"]
 [ext_resource type="AudioStream" uid="uid://vymlq8fqddrm" path="res://sounds/sound_effects/Jump.wav" id="2_witqk"]
 [ext_resource type="AudioStream" uid="uid://2xtjiulkmqet" path="res://sounds/sound_effects/Gun.wav" id="3_8a8qv"]
 [ext_resource type="AudioStream" uid="uid://hsvhm3jqhfkp" path="res://sounds/sound_effects/13_human_jump_land_1.wav" id="4_witqk"]
+[ext_resource type="AudioStream" uid="uid://dkm8uo3pnqx1j" path="res://sounds/sound_effects/14_human_death_spin.wav" id="5_8a8qv"]
 
 [node name="sound_manager" type="Node"]
 script = ExtResource("1_f05am")
@@ -18,5 +19,8 @@ stream = ExtResource("3_8a8qv")
 
 [node name="land" type="AudioStreamPlayer" parent="sound_effects"]
 stream = ExtResource("4_witqk")
+
+[node name="dead_player" type="AudioStreamPlayer" parent="sound_effects"]
+stream = ExtResource("5_8a8qv")
 
 [node name="musics" type="Node" parent="."]

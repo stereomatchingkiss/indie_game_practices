@@ -39,6 +39,9 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
+func player_dead() -> void:
+	SoundManager.play_dead_player()
+	
 func player_direction() -> int:
 	return avatar_sample_b.rotation_degrees.y
 

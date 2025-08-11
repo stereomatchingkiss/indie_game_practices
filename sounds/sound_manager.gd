@@ -1,5 +1,8 @@
 extends Node
 
+func play_dead_player():
+	$sound_effects/dead_player.play()
+
 func play_jump():
 	$sound_effects/jump.play()
 	
