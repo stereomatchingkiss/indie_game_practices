@@ -2,6 +2,9 @@ extends Node
 
 func play_dead_player():
 	$sound_effects/dead_player.play()
+	
+func play_hit_enemy_by_arrow():
+	$sound_effects/hit_enemy_by_arrow.play()
 
 func play_jump():
 	$sound_effects/jump.play()
