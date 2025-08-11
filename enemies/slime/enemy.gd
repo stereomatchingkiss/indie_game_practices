@@ -3,6 +3,8 @@ extends CharacterBody3D
 @export
 var move_velocity : Vector3
 
+@onready var hp := 2
+
 @onready
 var animations := $AnimationPlayer
 
@@ -45,7 +47,10 @@ func _on_area_step_on_body_entered(body: Node3D) -> void:
 func _on_area_hit_by_bullet_area_entered(body: Area3D) -> void:
 	if body.get_bullet_name() == "standard_bullet":
 		print_debug("hit by ", body.get_bullet_name())
-		queue_free()
+		SoundManager.play_hit_enemy_by_arrow()
+		hp -= 1
 		body.queue_free()
+		if hp == 0:
+			queue_free()
 	else:
 		print_debug("hit by unknown bullet = ", body.get_bullet_name())
