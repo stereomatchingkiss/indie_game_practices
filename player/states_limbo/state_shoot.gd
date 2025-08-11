@@ -9,6 +9,7 @@ var animation_player : AnimationPlayer
 const fireball = preload("res://bullets/bullet_standard.tscn")
 
 func _spawn_bullet() -> void:
+	SoundManager.play_shoot_standard_bullet()
 	var fnode = fireball.instantiate()
 	agent.get_parent().add_child(fnode)	
 	print_debug("shoot state player direction = ", agent.player_direction())

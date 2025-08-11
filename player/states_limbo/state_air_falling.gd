@@ -13,6 +13,7 @@ func _enter() -> void:
 func _update(delta: float) -> void:	
 	if agent.is_on_floor():
 		print_debug("limbo: dispatch to air_to_ground, ", Time.get_unix_time_from_system())
+		SoundManager.play_land()
 		get_root().dispatch(&"air_to_ground")		
 	else:
 		print_debug("falling, ", Time.get_unix_time_from_system())		

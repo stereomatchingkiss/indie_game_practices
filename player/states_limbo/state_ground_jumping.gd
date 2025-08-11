@@ -7,8 +7,9 @@ var aux_func := %AuxiliaryFunctions
 var animation_player : AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
-func _enter() -> void:	
+func _enter() -> void:
 	print_debug("enter jump state")
+	SoundManager.play_jump()
 	animation_player.play("Jump_Start")
 
 func _update(delta: float) -> void:
@@ -19,6 +20,7 @@ func _update(delta: float) -> void:
 			agent.input_cache.reset_jump()
 		else:
 			print_debug("enter ground jump_press to idle state")
+			SoundManager.play_land()
 			get_root().dispatch(&"ground_to_idle")
 	else:
 		aux_func.move_character(agent)
