@@ -9,6 +9,8 @@ This repository will collect a bunch of projects of my indie game
 
 - [SweetSounds_SFX](https://coffeevalenbat.itch.io/sweet-sounds-sfx-pack)
 - [Minifantasy dungeon sfx pack](https://leohpaz.itch.io/minifantasy-dungeon-sfx-pack)
+- [freesound.org](https://freesound.org)
+	- [hit by arrow](https://freesound.org/people/braqoon/sounds/161098/)
 
 ## Graphics
 
