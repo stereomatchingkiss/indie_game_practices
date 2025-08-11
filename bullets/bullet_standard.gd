@@ -15,3 +15,9 @@ func _process(delta):
 	
 func get_bullet_name() -> StringName:
 	return &"standard_bullet"
+	
+func get_bullet_damage() -> int:
+	return 1
+	
+func get_type_name() -> StringName:
+	return &"bullet"

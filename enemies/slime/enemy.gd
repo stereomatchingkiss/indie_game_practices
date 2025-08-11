@@ -45,12 +45,12 @@ func _on_area_step_on_body_entered(body: Node3D) -> void:
 		body.step_on = true
 
 func _on_area_hit_by_bullet_area_entered(body: Area3D) -> void:
-	if body.get_bullet_name() == "standard_bullet":
+	if body.get_type_name() == "bullet":
 		print_debug("hit by ", body.get_bullet_name())
 		SoundManager.play_hit_enemy_by_arrow()
-		hp -= 1
+		hp -= body.get_bullet_damage()
 		body.queue_free()
-		if hp == 0:
+		if hp <= 0:
 			queue_free()
 	else:
 		print_debug("hit by unknown bullet = ", body.get_bullet_name())
