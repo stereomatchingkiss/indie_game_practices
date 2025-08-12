@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://bomgdx4r2x68e"]
 
 [ext_resource type="Script" uid="uid://pusbq1o2w287" path="res://sounds/sound_manager.gd" id="1_f05am"]
-[ext_resource type="AudioStream" uid="uid://vymlq8fqddrm" path="res://sounds/sound_effects/Jump.wav" id="2_witqk"]
-[ext_resource type="AudioStream" uid="uid://2xtjiulkmqet" path="res://sounds/sound_effects/Gun.wav" id="3_8a8qv"]
-[ext_resource type="AudioStream" uid="uid://hsvhm3jqhfkp" path="res://sounds/sound_effects/13_human_jump_land_1.wav" id="4_witqk"]
-[ext_resource type="AudioStream" uid="uid://dkm8uo3pnqx1j" path="res://sounds/sound_effects/14_human_death_spin.wav" id="5_8a8qv"]
-[ext_resource type="AudioStream" uid="uid://b4ynoh1qbwnnc" path="res://sounds/sound_effects/hit_enemy.wav" id="6_v0x57"]
+[ext_resource type="AudioStream" uid="uid://ghxpvc2ua8u3" path="res://sounds/sound_effects/Jump.ogg" id="2_v0x57"]
+[ext_resource type="AudioStream" uid="uid://crbl5ewglstco" path="res://sounds/sound_effects/Gun.ogg" id="3_0v1q7"]
+[ext_resource type="AudioStream" uid="uid://bnxovjmwsveu2" path="res://sounds/sound_effects/13_human_jump_land_1.ogg" id="4_yvcp5"]
+[ext_resource type="AudioStream" uid="uid://bq40464yk1fer" path="res://sounds/sound_effects/14_human_death_spin.ogg" id="5_a1hhe"]
+[ext_resource type="AudioStream" uid="uid://bdmlqgppg2rdl" path="res://sounds/sound_effects/hit_enemy.ogg" id="6_v0x57"]
 
 [node name="sound_manager" type="Node"]
 script = ExtResource("1_f05am")
@@ -13,16 +13,16 @@ script = ExtResource("1_f05am")
 [node name="sound_effects" type="Node" parent="."]
 
 [node name="jump" type="AudioStreamPlayer" parent="sound_effects"]
-stream = ExtResource("2_witqk")
+stream = ExtResource("2_v0x57")
 
 [node name="shoot_standard_bullet" type="AudioStreamPlayer" parent="sound_effects"]
-stream = ExtResource("3_8a8qv")
+stream = ExtResource("3_0v1q7")
 
 [node name="land" type="AudioStreamPlayer" parent="sound_effects"]
-stream = ExtResource("4_witqk")
+stream = ExtResource("4_yvcp5")
 
 [node name="dead_player" type="AudioStreamPlayer" parent="sound_effects"]
-stream = ExtResource("5_8a8qv")
+stream = ExtResource("5_a1hhe")
 
 [node name="hit_enemy_by_arrow" type="AudioStreamPlayer" parent="sound_effects"]
 stream = ExtResource("6_v0x57")
