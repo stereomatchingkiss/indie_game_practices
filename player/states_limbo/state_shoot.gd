@@ -13,11 +13,13 @@ func _spawn_bullet() -> void:
 	var fnode = fireball.instantiate()
 	agent.get_parent().add_child(fnode)	
 	print_debug("shoot state player direction = ", agent.player_direction())
-	if agent.player_direction() < 90:		
+	if agent.player_direction() >= 0:
+		print_debug("shoot >= 0")
 		fnode.global_position = agent.global_position + Vector3(0.5, 0.25, 0)
 		fnode.player_direction = Vector3(1, 0, 0)		
 		fnode.rotation_degrees.y = -90
 	else:
+		print_debug("shoot < 0")
 		fnode.global_position = agent.global_position + Vector3(-0.5, 0.25, 0)
 		fnode.player_direction = Vector3(-1, 0, 0)
 		fnode.rotation_degrees.y = 90
