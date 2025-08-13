@@ -31197,10 +31197,10 @@ unique_name_in_owner = true
 top_level = true
 
 [node name="CameraTarget" type="Node3D" parent="CameraController"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004776, 2.16665, 4.56857)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004776, 2.16665, 5.62743)
 
 [node name="Camera3D" type="Camera3D" parent="CameraController/CameraTarget"]
-transform = Transform3D(1, 0, 0, 0, 0.996195, 0.0871558, 0, -0.0871558, 0.996195, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0201416)
 current = true
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
