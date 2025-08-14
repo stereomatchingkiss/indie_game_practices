@@ -11,13 +11,12 @@ var avatar_sample_b := %AvatarSample_B
 var camera_controller := %CameraController
 
 func move_character(player : Player):
-	var input_dir :Vector2 = player.input_cache.get_input_direction()
-	var direction = (camera_controller.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var direction : Vector3 = player.input_cache.get_norm_direction()
 	if direction:
 		player.velocity.x = direction.x * SPEED
-		player.velocity.z = direction.z * SPEED
+		#player.velocity.z = direction.z * SPEED
 	else:
 		player.velocity.x = move_toward(player.velocity.x, 0, SPEED)
-		player.velocity.z = move_toward(player.velocity.z, 0, SPEED)
+		#player.velocity.z = move_toward(player.velocity.z, 0, SPEED)
 		
 	player.input_cache.reset_input_direction()

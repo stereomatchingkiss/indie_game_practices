@@ -35,7 +35,7 @@ transform = Transform3D(0.841322, 0.0415915, -0.538931, 0.540534, -0.0647357, 0.
 shadow_enabled = true
 
 [node name="player" parent="." instance=ExtResource("3_lhl68")]
-transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, -3.84357, -0.902588, 1)
+transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, -3.844, -0.903, 1.1)
 collision_mask = 30
 
 [node name="FallZone" type="Area3D" parent="."]

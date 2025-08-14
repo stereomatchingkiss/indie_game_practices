@@ -12,7 +12,8 @@ var was_on_floor := false
 # Called when the node enters the scene tree for the first time.
 func _enter() -> void:
 	print_debug("player enter moving state")
-	animation_player.play("Walking_A")
+	if agent.input_cache.get_x_direction_not_empty():
+		animation_player.play("Walking_A")
 
 func _update(delta: float) -> void:	
 	if not agent.is_on_floor():
