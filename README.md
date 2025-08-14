@@ -16,4 +16,5 @@ This repository will collect a bunch of projects of my indie game
 
 - [KayKit - Character Pack : Adventurers](https://kaylousberg.itch.io/kaykit-adventurers)
 - [KayKit : Block Bits](https://kaylousberg.itch.io/block-bits)
+- [KayKit_Platformer_Pack_1.0_FREE](https://kaylousberg.itch.io/kaykit-platformer)
 - [AllSky Free](https://godotengine.org/asset-library/asset/579)
