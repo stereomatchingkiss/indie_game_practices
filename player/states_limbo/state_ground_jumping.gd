@@ -25,7 +25,7 @@ func _update(delta: float) -> void:
 			agent.velocity.y = aux_func.JUMP_VELOCITY
 			agent.set_collision_mask_value(2, false)
 			agent.input_cache.reset_jump()
-			%timer_disable_mask.start(0.2)
+			%timer_disable_mask.start(0.3)
 		else:
 			print_debug("enter ground jump_press to idle state")
 			SoundManager.play_land()
