@@ -31228,6 +31228,10 @@ unique_name_in_owner = true
 script = ExtResource("11_6lqsp")
 animation_player = NodePath("../../Rogue_Hooded/AnimationPlayer")
 
+[node name="timer_disable_mask" type="Timer" parent="LimboHSM/state_ground_jumping"]
+unique_name_in_owner = true
+one_shot = true
+
 [node name="state_ground_coyote_jump" type="LimboState" parent="LimboHSM"]
 unique_name_in_owner = true
 script = ExtResource("2_yllr7")

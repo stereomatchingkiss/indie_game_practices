@@ -11,13 +11,21 @@ func _enter() -> void:
 	print_debug("enter jump state")
 	SoundManager.play_jump()
 	animation_player.play("Jump_Start")
+	
+func _ready() -> void:
+	%timer_disable_mask.timeout.connect(_reset_ground_mask)
+	
+func _reset_ground_mask():
+	agent.set_collision_mask_value(2, true)
 
 func _update(delta: float) -> void:
 	if agent.is_on_floor():
 		print_debug("enter ground jump_press jumping state")
 		if agent.input_cache.get_jump():
 			agent.velocity.y = aux_func.JUMP_VELOCITY
+			agent.set_collision_mask_value(2, false)
 			agent.input_cache.reset_jump()
+			%timer_disable_mask.start(0.2)
 		else:
 			print_debug("enter ground jump_press to idle state")
 			SoundManager.play_land()
