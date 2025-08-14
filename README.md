@@ -1,6 +1,10 @@
 # indie_game_practices
 A collection of independent game projects for practicing game development with Godot.
 
+# Demo
+
+[I export it as a webapp](https://dulcet-twilight-07c67a.netlify.app/test.html)
+
 # assets use
 
 ## Sounds
