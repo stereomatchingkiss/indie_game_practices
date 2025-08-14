@@ -2,7 +2,7 @@ class_name AuxiliaryFunctionsPlayer
 
 extends Node
 
-const JUMP_VELOCITY = 5.5
+const JUMP_VELOCITY = 4.5
 const SPEED = 2.0
 
 @onready
