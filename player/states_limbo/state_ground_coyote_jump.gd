@@ -12,7 +12,10 @@ func _enter() -> void:
 func _update(delta: float) -> void:		
 	if timer_cjump.is_stopped():
 		print_debug("coyote time stop, ", Time.get_unix_time_from_system())
-		get_root().dispatch(&"ground_coyote_jump_to_falling")
+		if agent.is_on_floor():
+			get_root().dispatch(&"ground_coyote_jump_to_moving")
+		else:
+			get_root().dispatch(&"ground_coyote_jump_to_falling")
 	else:
 		if agent.input_cache.get_jump():
 			print_debug("coyote jump, ", Time.get_unix_time_from_system())

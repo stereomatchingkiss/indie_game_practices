@@ -22,6 +22,12 @@ func _init_any_states():
 	limbo_hsm.add_transition(limbo_hsm.ANYSTATE, states_air, &"ground_to_air")
 	limbo_hsm.add_transition(limbo_hsm.ANYSTATE, state_shoot, &"shoot")	
 	
+func _init_coyote_jump_states():
+	limbo_hsm.add_transition(state_ground_moving, state_ground_coyote_jump, &"ground_moving_to_coyote_jump")
+	limbo_hsm.add_transition(state_ground_coyote_jump, state_air_falling, &"ground_coyote_jump_to_falling")	
+	limbo_hsm.add_transition(state_ground_coyote_jump, state_ground_jumping, &"ground_coyote_jump_to_jumping")
+	limbo_hsm.add_transition(state_ground_coyote_jump, state_ground_moving, &"ground_coyote_jump_to_moving")
+	
 func _init_ground_states():
 	limbo_hsm.add_transition(states_ground, state_ground_idle, &"ground_to_idle")
 	limbo_hsm.add_transition(state_ground_jumping, state_ground_idle, &"ground_to_idle")
@@ -31,14 +37,12 @@ func _init_ground_states():
 	limbo_hsm.add_transition(states_ground, state_ground_jumping, &"ground_to_jumping")
 	limbo_hsm.add_transition(state_ground_idle, state_ground_jumping, &"ground_to_jumping")
 	limbo_hsm.add_transition(state_ground_moving, state_ground_jumping, &"ground_to_jumping")
-	limbo_hsm.add_transition(state_shoot, state_ground_jumping, &"shoot_to_jumping")
+	limbo_hsm.add_transition(state_shoot, state_ground_jumping, &"shoot_to_jumping")	
 	
-	limbo_hsm.add_transition(state_ground_moving, state_ground_coyote_jump, &"ground_moving_to_coyote_jump")
-	limbo_hsm.add_transition(state_ground_coyote_jump, state_air_falling, &"ground_coyote_jump_to_falling")
-	limbo_hsm.add_transition(state_ground_coyote_jump, state_ground_jumping, &"ground_coyote_jump_to_jumping")
+	_init_coyote_jump_states()
 	
 	limbo_hsm.add_transition(states_ground, state_ground_moving, &"ground_to_moving")
-	limbo_hsm.add_transition(state_ground_idle, state_ground_moving, &"ground_to_moving")
+	limbo_hsm.add_transition(state_ground_idle, state_ground_moving, &"ground_to_moving")	
 	limbo_hsm.add_transition(state_shoot, state_ground_moving, &"shoot_to_moving")
 	
 func get_active_state() -> LimboState:

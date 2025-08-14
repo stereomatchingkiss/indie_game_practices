@@ -31235,6 +31235,7 @@ script = ExtResource("2_yllr7")
 [node name="timer_coyote_jump" type="Timer" parent="LimboHSM/state_ground_coyote_jump"]
 unique_name_in_owner = true
 wait_time = 0.15
+one_shot = true
 
 [node name="state_ground_idle" type="LimboState" parent="LimboHSM" node_paths=PackedStringArray("animation_player")]
 unique_name_in_owner = true
