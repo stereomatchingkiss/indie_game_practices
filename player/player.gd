@@ -46,8 +46,6 @@ func player_direction() -> int:
 	return avatar_sample_b.rotation_degrees.y
 
 func _unhandled_input(event: InputEvent) -> void:
-	#print_debug("player process input, ", Time.get_unix_time_from_system())
-	#state_machine.process_input(event)
 	pass
 	
 func adjust_player_rotation(input_dir : Vector2):
