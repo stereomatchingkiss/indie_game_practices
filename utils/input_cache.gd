@@ -23,14 +23,14 @@ func cache_input(state : LimboState) -> void:
 	(state.name == "state_ground_idle" or state.name == "state_ground_moving"):
 		if Input.is_action_pressed("ui_down"):
 			pressed_down_countdown_ = jump_down_count_down_
-		if Input.is_action_just_pressed("ui_accept"):
+		if Input.is_action_just_pressed("jump"):
 			pressed_jump_countdown_ = jump_down_count_down_
 	
 	pressed_jump_down_ = pressed_down_countdown_ > 0 and pressed_jump_countdown_ > 0
 		
 	if state.name != "states_air" and state.name != "state_air_falling" \
 	and state.name != "state_ground_jumping" and pressed_jump_down_ == false:
-		pressed_jump_ = Input.is_action_just_pressed("ui_accept")
+		pressed_jump_ = Input.is_action_just_pressed("jump")
 			
 	if state.name != "state_ground_moving":
 		if pressed_shoot_ == false:
