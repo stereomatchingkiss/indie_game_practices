@@ -13,18 +13,23 @@ script = ExtResource("1_f05am")
 [node name="sound_effects" type="Node" parent="."]
 
 [node name="jump" type="AudioStreamPlayer" parent="sound_effects"]
+unique_name_in_owner = true
 stream = ExtResource("2_v0x57")
 
 [node name="shoot_standard_bullet" type="AudioStreamPlayer" parent="sound_effects"]
+unique_name_in_owner = true
 stream = ExtResource("3_0v1q7")
 
 [node name="land" type="AudioStreamPlayer" parent="sound_effects"]
+unique_name_in_owner = true
 stream = ExtResource("4_yvcp5")
 
 [node name="dead_player" type="AudioStreamPlayer" parent="sound_effects"]
+unique_name_in_owner = true
 stream = ExtResource("5_a1hhe")
 
 [node name="hit_enemy_by_arrow" type="AudioStreamPlayer" parent="sound_effects"]
+unique_name_in_owner = true
 stream = ExtResource("6_v0x57")
 
 [node name="musics" type="Node" parent="."]
