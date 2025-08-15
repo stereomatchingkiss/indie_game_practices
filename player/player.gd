@@ -47,9 +47,6 @@ func disable_ground_mask():
 	set_collision_mask_value(2, false)
 	%timer_disable_mask.start(0.3)
 
-func player_dead() -> void:
-	SoundManager.play_dead_player()
-	
 func player_direction() -> int:
 	return avatar_sample_b.rotation_degrees.y
 

@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 func _on_area_attack_player_body_entered(body: Node3D) -> void:
 	if body.name == "player":
 		print_debug(body.name, " = Player enter enemy attack area")
-		body.player_dead()
+		SoundManager.play_dead_player()
 		get_tree().change_scene_to_file("res://stages/1/stage_1.tscn")
 
 func _on_area_step_on_body_entered(body: Node3D) -> void:
