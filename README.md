@@ -23,8 +23,6 @@ A collection of independent game projects for practicing game development with G
 
 # Todo
 
-- One way collision
-- Drop down from the platform
 - Add background music
 - Better background
 - Learn how to use shader to adjust the look of the assets
