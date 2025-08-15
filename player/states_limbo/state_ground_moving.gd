@@ -30,8 +30,14 @@ func _update(delta: float) -> void:
 			print_debug("Limbo: state_ground_moving to ground_to_idle, ", Time.get_unix_time_from_system())		
 			get_root().dispatch(&"ground_to_idle")
 		elif agent.input_cache.get_input_direction() != Vector2():
-			print_debug("Limbo state_ground_moving, ", agent.input_cache.get_input_direction(), ",", Time.get_unix_time_from_system())
-			if agent.input_cache.get_jump():
+			#print_debug("Limbo state_ground_moving, ", agent.input_cache.get_input_direction(), ",", Time.get_unix_time_from_system())
+			if agent.input_cache.get_jump_down():
+				print_debug("jump down")
+				agent.input_cache.reset_jump_down()
+				#agent.input_cache.reset_input_direction()
+				agent.disable_ground_mask()
+				get_root().dispatch(&"ground_to_falling")
+			elif agent.input_cache.get_jump():
 				get_root().dispatch(&"ground_to_jumping")
 			else:
 				aux_func.move_character(agent)

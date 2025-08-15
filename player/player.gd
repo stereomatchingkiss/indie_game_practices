@@ -21,6 +21,7 @@ var state_machine_utils := %state_machine_utils
 
 func _ready() -> void:
 	%timer_disable_mask.timeout.connect(_reset_ground_mask)
+	input_cache.init(self)
 	state_machine_utils.init(self)
 	
 func _reset_ground_mask():
@@ -38,7 +39,7 @@ func _physics_process(delta: float) -> void:
 	#camera_follow_character()
 	adjust_player_rotation(input_cache.get_input_direction())
 	align_character(delta)
-	
+	#print_debug("player height = ", position.y)
 	#print_debug("player rotation = ", avatar_sample_b.rotation_degrees.y, ", ", Time.get_unix_time_from_system())	
 	
 	move_and_slide()

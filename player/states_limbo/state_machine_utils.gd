@@ -37,7 +37,9 @@ func _init_ground_states():
 	limbo_hsm.add_transition(states_ground, state_ground_jumping, &"ground_to_jumping")
 	limbo_hsm.add_transition(state_ground_idle, state_ground_jumping, &"ground_to_jumping")
 	limbo_hsm.add_transition(state_ground_moving, state_ground_jumping, &"ground_to_jumping")
-	limbo_hsm.add_transition(state_shoot, state_ground_jumping, &"shoot_to_jumping")	
+	limbo_hsm.add_transition(state_shoot, state_ground_jumping, &"shoot_to_jumping")
+	
+	limbo_hsm.add_transition(state_ground_moving, state_air_falling, &"ground_to_falling")
 	
 	_init_coyote_jump_states()
 	

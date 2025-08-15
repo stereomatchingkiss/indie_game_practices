@@ -22,6 +22,11 @@ func _update(delta: float) -> void:
 	elif agent.input_cache.get_shoot():
 		print_debug("limbo : state_ground_idle to shoot, ", Time.get_unix_time_from_system())
 		get_root().dispatch(&"shoot")
+	elif agent.input_cache.get_jump_down():
+		print_debug("limbo : state_ground_idle to jump down, ", Time.get_unix_time_from_system())
+		agent.input_cache.reset_jump_down()
+		agent.disable_ground_mask()
+		get_root().dispatch(&"ground_to_falling")
 	else:
 		#print_debug("limbo : state_ground_idle , ", Time.get_unix_time_from_system())
 		aux_func.move_character(agent)
