@@ -7,6 +7,7 @@ func _ready() -> void:
 	Global.coin_value_changed.connect(update_hud_label)
 	Global.coins = 0
 	SoundManager.init()
+	SoundManager.play_music_creepy_comedy()
 
 func update_hud_label():
 	$HUD.change_label_text(str(Global.coins))

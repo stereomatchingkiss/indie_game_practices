@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bomgdx4r2x68e"]
+[gd_scene load_steps=8 format=3 uid="uid://bomgdx4r2x68e"]
 
 [ext_resource type="Script" uid="uid://pusbq1o2w287" path="res://sounds/sound_manager.gd" id="1_f05am"]
 [ext_resource type="AudioStream" uid="uid://ghxpvc2ua8u3" path="res://sounds/sound_effects/Jump.ogg" id="2_v0x57"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://bnxovjmwsveu2" path="res://sounds/sound_effects/13_human_jump_land_1.ogg" id="4_yvcp5"]
 [ext_resource type="AudioStream" uid="uid://bq40464yk1fer" path="res://sounds/sound_effects/14_human_death_spin.ogg" id="5_a1hhe"]
 [ext_resource type="AudioStream" uid="uid://bdmlqgppg2rdl" path="res://sounds/sound_effects/hit_enemy.ogg" id="6_v0x57"]
+[ext_resource type="AudioStream" uid="uid://cpe7s5ani720y" path="res://sounds/musics/Creepy Comedy.mp3" id="7_0v1q7"]
 
 [node name="sound_manager" type="Node"]
 script = ExtResource("1_f05am")
@@ -33,3 +34,8 @@ unique_name_in_owner = true
 stream = ExtResource("6_v0x57")
 
 [node name="musics" type="Node" parent="."]
+
+[node name="creepy_comedy" type="AudioStreamPlayer" parent="musics"]
+unique_name_in_owner = true
+stream = ExtResource("7_0v1q7")
+parameters/looping = true
