@@ -33,6 +33,7 @@ func _update(delta: float) -> void:
 			#print_debug("Limbo state_ground_moving, ", agent.input_cache.get_input_direction(), ",", Time.get_unix_time_from_system())
 			if agent.input_cache.get_jump_down():
 				print_debug("jump down")
+				SoundManager.play_jump()
 				agent.input_cache.reset_jump_down()
 				#agent.input_cache.reset_input_direction()
 				agent.disable_ground_mask()
