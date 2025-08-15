@@ -2,40 +2,29 @@ class_name Player
 
 extends CharacterBody3D
 
-const CAM_ROTATE_DEG = 30
+const CAM_ROTATE_DEG_ = 30
 
-var step_on := false
-var xnorm : Transform3D
-
-@onready
-var avatar_sample_b := %Rogue_Hooded
-
-@onready
-var camera_controller := %CameraController
-
-@onready
-var input_cache := %InputCache
-
-@onready
-var state_machine_utils := %state_machine_utils
+@onready var avatar_ := %Rogue_Hooded
+@onready var camera_controller_ := %CameraController
+@onready var input_cache := %InputCache
+@onready var step_on_ := false
+@onready var xnorm_ : Transform3D
+@onready var state_machine_utils_ := %state_machine_utils
 
 func _ready() -> void:
 	%timer_disable_mask.timeout.connect(_reset_ground_mask)
 	input_cache.init(self)
-	state_machine_utils.init(self)
+	state_machine_utils_.init(self)
 	
 func _reset_ground_mask():
 	set_collision_mask_value(2, true)
 	
 func _physics_process(delta: float) -> void:
 	
-	input_cache.cache_input(state_machine_utils.get_active_state())
-		
-	#camera_follow_character()
+	input_cache.cache_input(state_machine_utils_.get_active_state())
+
 	adjust_player_rotation(input_cache.get_input_direction())
 	align_character(delta)
-	#print_debug("player height = ", position.y)
-	#print_debug("player rotation = ", avatar_sample_b.rotation_degrees.y, ", ", Time.get_unix_time_from_system())	
 	
 	move_and_slide()
 
@@ -44,7 +33,7 @@ func disable_ground_mask():
 	%timer_disable_mask.start(0.3)
 
 func player_direction() -> int:
-	return avatar_sample_b.rotation_degrees.y
+	return avatar_.rotation_degrees.y
 
 func _unhandled_input(event: InputEvent) -> void:
 	pass
@@ -52,31 +41,26 @@ func _unhandled_input(event: InputEvent) -> void:
 func adjust_player_rotation(input_dir : Vector2):
 	if input_dir != Vector2() and input_cache.get_x_direction_not_empty():
 		input_dir[1] = 0
-		avatar_sample_b.rotation_degrees.y = camera_controller.rotation_degrees.y - rad_to_deg(input_dir.angle())
-		print_debug("avatar degree = ", avatar_sample_b.rotation_degrees.y, ", input dir = ", input_dir)
+		avatar_.rotation_degrees.y = camera_controller_.rotation_degrees.y - rad_to_deg(input_dir.angle())
+		print_debug("avatar degree = ", avatar_.rotation_degrees.y, ", input dir = ", input_dir)
 
 func align_character(delta : float):
-	#$RayCast3D.position = position
-	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 		align_with_floor(Vector3.UP)
-		global_transform = global_transform.interpolate_with(xnorm, 0.3)
+		global_transform = global_transform.interpolate_with(xnorm_, 0.3)
 	elif is_on_floor():
 		#print("player ray cast = ", $RayCast3D.get_collision_normal())
 		$RayCast3D.position = position
 		align_with_floor($RayCast3D.get_collision_normal())
-		global_transform = global_transform.interpolate_with(xnorm, 0.3)	
+		global_transform = global_transform.interpolate_with(xnorm_, 0.3)	
 	
 func align_with_floor(floor_normal : Vector3):
-	xnorm = global_transform
-	xnorm.basis.y = floor_normal
-	xnorm.basis.x = -xnorm.basis.z.cross(floor_normal)
-	xnorm.basis = xnorm.basis.orthonormalized()
+	xnorm_ = global_transform
+	xnorm_.basis.y = floor_normal
+	xnorm_.basis.x = -xnorm_.basis.z.cross(floor_normal)
+	xnorm_.basis = xnorm_.basis.orthonormalized()
 	
-func camera_follow_character():
-	camera_controller.position = lerp(camera_controller.position, position, 0.1)
-
 #Kill player if fall into the hole
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.name == "player":
