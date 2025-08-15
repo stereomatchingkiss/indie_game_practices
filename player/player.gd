@@ -19,8 +19,12 @@ var input_cache := %InputCache
 @onready
 var state_machine_utils := %state_machine_utils
 
-func _ready() -> void:	
+func _ready() -> void:
+	%timer_disable_mask.timeout.connect(_reset_ground_mask)
 	state_machine_utils.init(self)
+	
+func _reset_ground_mask():
+	set_collision_mask_value(2, true)
 	
 func _physics_process(delta: float) -> void:
 	
@@ -38,7 +42,11 @@ func _physics_process(delta: float) -> void:
 	#print_debug("player rotation = ", avatar_sample_b.rotation_degrees.y, ", ", Time.get_unix_time_from_system())	
 	
 	move_and_slide()
-	
+
+func disable_ground_mask():
+	set_collision_mask_value(2, false)
+	%timer_disable_mask.start(0.3)
+
 func player_dead() -> void:
 	SoundManager.play_dead_player()
 	
@@ -47,7 +55,7 @@ func player_direction() -> int:
 
 func _unhandled_input(event: InputEvent) -> void:
 	pass
-	
+
 func adjust_player_rotation(input_dir : Vector2):
 	if input_dir != Vector2() and input_cache.get_x_direction_not_empty():
 		input_dir[1] = 0

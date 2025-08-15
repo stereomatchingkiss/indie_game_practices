@@ -31188,6 +31188,11 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 
 collision_mask = 22
 script = ExtResource("1_3rm2q")
 
+[node name="timer_disable_mask" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.3
+one_shot = true
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2563, 0)
 shape = SubResource("CapsuleShape3D_g3ynn")
@@ -31227,10 +31232,6 @@ script = ExtResource("11_y07bu")
 unique_name_in_owner = true
 script = ExtResource("11_6lqsp")
 animation_player = NodePath("../../Rogue_Hooded/AnimationPlayer")
-
-[node name="timer_disable_mask" type="Timer" parent="LimboHSM/state_ground_jumping"]
-unique_name_in_owner = true
-one_shot = true
 
 [node name="state_ground_coyote_jump" type="LimboState" parent="LimboHSM"]
 unique_name_in_owner = true
