@@ -29,11 +29,6 @@ func _reset_ground_mask():
 	
 func _physics_process(delta: float) -> void:
 	
-	if Input.is_action_just_pressed("cam_left"):
-		camera_controller.rotate_y(deg_to_rad(-CAM_ROTATE_DEG))
-	elif Input.is_action_just_pressed("cam_right"):
-		camera_controller.rotate_y(deg_to_rad(CAM_ROTATE_DEG))
-		
 	input_cache.cache_input(state_machine_utils.get_active_state())
 		
 	#camera_follow_character()
