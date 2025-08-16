@@ -3,8 +3,6 @@ extends Node
 var input_direction_ : Vector2
 var norm_direction_ :Vector3
 
-var player_ : Player
-
 var pressed_jump_ := false
 var pressed_jump_down_ := false
 var pressed_shoot_ := false
@@ -13,13 +11,12 @@ const jump_down_count_down_ := 5
 var pressed_down_countdown_ := 0
 var pressed_jump_countdown_ := 0
 
-func cache_input(state : LimboState) -> void:	
+func cache_input(state : LimboState, cam_basis : Basis, player_height : float) -> void:	
 	if input_direction_ == Vector2():
 		input_direction_ = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-		norm_direction_ = (%CameraController.transform.basis * \
-		Vector3(input_direction_.x, 0, input_direction_.y)).normalized()		
+		norm_direction_ = (cam_basis * Vector3(input_direction_.x, 0, input_direction_.y)).normalized()
 	
-	if player_.position.y > -0.2 and \
+	if player_height > -0.2 and \
 	(state.name == "state_ground_idle" or state.name == "state_ground_moving"):
 		if Input.is_action_pressed("ui_down"):
 			pressed_down_countdown_ = jump_down_count_down_
@@ -52,9 +49,6 @@ func get_shoot() -> bool:
 	
 func get_x_direction_not_empty() -> bool:
 	return abs(input_direction_[0]) > 0.1
-	
-func init(player : Player):
-	player_ = player
 	
 func reset_input_direction() -> void:
 	input_direction_ = Vector2()

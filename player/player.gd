@@ -12,24 +12,24 @@ const CAM_ROTATE_DEG_ = 30
 @onready var state_machine_utils_ := %state_machine_utils
 
 func _ready() -> void:
-	%timer_disable_mask.timeout.connect(_reset_ground_mask)
-	input_cache.init(self)
+	%timer_disable_mask.timeout.connect(_enable_platform_mask)
 	state_machine_utils_.init(self)
 	
-func _reset_ground_mask():
-	set_collision_mask_value(2, true)
+func _enable_platform_mask():
+	set_collision_mask_value(6, true)
 	
 func _physics_process(delta: float) -> void:
-	
-	input_cache.cache_input(state_machine_utils_.get_active_state())
+	#print_debug("player pos = ", position.y)
+	input_cache.cache_input(state_machine_utils_.get_active_state(), \
+	%CameraController.transform.basis, position.y)
 
 	adjust_player_rotation(input_cache.get_input_direction())
 	align_character(delta)
 	
 	move_and_slide()
 
-func disable_ground_mask():
-	set_collision_mask_value(2, false)
+func disable_platform_mask():
+	set_collision_mask_value(6, false)
 	%timer_disable_mask.start(0.3)
 
 func player_direction() -> int:

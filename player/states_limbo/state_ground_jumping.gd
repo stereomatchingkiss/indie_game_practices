@@ -16,7 +16,7 @@ func _update(delta: float) -> void:
 	if agent.is_on_floor():
 		print_debug("enter ground jump_press jumping state")
 		if agent.input_cache.get_jump():
-			agent.disable_ground_mask()
+			agent.disable_platform_mask()
 			agent.velocity.y = aux_func.JUMP_VELOCITY
 			agent.input_cache.reset_jump()
 		else:

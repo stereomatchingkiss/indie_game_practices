@@ -36,7 +36,7 @@ func _update(delta: float) -> void:
 				SoundManager.play_jump()
 				agent.input_cache.reset_jump_down()
 				#agent.input_cache.reset_input_direction()
-				agent.disable_ground_mask()
+				agent.disable_platform_mask()
 				get_root().dispatch(&"ground_to_falling")
 			elif agent.input_cache.get_jump():
 				get_root().dispatch(&"ground_to_jumping")

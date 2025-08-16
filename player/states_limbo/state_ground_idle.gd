@@ -25,7 +25,7 @@ func _update(delta: float) -> void:
 	elif agent.input_cache.get_jump_down():
 		print_debug("limbo : state_ground_idle to jump down, ", Time.get_unix_time_from_system())
 		agent.input_cache.reset_jump_down()
-		agent.disable_ground_mask()
+		agent.disable_platform_mask()
 		get_root().dispatch(&"ground_to_falling")
 	else:
 		#print_debug("limbo : state_ground_idle , ", Time.get_unix_time_from_system())
