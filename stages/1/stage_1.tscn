@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://curb3uow6k0e1" path="res://stages/1/stage_1.gd" id="1_bxaci"]
 [ext_resource type="Texture2D" uid="uid://diiewht8lbxu6" path="res://skybox/AllSky_Overcast4_Low.png" id="2_v6sno"]
 [ext_resource type="PackedScene" uid="uid://b0tmdnp32vajq" path="res://player/player.tscn" id="3_lhl68"]
-[ext_resource type="PackedScene" uid="uid://vd2578l10703" path="res://enemies/slime/enemy.tscn" id="6_2v1o7"]
 [ext_resource type="PackedScene" uid="uid://buemyqcf4b5dv" path="res://HUD/hud.tscn" id="6_4esbh"]
 [ext_resource type="MeshLibrary" uid="uid://cgx0hg0c2mokb" path="res://gridmap/art/tres/KayKitPlatformer_1.0_Platform_Blue.tres" id="6_e1vjl"]
+[ext_resource type="PackedScene" uid="uid://4a51qwapbxxl" path="res://enemies/alien/alien.tscn" id="6_w3dhl"]
 [ext_resource type="MeshLibrary" uid="uid://bnlfwlm4vsa0g" path="res://gridmap/art/tres/KayKitBlockBits.tres" id="7_e1vjl"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_2v1o7"]
@@ -50,8 +50,8 @@ shape = SubResource("WorldBoundaryShape3D_75ys4")
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="Enemy" parent="Enemies" instance=ExtResource("6_2v1o7")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.622299, 0.950562, 1)
+[node name="Alien" parent="Enemies" instance=ExtResource("6_w3dhl")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.17116, 0.974109)
 move_velocity = Vector3(-1, 0, 0)
 
 [node name="maps" type="Node" parent="."]
