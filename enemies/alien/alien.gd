@@ -11,6 +11,8 @@ extends CharacterBody3D
 @onready var limbo_hsm_: LimboHSM = $LimboHSM
 @onready var state_get_hit_: LimboState = $LimboHSM/state_get_hit
 
+var get_hit := false
+
 func attack_player_mask_is_active() -> bool:
 	return $AreaAttackPlayer.get_collision_mask_value(1)
 	
@@ -32,5 +34,6 @@ func _on_area_attack_player_body_entered(body: Node3D) -> void:
 
 func _on_area_hit_by_bullet_area_entered(area: Area3D) -> void:	
 	if area.get_type_name() == "bullet":
+		get_hit = true
 		limbo_hsm_.dispatch(&"get_hit")
 		area.queue_free()
