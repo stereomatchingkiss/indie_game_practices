@@ -5,11 +5,6 @@ extends Node
 const JUMP_VELOCITY = 4.5
 const SPEED = 2.0
 
-@onready
-var avatar_sample_b := %AvatarSample_B
-@onready
-var camera_controller := %CameraController
-
 func move_character(player : Player):
 	var direction : Vector3 = player.input_cache.get_norm_direction()
 	if direction:
