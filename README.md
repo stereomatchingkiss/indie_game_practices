@@ -21,6 +21,7 @@ A collection of independent game projects for practicing game development with G
 - [KayKit : Block Bits](https://kaylousberg.itch.io/block-bits)
 - [KayKit_Platformer_Pack_1.0_FREE](https://kaylousberg.itch.io/kaykit-platformer)
 - [AllSky Free](https://godotengine.org/asset-library/asset/579)
+- [Ultimate monster pack](https://quaternius.com/packs/ultimatemonsters.html)
 
 # Todo
 
