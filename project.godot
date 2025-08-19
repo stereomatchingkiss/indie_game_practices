@@ -58,6 +58,7 @@ jump={
 3d_physics/layer_5="fallzone"
 3d_physics/layer_6="platform"
 3d_physics/layer_7="bullet"
+3d_physics/layer_8="bullet_ball"
 
 [rendering]
 
