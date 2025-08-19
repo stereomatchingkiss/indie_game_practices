@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://4a51qwapbxxl"]
+[gd_scene load_steps=31 format=4 uid="uid://4a51qwapbxxl"]
 
 [ext_resource type="Texture2D" uid="uid://ccy0t10ry1tml" path="res://enemies/alien/art/Alien_Atlas_Monsters.png" id="1_5fbe7"]
 [ext_resource type="Script" uid="uid://dkkuph1235gmn" path="res://enemies/alien/alien.gd" id="1_vut4o"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://dw7ehcs03lvxo" path="res://enemies/alien/states_limbo/state_machine_utils.gd" id="4_for7m"]
 [ext_resource type="Script" uid="uid://10u7qyujvfw5" path="res://enemies/alien/states_limbo/state_turn_around.gd" id="5_alif8"]
 [ext_resource type="Script" uid="uid://bv836qyf4vxk" path="res://enemies/alien/states_limbo/state_get_hit.gd" id="6_ngilb"]
+[ext_resource type="Script" uid="uid://dvon3xah10ggd" path="res://enemies/alien/states_limbo/state_to_ball.gd" id="7_ngilb"]
+[ext_resource type="PackedScene" uid="uid://s2tdallyq144" path="res://bullets/bullet_ball.tscn" id="9_wo6dy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2f1pb"]
 resource_name = "Atlas"
@@ -4793,7 +4795,7 @@ libraries = {
 }
 
 [node name="AreaHitByBullet" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.311437, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.311437, 0.00537109)
 collision_layer = 8
 collision_mask = 64
 
@@ -4825,6 +4827,9 @@ script = ExtResource("5_alif8")
 script = ExtResource("6_ngilb")
 animation_player_ = NodePath("../../AnimationPlayer")
 
+[node name="state_to_ball" type="LimboState" parent="LimboHSM"]
+script = ExtResource("7_ngilb")
+
 [node name="state_machine_utils" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("4_for7m")
@@ -4833,6 +4838,9 @@ script = ExtResource("4_for7m")
 unique_name_in_owner = true
 wait_time = 0.2
 one_shot = true
+
+[node name="bullet_ball" parent="." instance=ExtResource("9_wo6dy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00254059, 0.272705, 0.0653381)
 
 [connection signal="area_entered" from="AreaHitByBullet" to="." method="_on_area_hit_by_bullet_area_entered"]
 [connection signal="body_entered" from="AreaAttackPlayer" to="." method="_on_area_attack_player_body_entered"]
