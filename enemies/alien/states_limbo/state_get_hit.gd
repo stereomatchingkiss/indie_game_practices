@@ -14,13 +14,10 @@ func  _ready() -> void:
 
 func _change_state() -> void:
 	print_debug("enemy hit to moving time out, vcahce = ", velocity_cache_)
-	agent.velocity = velocity_cache_
-	if not bullet_damage_queue.is_empty():
-		agent.reduce_hp(bullet_damage_queue.back())
-		bullet_damage_queue.pop_back()
-		if agent.get_hp() <= 0:
-			agent.queue_free()
-	get_root().dispatch(&"hit_to_moving")
+	if agent.get_hp() <= 0:
+		get_root().dispatch(&"hit_to_ball")
+	else:
+		get_root().dispatch(&"hit_to_moving")
 
 func _enter() -> void:
 	pass
@@ -30,11 +27,23 @@ func _get_hit() -> void:
 		print_debug("enemy hit")
 		animation_player_.play("HitReact")
 		SoundManager.play_hit_enemy_by_arrow()
+		
+		agent.velocity = velocity_cache_
+		if not bullet_damage_queue.is_empty():
+			agent.reduce_hp(bullet_damage_queue.back())
+			bullet_damage_queue.pop_back()
+			
 		if agent.velocity != Vector3():
 			velocity_cache_ = agent.velocity
+		
 		agent.velocity = Vector3()
 		agent.set_get_hit(false)
-		timer_get_hit_.start(0.3)
+		
+		if agent.get_hp() <= 0:
+			get_root().dispatch(&"hit_to_ball")
+			timer_get_hit_.stop()
+		elif timer_get_hit_.is_stopped():
+			timer_get_hit_.start(0.3)
 
 func _update(delta: float) -> void:	
 	if not agent.is_on_floor():
