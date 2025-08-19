@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://c217q0xt7pdt8" path="res://player/states_limbo/state_machine_utils.gd" id="12_q3wfk"]
 [ext_resource type="Script" uid="uid://dx3isl26p5dtm" path="res://player/states_limbo/state_ground_idle.gd" id="13_s60hd"]
 [ext_resource type="Script" uid="uid://5m75cc5jgp1r" path="res://player/states_limbo/state_ground_moving.gd" id="15_pavog"]
-[ext_resource type="Texture2D" uid="uid://ci4tp2wjpivau" path="res://player/art/Rogue_Hooded_rogue_texture.png" id="16_ko8rl"]
+[ext_resource type="Texture2D" uid="uid://qiuubvajnfjd" path="res://assets/player/Rogue_Hooded_rogue_texture.png" id="16_ko8rl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g3ynn"]
 radius = 0.150549
