@@ -32,6 +32,5 @@ A collection of independent game projects for practicing game development with G
 - Add keyboard/gamepad bindings
 - Learn how to combine c++ with godot
 - Add HUD to display player, stages status
-- Add function to convert enemy to barrel/bomb after the bullet hit them
 - Add function of throwing the enemy turn into barrel/bomb
 - Solve the sound effect delay issue
