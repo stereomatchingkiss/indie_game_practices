@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://dfnsj40eciydt"]
 
 [ext_resource type="Script" uid="uid://curb3uow6k0e1" path="res://stages/1/stage_1.gd" id="1_bxaci"]
-[ext_resource type="Texture2D" uid="uid://diiewht8lbxu6" path="res://skybox/AllSky_Overcast4_Low.png" id="2_v6sno"]
+[ext_resource type="Texture2D" uid="uid://da4ncrbjdxxrt" path="res://assets/skybox/AllSky_Overcast4_Low.png" id="2_e1vjl"]
 [ext_resource type="PackedScene" uid="uid://b0tmdnp32vajq" path="res://player/player.tscn" id="3_lhl68"]
 [ext_resource type="PackedScene" uid="uid://buemyqcf4b5dv" path="res://HUD/hud.tscn" id="6_4esbh"]
 [ext_resource type="MeshLibrary" uid="uid://cgx0hg0c2mokb" path="res://gridmap/art/tres/KayKitPlatformer_1.0_Platform_Blue.tres" id="6_e1vjl"]
@@ -9,7 +9,7 @@
 [ext_resource type="MeshLibrary" uid="uid://bnlfwlm4vsa0g" path="res://gridmap/art/tres/KayKitBlockBits.tres" id="7_e1vjl"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_2v1o7"]
-panorama = ExtResource("2_v6sno")
+panorama = ExtResource("2_e1vjl")
 
 [sub_resource type="Sky" id="Sky_vbj0h"]
 sky_material = SubResource("PanoramaSkyMaterial_2v1o7")
