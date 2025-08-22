@@ -13,8 +13,10 @@ func _enter() -> void:
 func _update(delta: float) -> void:	
 	if (is_on_wall_ or not ray_cast_floor_detector_.is_colliding()) and not turning_:
 		turn_around()
-	elif not is_on_wall_ and not turning_:		
+	elif not is_on_wall_ and not turning_:
 		get_root().dispatch(&"turn_around_to_moving")
+	elif agent.get_get_hit():
+		get_root().dispatch(&"get_hit")
 
 func turn_around():
 	turning_ = true
@@ -25,6 +27,7 @@ func turn_around():
 	await turn_tween.finished
 	turn_tween = null
 	#agent.velocity *= -1 do not work, because when you call turn_around, the velocity become zero already
-	agent.move_velocity *= -1
-	agent.velocity = agent.move_velocity
 	turning_ = false
+	if not agent.get_is_bullet_ball():
+		agent.move_velocity *= -1
+		agent.velocity = agent.move_velocity

@@ -34,6 +34,9 @@ func change_to_bullet_ball() -> void:
 func disable_attack_player_mask():
 	area_attack_player_.set_collision_mask_value(1, false)
 	
+func get_is_bullet_ball() -> bool:
+	return bullet_ball_.visible
+	
 func get_hp() -> int:
 	return hp_;
 	
@@ -61,4 +64,3 @@ func _on_area_hit_by_bullet_area_entered(area: Area3D) -> void:
 	if area.get_type_name() == "bullet":
 		get_hit_ = true
 		state_get_hit_.bullet_damage_queue.push_back(area.get_bullet_damage())
-		limbo_hsm_.dispatch(&"get_hit")
