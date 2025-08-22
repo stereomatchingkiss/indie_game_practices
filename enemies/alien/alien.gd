@@ -22,11 +22,10 @@ func attack_player_mask_is_active() -> bool:
 	
 func change_to_bullet_ball() -> void:
 	if not bullet_ball_.visible:
-		self.velocity = Vector3()
-		enemy_.set_collision_mask_value(2, false)
-		enemy_.set_collision_mask_value(6, false)
+		velocity = Vector3()
 		area_attack_player_.set_collision_mask_value(1, false)
 		area_hit_by_bullet_.set_collision_mask_value(7, false)
+		enemy_.set_collision_layer_value(4, false)
 
 		bullet_ball_.visible = true
 		character_armature_.visible = false
@@ -49,13 +48,29 @@ func set_get_hit(val : bool):
 func reduce_hp(val : int):
 	hp_ -= val
 	
+func _on_boby_entered_bullet_ball(body : Node3D):
+	if body.name == "player":
+		print_debug("player enter bullet ball, ", body.name)
+		enemy_.set_collision_mask_value(6, false)
+		bullet_ball_.set_collision_mask_value(1, false)
+		bullet_ball_.set_collision_mask_value(4, false)
+		velocity = body.velocity
+	
 func _ready() -> void:	
 	velocity = move_velocity
 	state_machine_utils_.init(self)
 	bullet_ball_.visible = false
 	
+	bullet_ball_.boby_entered.connect(_on_boby_entered_bullet_ball)
+	
 func _physics_process(delta: float) -> void:
-	move_and_slide()
+	if not bullet_ball_.visible:
+		move_and_slide()
+	else:
+		var collide = move_and_collide(velocity * delta)
+		if collide:
+			print_debug("collide velocity = ", velocity)
+			velocity = velocity.bounce(collide.get_normal())
 
 func _on_area_attack_player_body_entered(body: Node3D) -> void:
 	SoundManager.play_dead_player()
