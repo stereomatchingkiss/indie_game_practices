@@ -42,7 +42,6 @@ func adjust_player_rotation(input_dir : Vector2):
 	if input_dir != Vector2() and input_cache.get_x_direction_not_empty():
 		input_dir[1] = 0
 		avatar_.rotation_degrees.y = camera_controller_.rotation_degrees.y - rad_to_deg(input_dir.angle())
-		print_debug("avatar degree = ", avatar_.rotation_degrees.y, ", input dir = ", input_dir)
 
 func align_character(delta : float):
 	if not is_on_floor():
