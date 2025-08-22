@@ -47,7 +47,7 @@ func reduce_hp(val : int):
 	hp_ -= val
 	
 func _ready() -> void:	
-	self.velocity = move_velocity
+	velocity = move_velocity
 	state_machine_utils_.init(self)
 	bullet_ball_.visible = false
 	
