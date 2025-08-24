@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://buemyqcf4b5dv" path="res://HUD/hud.tscn" id="6_4esbh"]
 [ext_resource type="MeshLibrary" uid="uid://c5yd5qmn7cwb5" path="res://assets/gridmap/tres/KayKitPlatformer_1.0_Platform_Blue.tres" id="6_e1vjl"]
 [ext_resource type="PackedScene" uid="uid://4a51qwapbxxl" path="res://enemies/alien/alien.tscn" id="6_w3dhl"]
-[ext_resource type="MeshLibrary" uid="uid://b45b3ia3cxcxo" path="res://assets/gridmap/tres/KayKitBlockBits.tres" id="7_e1vjl"]
+[ext_resource type="MeshLibrary" uid="uid://b716cwj2qr3ua" path="res://assets/gridmap/tres/KayKitBlockBits.tres" id="7_e1vjl"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_2v1o7"]
 panorama = ExtResource("2_e1vjl")
