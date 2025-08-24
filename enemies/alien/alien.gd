@@ -25,6 +25,7 @@ func change_to_bullet_ball() -> void:
 		velocity = Vector3()
 		area_attack_player_.set_collision_mask_value(1, false)
 		area_hit_by_bullet_.set_collision_mask_value(7, false)
+		#Without disable the enemy layer, the ball will push the player even every masks set to false
 		enemy_.set_collision_layer_value(4, false)
 
 		bullet_ball_.visible = true
