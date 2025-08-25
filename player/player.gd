@@ -32,6 +32,13 @@ func disable_platform_mask():
 	set_collision_mask_value(6, false)
 	%timer_disable_mask.start(0.3)
 
+# Separate body to type and name, easier to maintain if need to increase more players/enemies type
+func get_type_name() -> StringName:
+	return &"player"
+	
+func get_body_name() -> StringName:
+	return &"player"
+
 func player_direction() -> int:
 	return avatar_.rotation_degrees.y
 
@@ -62,5 +69,5 @@ func align_with_floor(floor_normal : Vector3):
 	
 #Kill player if fall into the hole
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.name == "player":
+	if body.get_type_name() == &"player":
 		get_tree().change_scene_to_file("res://stages/1/stage_1.tscn")
