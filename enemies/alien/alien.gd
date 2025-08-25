@@ -27,6 +27,9 @@ func change_to_bullet_ball() -> void:
 		area_hit_by_bullet_.set_collision_mask_value(7, false)
 		#Without disable the enemy layer, the ball will push the player even every masks set to false
 		enemy_.set_collision_layer_value(4, false)
+		enemy_.set_collision_mask_value(6, false)
+		
+		bullet_ball_.set_collision_mask_value(1, true)
 
 		bullet_ball_.visible = true
 		character_armature_.visible = false
@@ -53,6 +56,7 @@ func _on_boby_entered_bullet_ball(body : Node3D):
 	if body.name == "player":
 		print_debug("player enter bullet ball, ", body.name)
 		enemy_.set_collision_mask_value(6, false)
+		enemy_.set_collision_mask_value(4, true)
 		bullet_ball_.set_collision_mask_value(1, false)
 		bullet_ball_.set_collision_mask_value(4, false)
 		velocity = body.velocity * 2
