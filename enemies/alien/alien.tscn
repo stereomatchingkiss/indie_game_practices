@@ -4468,6 +4468,7 @@ radius = 0.321777
 [node name="Alien" type="CharacterBody3D"]
 collision_layer = 8
 collision_mask = 34
+axis_lock_linear_z = true
 script = ExtResource("1_vut4o")
 
 [node name="CharacterArmature" type="Node3D" parent="."]
