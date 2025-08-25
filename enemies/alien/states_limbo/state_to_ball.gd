@@ -5,4 +5,9 @@ func _enter() -> void:
 	agent.velocity.y = 0.5
 
 func _update(delta: float) -> void:	
-	pass
+	var collide = agent.move_and_collide(agent.velocity * delta)
+	if collide:
+		print_debug("collide velocity = ", agent.velocity)
+		var reflect = collide.get_remainder().bounce(collide.get_normal())
+		agent.velocity = agent.velocity.bounce(collide.get_normal())
+		agent.move_and_collide(reflect)

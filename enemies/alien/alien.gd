@@ -67,13 +67,6 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not bullet_ball_.visible:
 		move_and_slide()
-	else:
-		var collide = move_and_collide(velocity * delta)
-		if collide:
-			print_debug("collide velocity = ", velocity)
-			var reflect = collide.get_remainder().bounce(collide.get_normal())
-			velocity = velocity.bounce(collide.get_normal())
-			move_and_collide(reflect)
 
 func _on_area_attack_player_body_entered(body: Node3D) -> void:
 	SoundManager.play_dead_player()
