@@ -37,6 +37,9 @@ func change_to_bullet_ball() -> void:
 func disable_attack_player_mask():
 	area_attack_player_.set_collision_mask_value(1, false)
 	
+func get_bouncing_speed() -> float:
+	return 10
+	
 func get_is_bullet_ball() -> bool:
 	return bullet_ball_.visible
 	
@@ -46,6 +49,12 @@ func get_hp() -> int:
 func get_get_hit() -> bool:
 	return get_hit_
 	
+func get_type_name() -> StringName:
+	return &"enemy"
+	
+func get_body_name() -> StringName:
+	return &"alien"
+	
 func set_get_hit(val : bool):
 	get_hit_ = val
 	
@@ -53,13 +62,18 @@ func reduce_hp(val : int):
 	hp_ -= val
 	
 func _on_boby_entered_bullet_ball(body : Node3D):
-	if body.name == "player":
-		print_debug("player enter bullet ball, ", body.name)
+	var tname : StringName = body.get_type_name()
+	if tname == &"player":
+		print_debug("player enter bullet ball, ", body.get_type_name())
 		enemy_.set_collision_mask_value(6, false)
 		enemy_.set_collision_mask_value(4, true)
 		bullet_ball_.set_collision_mask_value(1, false)
-		bullet_ball_.set_collision_mask_value(4, false)
-		velocity = body.velocity * 2
+		bullet_ball_.set_collision_mask_value(4, true)
+		velocity = body.velocity
+		velocity.z = 0
+		velocity = velocity.normalized() * get_bouncing_speed()
+	elif tname == &"enemy":
+		print_debug("ball hit enemy == ", body.get_type_name())
 	
 func _ready() -> void:	
 	velocity = move_velocity
