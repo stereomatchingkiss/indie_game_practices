@@ -8,6 +8,9 @@ func init():
 	
 	%creepy_comedy.volume_db = -5
 
+func play_dead_enemy():
+	%dead_enemy.play()
+
 func play_dead_player():
 	%dead_player.play(0.6)
 	
