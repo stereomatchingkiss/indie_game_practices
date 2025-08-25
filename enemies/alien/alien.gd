@@ -55,7 +55,7 @@ func _on_boby_entered_bullet_ball(body : Node3D):
 		enemy_.set_collision_mask_value(6, false)
 		bullet_ball_.set_collision_mask_value(1, false)
 		bullet_ball_.set_collision_mask_value(4, false)
-		velocity = body.velocity
+		velocity = body.velocity * 2
 	
 func _ready() -> void:	
 	velocity = move_velocity
