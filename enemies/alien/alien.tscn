@@ -4798,7 +4798,7 @@ libraries = {
 
 [node name="AreaHitByBullet" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.311437, 0.00537109)
-collision_layer = 8
+collision_layer = 0
 collision_mask = 64
 
 [node name="CollisionShapeHitByBullet" type="CollisionShape3D" parent="AreaHitByBullet"]
@@ -4807,7 +4807,7 @@ shape = SubResource("BoxShape3D_alif8")
 
 [node name="AreaAttackPlayer" type="Area3D" parent="."]
 transform = Transform3D(0.499863, -0.0116839, 0, 0.0116839, 0.499863, 0, 0, 0, 0.5, -0.0226266, 0.384488, 0.048121)
-collision_layer = 8
+collision_layer = 0
 
 [node name="ColShapeAttackPlayer" type="CollisionShape3D" parent="AreaAttackPlayer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.081961, -0.208214, -0.0237618)
