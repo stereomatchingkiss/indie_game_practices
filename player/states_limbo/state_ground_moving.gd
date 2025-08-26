@@ -11,7 +11,7 @@ var was_on_floor := false
 
 # Called when the node enters the scene tree for the first time.
 func _enter() -> void:
-	print_debug("player enter moving state")
+	print_debug("enter state_ground_moving")
 	if agent.input_cache.get_x_direction_not_empty():
 		animation_player.play("Walking_A")
 
@@ -20,7 +20,7 @@ func _update(delta: float) -> void:
 		agent.input_cache.reset_shoot()
 		get_root().dispatch(&"shoot")
 	elif not agent.is_on_floor():
-		print_debug("Limbo: state_ground_moving to ground_to_air, ", Time.get_unix_time_from_system() )
+		#print_debug("Limbo: state_ground_moving to ground_to_air, ", Time.get_unix_time_from_system() )
 		if was_on_floor:
 			was_on_floor = false
 			get_root().dispatch(&"ground_moving_to_coyote_jump")

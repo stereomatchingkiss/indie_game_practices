@@ -5,7 +5,7 @@ var aux_func := %AuxiliaryFunctions
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	print_debug("enter ground state")
 
 func _update(delta: float) -> void:
 	#print_debug("limbo : states_ground, ", Time.get_unix_time_from_system())

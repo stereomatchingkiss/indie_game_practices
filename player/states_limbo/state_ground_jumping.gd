@@ -8,7 +8,7 @@ var animation_player : AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _enter() -> void:
-	print_debug("enter jump state")
+	print_debug("enter state_ground_jumping")
 	SoundManager.play_jump()
 	animation_player.play("Jump_Start")
 	
