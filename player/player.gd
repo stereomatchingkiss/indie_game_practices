@@ -21,7 +21,7 @@ func _enable_platform_mask():
 func _physics_process(delta: float) -> void:
 	#print_debug("player pos = ", position.y)
 	input_cache.cache_input(state_machine_utils_.get_active_state(), \
-	%CameraController.transform.basis, position.y)
+	%CameraController.transform.basis, position.y, delta)
 
 	adjust_player_rotation(input_cache.get_input_direction())
 	align_character(delta)

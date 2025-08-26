@@ -7,27 +7,37 @@ var pressed_jump_ := false
 var pressed_jump_down_ := false
 var pressed_shoot_ := false
 
-const jump_down_count_down_ := 5
-var pressed_down_countdown_ := 0
-var pressed_jump_countdown_ := 0
+const jump_buffer_window_ := 0.05
+var jump_buffer_ := -0.1
 
-func cache_input(state : LimboState, cam_basis : Basis, player_height : float) -> void:	
+func cache_input(state : LimboState, cam_basis : Basis, player_height : float, delta : float) -> void:	
 	if input_direction_ == Vector2():
 		input_direction_ = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 		norm_direction_ = (cam_basis * Vector3(input_direction_.x, 0, input_direction_.y)).normalized()
 	
-	if player_height > -0.2 and \
-	(state.name == "state_ground_idle" or state.name == "state_ground_moving"):
-		if Input.is_action_pressed("ui_down"):
-			pressed_down_countdown_ = jump_down_count_down_
-		if Input.is_action_just_pressed("jump"):
-			pressed_jump_countdown_ = jump_down_count_down_
+	pressed_jump_down_ = false
+	if player_height > 0.2:
+		if Input.is_action_just_pressed("ui_down") and Input.is_action_pressed("jump"):
+			print("先按 Space，再按 Down → 触发一次")
+			pressed_jump_down_ = true
+			reset_jump()
+
+		if Input.is_action_just_pressed("jump") and Input.is_action_pressed("ui_down"):
+			print("先按 Down，再按 Space → 触发一次")
+			pressed_jump_down_ = true
+			reset_jump()
 	
-	pressed_jump_down_ = pressed_down_countdown_ > 0 and pressed_jump_countdown_ > 0
-		
-	if state.name != "states_air" and state.name != "state_air_falling" \
-	and state.name != "state_ground_jumping" and pressed_jump_down_ == false:
-		pressed_jump_ = Input.is_action_just_pressed("jump")
+	if pressed_jump_down_ == false and jump_buffer_ <= 0 \
+	and state.name != "states_air" and state.name != "state_air_falling" \
+	and state.name != "state_ground_jumping":
+		if Input.is_action_just_pressed("jump"):
+			jump_buffer_ = jump_buffer_window_
+			
+	if jump_buffer_ > 0:
+		jump_buffer_ -= delta
+		if jump_buffer_ <= 0:
+			pressed_jump_ = true
+			print_debug("press jump = true")
 			
 	if pressed_shoot_ == false:
 		pressed_shoot_ = Input.is_action_just_pressed("shoot")
@@ -53,17 +63,13 @@ func get_x_direction_not_empty() -> bool:
 func reset_input_direction() -> void:
 	input_direction_ = Vector2()
 	norm_direction_ = Vector3()
-	
-	pressed_down_countdown_ -= 1
-	pressed_jump_countdown_ -= 1
-		
+
 func reset_jump() -> void:
 	pressed_jump_ = false
+	jump_buffer_ = -0.1
 
 func reset_jump_down() -> void:
 	pressed_jump_down_ = false
-	pressed_down_countdown_ = 0
-	pressed_jump_countdown_ = 0
 	
 func reset_shoot() -> void:
 	pressed_shoot_ = false
