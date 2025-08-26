@@ -16,7 +16,10 @@ func _enter() -> void:
 		animation_player.play("Walking_A")
 
 func _update(delta: float) -> void:	
-	if not agent.is_on_floor():
+	if agent.input_cache.get_shoot():
+		agent.input_cache.reset_shoot()
+		get_root().dispatch(&"shoot")
+	elif not agent.is_on_floor():
 		print_debug("Limbo: state_ground_moving to ground_to_air, ", Time.get_unix_time_from_system() )
 		if was_on_floor:
 			was_on_floor = false

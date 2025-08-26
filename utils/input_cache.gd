@@ -29,7 +29,7 @@ func cache_input(state : LimboState, cam_basis : Basis, player_height : float) -
 	and state.name != "state_ground_jumping" and pressed_jump_down_ == false:
 		pressed_jump_ = Input.is_action_just_pressed("jump")
 			
-	if state.name != "state_ground_moving" and pressed_shoot_ == false:
+	if pressed_shoot_ == false:
 		pressed_shoot_ = Input.is_action_just_pressed("shoot")
 
 func get_input_direction() -> Vector2:
