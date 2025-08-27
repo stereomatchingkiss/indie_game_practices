@@ -26,16 +26,7 @@ func change_state(state_name : StringName) -> void:
 func change_to_bullet_ball() -> void:
 	if not bullet_ball_.visible:
 		velocity = Vector3()
-		area_attack_player_.set_collision_mask_value(1, false)
-		area_hit_by_bullet_.set_collision_mask_value(7, false)
-		#Without disable the enemy layer, the ball will push the player even every masks set to false
-		enemy_.set_collision_layer_value(4, false)
-		enemy_.set_collision_mask_value(6, false)
-
-		bullet_ball_.set_collision_mask_value(1, true)
-
-		bullet_ball_.visible = true
-		character_armature_.visible = false
+		bullet_ball_conversion_(true)
 
 func disable_attack_player_mask():
 	area_attack_player_.set_collision_mask_value(1, false)
@@ -57,13 +48,31 @@ func get_type_name() -> StringName:
 	
 func get_body_name() -> StringName:
 	return &"alien"
-	
-func set_get_hit(val : bool):
-	get_hit_ = val
-	
+
+func recover_to_enemy() -> void:
+	if bullet_ball_.visible:
+		velocity.x = move_velocity.x
+		bullet_ball_conversion_(false)
+		limbo_hsm_.dispatch(&"ball_to_falling")
+
 func reduce_hp(val : int):
 	hp_ -= val
-	
+
+func set_get_hit(val : bool):
+	get_hit_ = val
+
+func bullet_ball_conversion_(change_flag : bool = true) -> void:
+	area_attack_player_.set_collision_mask_value(1, !change_flag)
+	area_hit_by_bullet_.set_collision_mask_value(7, !change_flag)
+	#Without disable the enemy layer, the ball will push the player even every masks set to false
+	enemy_.set_collision_layer_value(4, !change_flag)
+	enemy_.set_collision_mask_value(6, !change_flag)
+
+	bullet_ball_.set_collision_mask_value(1, change_flag)
+
+	bullet_ball_.visible = change_flag
+	character_armature_.visible = !change_flag
+
 func _on_boby_entered_bullet_ball(body : Node3D):
 	var tname : StringName = body.get_type_name()
 	if tname == &"player" and Vector2(body.velocity.x, body.velocity.y) != Vector2():

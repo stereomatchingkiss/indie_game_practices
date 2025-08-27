@@ -18,6 +18,7 @@ func init(body : CharacterBody3D) -> void:
 	limbo_hsm.add_transition(state_turn_around, state_moving, &"turn_around_to_moving")
 	limbo_hsm.add_transition(state_get_hit, state_moving, &"hit_to_moving")
 	limbo_hsm.add_transition(state_get_hit, state_to_ball, &"hit_to_ball")
+	limbo_hsm.add_transition(state_to_ball, state_falling, &"ball_to_falling")
 	
 	for child in limbo_hsm.get_children():
 		print("alien state name = ", child.name)

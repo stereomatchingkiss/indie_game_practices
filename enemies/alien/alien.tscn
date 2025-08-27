@@ -4813,6 +4813,10 @@ collision_layer = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.081961, -0.208214, -0.0237618)
 shape = SubResource("CylinderShape3D_xeivg")
 
+[node name="bullet_ball" parent="." instance=ExtResource("9_wo6dy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00254059, 0.272705, 0.0653381)
+visible = false
+
 [node name="LimboHSM" type="LimboHSM" parent="."]
 
 [node name="state_falling" type="LimboState" parent="LimboHSM"]
@@ -4840,14 +4844,17 @@ animation_player_ = NodePath("../../AnimationPlayer")
 unique_name_in_owner = true
 script = ExtResource("4_for7m")
 
-[node name="timer_get_hit" type="Timer" parent="."]
+[node name="timers" type="Node" parent="."]
+
+[node name="timer_get_hit" type="Timer" parent="timers"]
 unique_name_in_owner = true
 wait_time = 0.2
 one_shot = true
 
-[node name="bullet_ball" parent="." instance=ExtResource("9_wo6dy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00254059, 0.272705, 0.0653381)
-visible = false
+[node name="timer_reover_to_enemy" type="Timer" parent="timers"]
+unique_name_in_owner = true
+wait_time = 7.0
+one_shot = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="area_entered" from="AreaHitByBullet" to="." method="_on_area_hit_by_bullet_area_entered"]

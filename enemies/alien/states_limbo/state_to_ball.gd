@@ -1,13 +1,23 @@
 extends LimboState
 
+@onready var timer_reover_to_enemy_: Timer = %timer_reover_to_enemy
+
 var bounce_limit_ := 5
 
+func _ready() -> void:
+	timer_reover_to_enemy_.timeout.connect(_recover_to_enemy)
+	
 func _enter() -> void:
+	timer_reover_to_enemy_.start()
 	agent.change_to_bullet_ball()
-	agent.velocity.y = 0.5
+	agent.velocity.y = 0.7
+	
+func _recover_to_enemy() -> void:
+	agent.recover_to_enemy()
 
 func _update(delta: float) -> void:	
 	if agent.get_collision_mask_value(4):
+		timer_reover_to_enemy_.stop()
 		var collide = agent.move_and_collide(agent.velocity * delta)
 		if collide:
 			if collide.get_collider().get_class() != "CharacterBody3D":
