@@ -54,12 +54,14 @@ func align_character(delta : float):
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 		align_with_floor(Vector3.UP)
-		global_transform = global_transform.interpolate_with(xnorm_, 0.3).orthonormalized()
-	elif is_on_floor():
+		global_transform = global_transform.interpolate_with(xnorm_, 0.3)
+	else:
 		#print("player ray cast = ", $RayCast3D.get_collision_normal())
 		$RayCast3D.position = position
 		align_with_floor($RayCast3D.get_collision_normal())
-		global_transform = global_transform.interpolate_with(xnorm_, 0.3).orthonormalized()
+		global_transform = global_transform.interpolate_with(xnorm_, 0.3)
+		
+	global_transform = global_transform.orthonormalized()
 	
 func align_with_floor(floor_normal : Vector3):
 	xnorm_ = global_transform
