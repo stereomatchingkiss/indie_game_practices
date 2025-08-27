@@ -1,10 +1,11 @@
 extends Node
 
 func init():
-	%hit_enemy_by_arrow.volume_db = -80
-	play_hit_enemy_by_arrow()
-	await %hit_enemy_by_arrow.finished
-	%hit_enemy_by_arrow.volume_db = 0
+	if OS.get_name() != "Web":
+		%hit_enemy_by_arrow.volume_db = -80
+		play_hit_enemy_by_arrow()
+		await %hit_enemy_by_arrow.finished
+		%hit_enemy_by_arrow.volume_db = 0
 	
 	%creepy_comedy.volume_db = -5
 
