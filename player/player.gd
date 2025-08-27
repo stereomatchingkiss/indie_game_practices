@@ -2,11 +2,13 @@ class_name Player
 
 extends CharacterBody3D
 
+@onready var input_cache := %InputCache
+
 const CAM_ROTATE_DEG_ = 30
 
 @onready var avatar_ := %Rogue_Hooded
 @onready var camera_controller_ := %CameraController
-@onready var input_cache := %InputCache
+@onready var ray_cast_3d_: RayCast3D = %RayCast3D
 @onready var step_on_ := false
 @onready var xnorm_ : Transform3D
 @onready var state_machine_utils_ := %state_machine_utils
@@ -18,10 +20,15 @@ func _ready() -> void:
 func _enable_platform_mask():
 	set_collision_mask_value(6, true)
 	
+func _is_collide_with_platform() -> bool:
+	if ray_cast_3d_.is_colliding():
+		return ray_cast_3d_.get_collider().get_collision_layer_value(6)
+		
+	return false
+	
 func _physics_process(delta: float) -> void:
-	#print_debug("player pos = ", position.y)
 	input_cache.cache_input(state_machine_utils_.get_active_state(), \
-	%CameraController.transform.basis, position.y, delta)
+	%CameraController.transform.basis, _is_collide_with_platform(), delta)
 
 	adjust_player_rotation(input_cache.get_input_direction())
 	align_character(delta)
