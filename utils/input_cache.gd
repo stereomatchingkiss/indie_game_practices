@@ -7,7 +7,7 @@ var pressed_jump_ := false
 var pressed_jump_down_ := false
 var pressed_shoot_ := false
 
-const jump_buffer_window_ := 0.05
+const jump_buffer_window_ := 0.07
 var jump_buffer_ := -0.1
 
 func cache_input(state : LimboState, cam_basis : Basis, player_height : float, delta : float) -> void:	
