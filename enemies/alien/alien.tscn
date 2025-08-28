@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://4a51qwapbxxl"]
+[gd_scene load_steps=33 format=4 uid="uid://4a51qwapbxxl"]
 
 [ext_resource type="Script" uid="uid://dkkuph1235gmn" path="res://enemies/alien/alien.gd" id="1_vut4o"]
 [ext_resource type="Texture2D" uid="uid://cmd10k6r5u700" path="res://assets/enemies/universal_monster_texture.png" id="2_71p70"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://biglfei6y0lap" path="res://enemies/states_limbo/state_to_ball.gd" id="8_dqr31"]
 [ext_resource type="Script" uid="uid://d2pjomwa5wjl2" path="res://enemies/states_limbo/state_dead.gd" id="9_71p70"]
 [ext_resource type="PackedScene" uid="uid://s2tdallyq144" path="res://bullets/bullet_ball.tscn" id="9_wo6dy"]
+[ext_resource type="Script" uid="uid://di68oqpy7ctj0" path="res://enemies/bullet_ball_utils.gd" id="10_dqr31"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqr31"]
 albedo_texture = ExtResource("2_71p70")
@@ -4464,11 +4465,17 @@ size = Vector3(0.649963, 0.702637, 0.378784)
 height = 0.950756
 radius = 0.321777
 
-[node name="Alien" type="CharacterBody3D"]
+[node name="Alien" type="CharacterBody3D" node_paths=PackedStringArray("limbo_hsm_", "state_machine_utils_", "state_get_hit_", "area_attack_player_", "bullet_ball_", "bullet_ball_utils_")]
 collision_layer = 8
 collision_mask = 34
 axis_lock_linear_z = true
 script = ExtResource("1_vut4o")
+limbo_hsm_ = NodePath("LimboHSM")
+state_machine_utils_ = NodePath("state_machine_utils")
+state_get_hit_ = NodePath("LimboHSM/state_get_hit")
+area_attack_player_ = NodePath("AreaAttackPlayer")
+bullet_ball_ = NodePath("bullet_ball")
+bullet_ball_utils_ = NodePath("bullet_ball_utils")
 
 [node name="CharacterArmature" type="Node3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
@@ -4785,7 +4792,7 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.00939331, 0.283901, 0
 shape = SubResource("CapsuleShape3D_5fbe7")
 
 [node name="RayCastFloorDetector" type="RayCast3D" parent="."]
-transform = Transform3D(0.999986, -0.00523596, 0, 0.00523596, 0.999986, 0, 0, 0, 1, 0, 0, 0.201053)
+transform = Transform3D(0.999986, -0.00523596, 0, 0.00523596, 0.999986, 0, 0, 0, 1, 0, 0, 0.364982)
 target_position = Vector3(0, -0.3, 0)
 collision_mask = 34
 
@@ -4841,6 +4848,15 @@ timer_reover_to_enemy_ = NodePath("../../timers/timer_reover_to_enemy")
 [node name="state_dead" type="LimboState" parent="LimboHSM" node_paths=PackedStringArray("animation_player_")]
 script = ExtResource("9_71p70")
 animation_player_ = NodePath("../../AnimationPlayer")
+
+[node name="bullet_ball_utils" type="Node" parent="." node_paths=PackedStringArray("area_attack_player_", "area_hit_by_bullet_", "bullet_ball_", "character_armature_", "enemy_", "limbo_hsm_")]
+script = ExtResource("10_dqr31")
+area_attack_player_ = NodePath("../AreaAttackPlayer")
+area_hit_by_bullet_ = NodePath("../AreaHitByBullet")
+bullet_ball_ = NodePath("../bullet_ball")
+character_armature_ = NodePath("../CharacterArmature")
+enemy_ = NodePath("..")
+limbo_hsm_ = NodePath("../LimboHSM")
 
 [node name="state_machine_utils" type="Node" parent="."]
 unique_name_in_owner = true
