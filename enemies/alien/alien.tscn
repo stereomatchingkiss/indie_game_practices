@@ -1,9 +1,9 @@
 [gd_scene load_steps=33 format=4 uid="uid://4a51qwapbxxl"]
 
-[ext_resource type="Script" uid="uid://dkkuph1235gmn" path="res://enemies/alien/alien.gd" id="1_vut4o"]
+[ext_resource type="Script" uid="uid://bg6jf07el0yhx" path="res://enemies/alien/alien.gd" id="1_vut4o"]
 [ext_resource type="Texture2D" uid="uid://cmd10k6r5u700" path="res://assets/enemies/universal_monster_texture.png" id="2_71p70"]
 [ext_resource type="Script" uid="uid://bll71lm1fe1mm" path="res://enemies/states_limbo/state_falling.gd" id="4_71p70"]
-[ext_resource type="Script" path="res://enemies/alien/states_limbo/state_machine_utils.gd" id="4_for7m"]
+[ext_resource type="Script" uid="uid://dw7ehcs03lvxo" path="res://enemies/alien/states_limbo/state_machine_utils.gd" id="4_for7m"]
 [ext_resource type="Script" uid="uid://qfdoalk5uvcr" path="res://enemies/states_limbo/state_moving.gd" id="5_71p70"]
 [ext_resource type="Script" uid="uid://cot53qc47glgk" path="res://enemies/states_limbo/state_turn_around.gd" id="6_71p70"]
 [ext_resource type="Script" uid="uid://diklug68gquux" path="res://enemies/states_limbo/state_get_hit.gd" id="7_71p70"]
