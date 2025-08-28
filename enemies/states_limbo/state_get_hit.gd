@@ -2,7 +2,7 @@ extends LimboState
 
 @export var animation_player_ : AnimationPlayer
 
-@onready var timer_get_hit_: Timer = %timer_get_hit
+@export var timer_get_hit_: Timer
 
 var velocity_cache_ : Vector3
 

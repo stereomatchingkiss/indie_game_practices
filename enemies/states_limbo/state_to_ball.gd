@@ -1,6 +1,6 @@
 extends LimboState
 
-@onready var timer_reover_to_enemy_: Timer = %timer_reover_to_enemy
+@export var timer_reover_to_enemy_: Timer
 
 var bounce_limit_ := 5
 

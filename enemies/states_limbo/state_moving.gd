@@ -1,7 +1,7 @@
 extends LimboState
 
 @export var animation_player: AnimationPlayer
-@onready var ray_cast_floor_detector: RayCast3D = $"../../RayCastFloorDetector"
+@export var ray_cast_floor_detector: RayCast3D
 
 func _enter() -> void:
 	animation_player.play("Walk")

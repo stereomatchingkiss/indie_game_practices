@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://dkkuph1235gmn" path="res://enemies/alien/alien.gd" id="1_vut4o"]
 [ext_resource type="Texture2D" uid="uid://cmd10k6r5u700" path="res://assets/enemies/universal_monster_texture.png" id="2_71p70"]
-[ext_resource type="Script" uid="uid://0w3a2g7rcjwd" path="res://enemies/alien/states_limbo/state_falling.gd" id="2_le0rs"]
-[ext_resource type="Script" uid="uid://dnbnrlvwolg2l" path="res://enemies/alien/states_limbo/state_moving.gd" id="3_vut4o"]
-[ext_resource type="Script" uid="uid://dw7ehcs03lvxo" path="res://enemies/alien/states_limbo/state_machine_utils.gd" id="4_for7m"]
-[ext_resource type="Script" uid="uid://10u7qyujvfw5" path="res://enemies/alien/states_limbo/state_turn_around.gd" id="5_alif8"]
-[ext_resource type="Script" uid="uid://bv836qyf4vxk" path="res://enemies/alien/states_limbo/state_get_hit.gd" id="6_ngilb"]
-[ext_resource type="Script" uid="uid://dvon3xah10ggd" path="res://enemies/alien/states_limbo/state_to_ball.gd" id="7_ngilb"]
-[ext_resource type="Script" uid="uid://cyr5xqq0kl736" path="res://enemies/alien/states_limbo/state_dead.gd" id="8_71p70"]
+[ext_resource type="Script" uid="uid://bll71lm1fe1mm" path="res://enemies/states_limbo/state_falling.gd" id="4_71p70"]
+[ext_resource type="Script" path="res://enemies/alien/states_limbo/state_machine_utils.gd" id="4_for7m"]
+[ext_resource type="Script" uid="uid://qfdoalk5uvcr" path="res://enemies/states_limbo/state_moving.gd" id="5_71p70"]
+[ext_resource type="Script" uid="uid://cot53qc47glgk" path="res://enemies/states_limbo/state_turn_around.gd" id="6_71p70"]
+[ext_resource type="Script" uid="uid://diklug68gquux" path="res://enemies/states_limbo/state_get_hit.gd" id="7_71p70"]
+[ext_resource type="Script" uid="uid://biglfei6y0lap" path="res://enemies/states_limbo/state_to_ball.gd" id="8_dqr31"]
+[ext_resource type="Script" uid="uid://d2pjomwa5wjl2" path="res://enemies/states_limbo/state_dead.gd" id="9_71p70"]
 [ext_resource type="PackedScene" uid="uid://s2tdallyq144" path="res://bullets/bullet_ball.tscn" id="9_wo6dy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqr31"]
@@ -4785,7 +4785,7 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.00939331, 0.283901, 0
 shape = SubResource("CapsuleShape3D_5fbe7")
 
 [node name="RayCastFloorDetector" type="RayCast3D" parent="."]
-transform = Transform3D(0.999986, -0.00523596, 0, 0.00523596, 0.999986, 0, 0, 0, 1, 0, 0, 0.36289)
+transform = Transform3D(0.999986, -0.00523596, 0, 0.00523596, 0.999986, 0, 0, 0, 1, 0, 0, 0.201053)
 target_position = Vector3(0, -0.3, 0)
 collision_mask = 34
 
@@ -4818,24 +4818,28 @@ visible = false
 [node name="LimboHSM" type="LimboHSM" parent="."]
 
 [node name="state_falling" type="LimboState" parent="LimboHSM"]
-script = ExtResource("2_le0rs")
+script = ExtResource("4_71p70")
 
-[node name="state_moving" type="LimboState" parent="LimboHSM" node_paths=PackedStringArray("animation_player")]
-script = ExtResource("3_vut4o")
+[node name="state_moving" type="LimboState" parent="LimboHSM" node_paths=PackedStringArray("animation_player", "ray_cast_floor_detector")]
+script = ExtResource("5_71p70")
 animation_player = NodePath("../../AnimationPlayer")
+ray_cast_floor_detector = NodePath("../../RayCastFloorDetector")
 
-[node name="state_turn_around" type="LimboState" parent="LimboHSM"]
-script = ExtResource("5_alif8")
+[node name="state_turn_around" type="LimboState" parent="LimboHSM" node_paths=PackedStringArray("ray_cast_floor_detector_")]
+script = ExtResource("6_71p70")
+ray_cast_floor_detector_ = NodePath("../../RayCastFloorDetector")
 
-[node name="state_get_hit" type="LimboState" parent="LimboHSM" node_paths=PackedStringArray("animation_player_")]
-script = ExtResource("6_ngilb")
+[node name="state_get_hit" type="LimboState" parent="LimboHSM" node_paths=PackedStringArray("animation_player_", "timer_get_hit_")]
+script = ExtResource("7_71p70")
 animation_player_ = NodePath("../../AnimationPlayer")
+timer_get_hit_ = NodePath("../../timers/timer_get_hit")
 
-[node name="state_to_ball" type="LimboState" parent="LimboHSM"]
-script = ExtResource("7_ngilb")
+[node name="state_to_ball" type="LimboState" parent="LimboHSM" node_paths=PackedStringArray("timer_reover_to_enemy_")]
+script = ExtResource("8_dqr31")
+timer_reover_to_enemy_ = NodePath("../../timers/timer_reover_to_enemy")
 
 [node name="state_dead" type="LimboState" parent="LimboHSM" node_paths=PackedStringArray("animation_player_")]
-script = ExtResource("8_71p70")
+script = ExtResource("9_71p70")
 animation_player_ = NodePath("../../AnimationPlayer")
 
 [node name="state_machine_utils" type="Node" parent="."]

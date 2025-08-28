@@ -1,6 +1,6 @@
 extends LimboState
 
-@onready var ray_cast_floor_detector_: RayCast3D = $"../../RayCastFloorDetector"
+@export var ray_cast_floor_detector_: RayCast3D
 
 var is_on_wall_ := false
 var turning_ := false
