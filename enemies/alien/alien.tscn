@@ -4780,7 +4780,7 @@ bones/42/scale = Vector3(1, 1, 1)
 mesh = SubResource("ArrayMesh_wupkv")
 skin = SubResource("Skin_1x2mg")
 
-[node name="CollisionShapeAlien" type="CollisionShape3D" parent="."]
+[node name="CollisionShapeEnemy" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.00939331, 0.283901, 0)
 shape = SubResource("CapsuleShape3D_5fbe7")
 
