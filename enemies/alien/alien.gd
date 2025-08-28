@@ -1,4 +1,3 @@
-class_name EnemyBase
 extends CharacterBody3D
 
 @export var move_velocity : Vector3
