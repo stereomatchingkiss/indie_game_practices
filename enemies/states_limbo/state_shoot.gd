@@ -38,3 +38,7 @@ func _enter() -> void:
 	if timer_bullet_buffer_.is_stopped():
 		timer_bullet_buffer_.start()
 		_spawn_bullet()
+		
+func _update(delta: float) -> void:
+	if agent.get_get_hit():
+		dispatch(&"shoot_to_get_hit")
