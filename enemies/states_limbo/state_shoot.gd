@@ -41,4 +41,5 @@ func _enter() -> void:
 		
 func _update(delta: float) -> void:
 	if agent.get_get_hit():
+		timer_bullet_buffer_.stop()
 		dispatch(&"shoot_to_get_hit")
