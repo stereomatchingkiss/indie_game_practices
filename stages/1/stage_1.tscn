@@ -67,6 +67,14 @@ move_velocity = Vector3(-1, 0, 0)
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.35604, 2.98178, 1)
 move_velocity = Vector3(1, 0, 0)
 
+[node name="Alien5" parent="Enemies" instance=ExtResource("6_w3dhl")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.24658, 1.86575, 1)
+move_velocity = Vector3(1, 0, 0)
+
+[node name="Alien6" parent="Enemies" instance=ExtResource("6_w3dhl")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.37607, 1.86575, 1)
+move_velocity = Vector3(1, 0, 0)
+
 [node name="dog" parent="Enemies" instance=ExtResource("6_k2umc")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.862, -0.917, 1)
 
