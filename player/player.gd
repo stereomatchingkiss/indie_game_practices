@@ -75,8 +75,3 @@ func align_with_floor(floor_normal : Vector3):
 	xnorm_.basis.y = floor_normal
 	xnorm_.basis.x = -xnorm_.basis.z.cross(floor_normal)
 	xnorm_.basis = xnorm_.basis.orthonormalized()
-	
-#Kill player if fall into the hole
-func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.get_type_name() == &"player":
-		get_tree().change_scene_to_file("res://stages/1/stage_1.tscn")
