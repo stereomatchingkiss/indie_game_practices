@@ -30,7 +30,6 @@ func on_boby_entered_bullet_ball(body : Node3D):
 		print_debug("player enter bullet ball, ", body.get_type_name())
 		#if this do not set to true, the ball would not bounce back after hitting wall
 		enemy_.set_collision_mask_value(4, true)
-		enemy_.set_collision_mask_value(8, true)
 		bullet_ball_.set_collision_mask_value(1, false)
 		bullet_ball_.set_collision_mask_value(4, true)
 		enemy_.velocity = body.velocity

@@ -22,13 +22,15 @@ func _update(delta: float) -> void:
 		if collide:
 			if collide.get_collider().get_class() != "CharacterBody3D":
 				bounce_limit_ -= 1
-			if bounce_limit_ > 0:
-				#print_debug("collide velocity = ", agent.velocity)
-				var reflect = collide.get_remainder().bounce(collide.get_normal())
-				agent.velocity.z = 0
-				agent.velocity = agent.velocity.bounce(collide.get_normal())
-				agent.velocity = agent.velocity.normalized() * agent.get_bouncing_speed()
-				agent.move_and_collide(reflect)
+				if bounce_limit_ > 0:
+					#print_debug("collide velocity = ", agent.velocity)
+					var reflect = collide.get_remainder().bounce(collide.get_normal())
+					agent.velocity.z = 0
+					agent.velocity = agent.velocity.bounce(collide.get_normal())
+					agent.velocity = agent.velocity.normalized() * agent.get_bouncing_speed()
+					agent.move_and_collide(reflect)
+				else:
+					agent.queue_free()
 			else:
 				agent.queue_free()
 	else:
