@@ -36,7 +36,8 @@ func on_boby_entered_bullet_ball(body : Node3D):
 		enemy_.velocity.z = 0
 		enemy_.velocity = enemy_.velocity.normalized() * enemy_.get_bouncing_speed()
 	elif tname == &"enemy":
-		print_debug("ball hit enemy == ", body.get_type_name())
+		print_debug("ball hit enemy == ", body.get_type_name(), ", name = ", body.name)
+		body.set_collision_layer_value(4, false)
 		body.limbo_hsm_.dispatch(&"dead")
 		
 func recover_to_enemy() -> void:
