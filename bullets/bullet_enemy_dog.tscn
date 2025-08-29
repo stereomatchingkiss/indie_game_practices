@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgeoerqkww6fr"]
+
+[ext_resource type="Script" uid="uid://hc61sawh0gnm" path="res://bullets/bullet_enemy_dog.gd" id="1_4mxee"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_pxmnw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4mxee"]
+albedo_color = Color(0.74, 0.2516, 0.43882, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1b7m6"]
+
+[node name="bullet_enemy_dog" type="Area3D"]
+collision_layer = 256
+script = ExtResource("1_4mxee")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.26, 0, 0, 0, 0.26, 0, 0, 0, 0.26, 0, 0, 0)
+mesh = SubResource("SphereMesh_pxmnw")
+surface_material_override/0 = SubResource("StandardMaterial3D_4mxee")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.26, 0, 0, 0, 0.26, 0, 0, 0, 0.26, 0, 0, 0)
+shape = SubResource("SphereShape3D_1b7m6")
