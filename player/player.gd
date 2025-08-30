@@ -12,23 +12,17 @@ const CAM_ROTATE_DEG_ = 30
 @onready var step_on_ := false
 @onready var xnorm_ : Transform3D
 @onready var state_machine_utils_ := %state_machine_utils
+@onready var timer_disable_mask_: Timer = %timer_disable_mask
 
 func _ready() -> void:
-	%timer_disable_mask.timeout.connect(_enable_platform_mask)
 	state_machine_utils_.init(self)
 	
-func _enable_platform_mask():
-	set_collision_mask_value(6, true)
-	
-func _is_collide_with_platform() -> bool:
-	if ray_cast_3d_.is_colliding():
-		return ray_cast_3d_.get_collider().get_collision_layer_value(6)
-		
-	return false
+func _not_collide_with_ground() -> bool:
+	return !ray_cast_3d_.is_colliding()
 	
 func _physics_process(delta: float) -> void:
 	input_cache.cache_input(state_machine_utils_.get_active_state(), \
-	%CameraController.transform.basis, _is_collide_with_platform(), delta)
+	%CameraController.transform.basis, _not_collide_with_ground(), delta)
 
 	adjust_player_rotation(input_cache.get_input_direction())
 	align_character(delta)
@@ -37,7 +31,7 @@ func _physics_process(delta: float) -> void:
 
 func disable_platform_mask():
 	set_collision_mask_value(6, false)
-	%timer_disable_mask.start(0.3)
+	timer_disable_mask_.start(0.3)
 
 # Separate body to type and name, easier to maintain if need to increase more players/enemies type
 func get_type_name() -> StringName:
@@ -75,3 +69,7 @@ func align_with_floor(floor_normal : Vector3):
 	xnorm_.basis.y = floor_normal
 	xnorm_.basis.x = -xnorm_.basis.z.cross(floor_normal)
 	xnorm_.basis = xnorm_.basis.orthonormalized()
+
+func _on_area_3d_platform_detect_body_entered(body: Node3D) -> void:
+	if timer_disable_mask_.is_stopped():
+		set_collision_mask_value(6, true)

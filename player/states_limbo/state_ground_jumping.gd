@@ -1,10 +1,8 @@
 extends LimboState
 
-@onready
-var aux_func := %AuxiliaryFunctions
+@export var animation_player : AnimationPlayer
 
-@export
-var animation_player : AnimationPlayer
+@onready var aux_func_ := %AuxiliaryFunctions
 
 # Called when the node enters the scene tree for the first time.
 func _enter() -> void:
@@ -17,13 +15,13 @@ func _update(delta: float) -> void:
 		print_debug("enter ground jump_press jumping state")
 		if agent.input_cache.get_jump():
 			agent.disable_platform_mask()
-			agent.velocity.y = aux_func.JUMP_VELOCITY
+			agent.velocity.y = aux_func_.JUMP_VELOCITY
 			agent.input_cache.reset_jump()
 		else:
 			print_debug("enter ground jump_press to idle state")
 			SoundManager.play_land()
 			get_root().dispatch(&"ground_to_idle")
 	else:
-		aux_func.move_character(agent)
+		aux_func_.move_character(agent)
 		if agent.input_cache.get_shoot():
 			get_root().dispatch(&"shoot")

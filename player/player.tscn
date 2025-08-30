@@ -1,4 +1,4 @@
-[gd_scene load_steps=112 format=4 uid="uid://b0tmdnp32vajq"]
+[gd_scene load_steps=113 format=4 uid="uid://b0tmdnp32vajq"]
 
 [ext_resource type="Script" uid="uid://dmbrlygix3io8" path="res://player/player.gd" id="1_3rm2q"]
 [ext_resource type="Script" uid="uid://dfciox233tq5p" path="res://player/states_limbo/state_ground_coyote_jump.gd" id="2_yllr7"]
@@ -17,6 +17,9 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g3ynn"]
 radius = 0.150549
 height = 0.553476
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yllr7"]
+size = Vector3(0.241943, 0.00976563, 0.210693)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rm7o2"]
 resource_name = "rogue_texture"
@@ -31198,6 +31201,14 @@ one_shot = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2563, 0)
 shape = SubResource("CapsuleShape3D_g3ynn")
 
+[node name="Area3DPlatformDetect" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape3DPlatformDetect" type="CollisionShape3D" parent="Area3DPlatformDetect"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0494385, -0.0166016, -0.0135414)
+shape = SubResource("BoxShape3D_yllr7")
+
 [node name="CameraController" type="Node3D" parent="."]
 unique_name_in_owner = true
 top_level = true
@@ -31211,8 +31222,9 @@ current = true
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00921744, 0)
 top_level = true
-target_position = Vector3(0, -0.2, 0)
+target_position = Vector3(0, -0.1, 0)
 collision_mask = 34
 
 [node name="LimboHSM" type="LimboHSM" parent="."]
@@ -31696,3 +31708,5 @@ script = ExtResource("11_um52r")
 [node name="state_machine_utils" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("12_q3wfk")
+
+[connection signal="body_entered" from="Area3DPlatformDetect" to="." method="_on_area_3d_platform_detect_body_entered"]

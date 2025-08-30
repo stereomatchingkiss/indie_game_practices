@@ -10,13 +10,13 @@ var pressed_shoot_ := false
 const jump_buffer_window_ := 0.07
 var jump_buffer_ := -0.1
 
-func cache_input(state : LimboState, cam_basis : Basis, is_on_platform : bool, delta : float) -> void:	
+func cache_input(state : LimboState, cam_basis : Basis, is_on_ground : bool, delta : float) -> void:	
 	if input_direction_ == Vector2():
 		input_direction_ = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 		norm_direction_ = (cam_basis * Vector3(input_direction_.x, 0, input_direction_.y)).normalized()
 	
 	pressed_jump_down_ = false
-	if is_on_platform:
+	if not is_on_ground:
 		if Input.is_action_just_pressed("ui_down") and Input.is_action_pressed("jump"):
 			print("先按 Space，再按 Down → 触发一次")
 			pressed_jump_down_ = true
