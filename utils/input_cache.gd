@@ -21,8 +21,7 @@ func cache_input(state : LimboState, cam_basis : Basis, is_on_ground : bool, del
 			print("先按 Space，再按 Down → 触发一次")
 			pressed_jump_down_ = true
 			reset_jump()
-
-		if Input.is_action_just_pressed("jump") and Input.is_action_pressed("ui_down"):
+		elif Input.is_action_just_pressed("jump") and Input.is_action_pressed("ui_down"):
 			print("先按 Down，再按 Space → 触发一次")
 			pressed_jump_down_ = true
 			reset_jump()
