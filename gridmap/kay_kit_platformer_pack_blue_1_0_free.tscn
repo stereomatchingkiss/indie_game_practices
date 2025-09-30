@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=4 uid="uid://bund04tvprexm"]
+[gd_scene load_steps=63 format=4 uid="uid://bund04tvprexm"]
 
 [ext_resource type="Texture2D" uid="uid://dpxbpsjkvjd8w" path="res://assets/gridmap/KayKitPlatformerGltf/blue/platformer_texture.png" id="1_oyw26"]
 [ext_resource type="PackedScene" uid="uid://banealjr5hu24" path="res://assets/gridmap/KayKitPlatformerGltf/blue/platform_6x2x2_blue.gltf" id="48_etxib"]
@@ -421,9 +421,16 @@ shadow_mesh = SubResource("ArrayMesh_t7s6b")
 [sub_resource type="BoxShape3D" id="BoxShape3D_pebdu"]
 size = Vector3(5.96236, 0.918198, 1.91919)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_si6ed"]
+size = Vector3(5.9578857, 1.9523315, 1.8972168)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rtlug"]
+size = Vector3(5.8933105, 0.9079895, 5.960022)
+
 [node name="KayKit_Platformer_Pack_1_0_FREE" type="Node3D"]
 
 [node name="platform_1x1x1_blue2" type="Node3D" parent="."]
+visible = false
 
 [node name="platform_1x1x1_blue" type="MeshInstance3D" parent="platform_1x1x1_blue2"]
 mesh = SubResource("ArrayMesh_e2q6h")
@@ -436,6 +443,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0133057, 0.251762, -0.00283
 shape = SubResource("BoxShape3D_768k0")
 
 [node name="platform_2x2x1_blue2" type="Node3D" parent="."]
+visible = false
 
 [node name="platform_2x2x1_blue" type="MeshInstance3D" parent="platform_2x2x1_blue2"]
 mesh = SubResource("ArrayMesh_4y41r")
@@ -449,6 +457,7 @@ shape = SubResource("BoxShape3D_2746b")
 
 [node name="platform_2x2x4_blue2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.9499)
+visible = false
 
 [node name="platform_2x2x4_blue" type="MeshInstance3D" parent="platform_2x2x4_blue2"]
 mesh = SubResource("ArrayMesh_067ji")
@@ -462,6 +471,7 @@ shape = SubResource("BoxShape3D_a3gdy")
 
 [node name="platform_4x2x1_blue2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.0443, 0)
+visible = false
 
 [node name="platform_4x2x1_blue" type="MeshInstance3D" parent="platform_4x2x1_blue2"]
 mesh = SubResource("ArrayMesh_yfldo")
@@ -474,6 +484,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.72205e-05, 0.480374, 0)
 shape = SubResource("BoxShape3D_oyw26")
 
 [node name="platform_4x2x2_blue2" type="Node3D" parent="."]
+visible = false
 
 [node name="platform_4x2x2_blue" type="MeshInstance3D" parent="platform_4x2x2_blue2"]
 mesh = SubResource("ArrayMesh_a3gdy")
@@ -486,6 +497,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000152588, 0.966919, 0.013
 shape = SubResource("BoxShape3D_ahlxl")
 
 [node name="platform_4x2x4_blue2" type="Node3D" parent="."]
+visible = false
 
 [node name="platform_4x2x4_blue" type="MeshInstance3D" parent="platform_4x2x4_blue2"]
 mesh = SubResource("ArrayMesh_ahlxl")
@@ -498,6 +510,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00808525, 1.98535, -0.00839
 shape = SubResource("BoxShape3D_ifc07")
 
 [node name="platform_4x4x1_blue2" type="Node3D" parent="."]
+visible = false
 
 [node name="platform_4x4x1_blue" type="MeshInstance3D" parent="platform_4x4x1_blue2"]
 mesh = SubResource("ArrayMesh_ifc07")
@@ -510,6 +523,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0450439, 0.498804, 0.012550
 shape = SubResource("BoxShape3D_oi7ws")
 
 [node name="platform_4x4x2_blue2" type="Node3D" parent="."]
+visible = false
 
 [node name="platform_4x4x2_blue" type="MeshInstance3D" parent="platform_4x4x2_blue2"]
 mesh = SubResource("ArrayMesh_oi7ws")
@@ -522,6 +536,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0139084, 0.99989, -0.00271
 shape = SubResource("BoxShape3D_0cqss")
 
 [node name="platform_4x4x4_blue2" type="Node3D" parent="."]
+visible = false
 
 [node name="platform_4x4x4_blue" type="MeshInstance3D" parent="platform_4x4x4_blue2"]
 mesh = SubResource("ArrayMesh_0cqss")
@@ -534,6 +549,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0057373, 2.01579, 0.0060424
 shape = SubResource("BoxShape3D_rxi1q")
 
 [node name="platform_6x2x1_blue2" type="Node3D" parent="."]
+visible = false
 
 [node name="platform_6x2x1_blue" type="MeshInstance3D" parent="platform_6x2x1_blue2"]
 mesh = SubResource("ArrayMesh_rxi1q")
@@ -546,39 +562,75 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00609589, 0.4914, 0.0457764
 shape = SubResource("BoxShape3D_pebdu")
 
 [node name="platform_6x2x2_blue2" parent="." instance=ExtResource("48_etxib")]
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="platform_6x2x2_blue2/platform_6x2x2_blue" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4580078, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="platform_6x2x2_blue2/platform_6x2x2_blue/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0053100586, 0.5433655, 0.008911133)
+shape = SubResource("BoxShape3D_si6ed")
 
 [node name="platform_6x2x4_blue2" parent="." instance=ExtResource("49_x37de")]
+visible = false
 
 [node name="platform_6x6x1_blue2" parent="." instance=ExtResource("50_mkfgh")]
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="platform_6x6x1_blue2/platform_6x6x1_blue" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="platform_6x6x1_blue2/platform_6x6x1_blue/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016723633, 0.47969055, -0.007232666)
+shape = SubResource("BoxShape3D_rtlug")
 
 [node name="platform_6x6x2_blue2" parent="." instance=ExtResource("51_y2whh")]
+visible = false
 
 [node name="platform_6x6x4_blue2" parent="." instance=ExtResource("52_gf6b3")]
+visible = false
 
 [node name="platform_arrow_2x2x1_blue2" parent="." instance=ExtResource("53_d2e42")]
+visible = false
 
 [node name="platform_arrow_4x4x1_blue2" parent="." instance=ExtResource("54_8ofcm")]
+visible = false
 
 [node name="platform_decorative_1x1x1_blue2" parent="." instance=ExtResource("55_8axml")]
+visible = false
 
 [node name="platform_decorative_2x2x2_blue2" parent="." instance=ExtResource("56_g2fxi")]
+visible = false
 
 [node name="platform_hole_6x6x1_blue2" parent="." instance=ExtResource("57_g81ex")]
+visible = false
 
 [node name="platform_slope_2x2x2_blue2" parent="." instance=ExtResource("58_0n7if")]
+visible = false
 
 [node name="platform_slope_2x4x4_blue2" parent="." instance=ExtResource("59_g83fq")]
+visible = false
 
 [node name="platform_slope_2x6x4_blue2" parent="." instance=ExtResource("60_duvs1")]
+visible = false
 
 [node name="platform_slope_4x2x2_blue2" parent="." instance=ExtResource("61_hb4se")]
+visible = false
 
 [node name="platform_slope_4x4x4_blue2" parent="." instance=ExtResource("62_6l68x")]
+visible = false
 
 [node name="platform_slope_4x6x4_blue2" parent="." instance=ExtResource("63_lkerp")]
+visible = false
 
 [node name="platform_slope_6x2x2_blue2" parent="." instance=ExtResource("64_57hc2")]
+visible = false
 
 [node name="platform_slope_6x4x4_blue2" parent="." instance=ExtResource("65_o7exn")]
+visible = false
 
 [node name="platform_slope_6x6x4_blue2" parent="." instance=ExtResource("66_bg7wd")]
+visible = false
+
+[editable path="platform_6x2x2_blue2"]
+[editable path="platform_6x2x4_blue2"]
+[editable path="platform_6x6x1_blue2"]
