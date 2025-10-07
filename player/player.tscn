@@ -31211,13 +31211,14 @@ shape = SubResource("BoxShape3D_yllr7")
 
 [node name="CameraController" type="Node3D" parent="."]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.83447623)
 top_level = true
 
 [node name="CameraTarget" type="Node3D" parent="CameraController"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004776, 2.16665, 5.62743)
 
 [node name="Camera3D" type="Camera3D" parent="CameraController/CameraTarget"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0201416)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4113798, 1.4460278)
 current = true
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
