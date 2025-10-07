@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://dfnsj40eciydt"]
+[gd_scene load_steps=8 format=3 uid="uid://dfnsj40eciydt"]
 
 [ext_resource type="Script" uid="uid://curb3uow6k0e1" path="res://stages/1/stage_1.gd" id="1_bxaci"]
-[ext_resource type="Texture2D" uid="uid://da4ncrbjdxxrt" path="res://assets/skybox/AllSky_Overcast4_Low.png" id="2_e1vjl"]
 [ext_resource type="PackedScene" uid="uid://b0tmdnp32vajq" path="res://player/player.tscn" id="3_lhl68"]
 [ext_resource type="PackedScene" uid="uid://buemyqcf4b5dv" path="res://HUD/hud.tscn" id="6_4esbh"]
 [ext_resource type="MeshLibrary" uid="uid://c5yd5qmn7cwb5" path="res://assets/gridmap/tres/KayKitPlatformer_1.0_Platform_Blue.tres" id="6_e1vjl"]
@@ -9,25 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://4a51qwapbxxl" path="res://enemies/alien/alien.tscn" id="6_w3dhl"]
 [ext_resource type="MeshLibrary" uid="uid://b716cwj2qr3ua" path="res://assets/gridmap/tres/KayKitBlockBits.tres" id="7_e1vjl"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_2v1o7"]
-panorama = ExtResource("2_e1vjl")
-
-[sub_resource type="Sky" id="Sky_vbj0h"]
-sky_material = SubResource("PanoramaSkyMaterial_2v1o7")
-
-[sub_resource type="Environment" id="Environment_6r243"]
-background_mode = 2
-sky = SubResource("Sky_vbj0h")
-ambient_light_source = 2
-ambient_light_color = Color(0.52, 0.404733, 0.3224, 1)
-ssr_enabled = true
-ssao_enabled = true
-
 [node name="Stage1" type="Node3D"]
 script = ExtResource("1_bxaci")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_6r243")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.841322, 0.0415915, -0.538931, 0.540534, -0.0647357, 0.838828, 0, -0.997035, -0.0769452, 4.88741, 12.0124, -2.49354)
