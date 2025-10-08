@@ -10,10 +10,10 @@ var pressed_shoot_ := false
 const jump_buffer_window_ := 0.07
 var jump_buffer_ := -0.1
 
-func cache_input(state : LimboState, cam_basis : Basis, is_on_ground : bool, delta : float) -> void:	
+func cache_input(state : LimboState, is_on_ground : bool, delta : float) -> void:	
 	if input_direction_ == Vector2():
 		input_direction_ = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-		norm_direction_ = (cam_basis * Vector3(input_direction_.x, 0, input_direction_.y)).normalized()
+		norm_direction_ = (Vector3(input_direction_.x, 0, input_direction_.y)).normalized()
 	
 	pressed_jump_down_ = false
 	if not is_on_ground:

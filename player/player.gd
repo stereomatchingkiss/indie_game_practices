@@ -7,7 +7,6 @@ extends CharacterBody3D
 const CAM_ROTATE_DEG_ = 30
 
 @onready var avatar_ := %Rogue_Hooded
-@onready var camera_controller_ := %CameraController
 @onready var ray_cast_3d_: RayCast3D = %RayCast3D
 @onready var step_on_ := false
 @onready var xnorm_ : Transform3D
@@ -22,7 +21,7 @@ func _not_collide_with_ground() -> bool:
 	
 func _physics_process(delta: float) -> void:
 	input_cache.cache_input(state_machine_utils_.get_active_state(), \
-	%CameraController.transform.basis, _not_collide_with_ground(), delta)
+	_not_collide_with_ground(), delta)
 
 	adjust_player_rotation(input_cache.get_input_direction())
 	align_character(delta)
@@ -43,13 +42,10 @@ func get_body_name() -> StringName:
 func player_direction() -> int:
 	return avatar_.rotation_degrees.y
 
-func _unhandled_input(event: InputEvent) -> void:
-	pass
-
 func adjust_player_rotation(input_dir : Vector2):
 	if input_dir != Vector2() and input_cache.get_x_direction_not_empty():
 		input_dir[1] = 0
-		avatar_.rotation_degrees.y = camera_controller_.rotation_degrees.y - rad_to_deg(input_dir.angle())
+		avatar_.rotation_degrees.y = -rad_to_deg(input_dir.angle())
 
 func align_character(delta : float):
 	if not is_on_floor():
