@@ -15,8 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://qiuubvajnfjd" path="res://assets/player/Rogue_Hooded_rogue_texture.png" id="16_ko8rl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g3ynn"]
-radius = 0.150549
-height = 0.553476
+radius = 0.32080078
+height = 1.334658
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yllr7"]
 size = Vector3(0.241943, 0.00976563, 0.210693)
@@ -31187,7 +31187,7 @@ _data = {
 }
 
 [node name="player" type="CharacterBody3D"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 collision_mask = 54
 axis_lock_linear_z = true
 script = ExtResource("1_3rm2q")
@@ -31198,7 +31198,7 @@ wait_time = 0.3
 one_shot = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2563, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0053527355, 0.646891, -2.339755e-10)
 shape = SubResource("CapsuleShape3D_g3ynn")
 
 [node name="Area3DPlatformDetect" type="Area3D" parent="."]
@@ -31208,18 +31208,6 @@ collision_mask = 32
 [node name="CollisionShape3DPlatformDetect" type="CollisionShape3D" parent="Area3DPlatformDetect"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0494385, -0.0166016, -0.0135414)
 shape = SubResource("BoxShape3D_yllr7")
-
-[node name="CameraController" type="Node3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.83447623)
-top_level = true
-
-[node name="CameraTarget" type="Node3D" parent="CameraController"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004776, 2.16665, 5.62743)
-
-[node name="Camera3D" type="Camera3D" parent="CameraController/CameraTarget"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4113798, 1.4460278)
-current = true
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 unique_name_in_owner = true
@@ -31275,7 +31263,7 @@ animation_player = NodePath("../../Rogue_Hooded/AnimationPlayer")
 
 [node name="Rogue_Hooded" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 
 [node name="Rig" type="Node3D" parent="Rogue_Hooded"]
 

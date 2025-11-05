@@ -3,7 +3,7 @@ class_name AuxiliaryFunctionsPlayer
 extends Node
 
 const JUMP_VELOCITY = 4.5
-const SPEED = 2.0
+const SPEED = 3.0
 
 func move_character(player : Player):
 	var direction : Vector3 = player.input_cache.get_norm_direction()
