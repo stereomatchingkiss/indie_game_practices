@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="retro_game_replicate"
-run/main_scene="res://stages/1/stage_1.tscn"
+run/main_scene="uid://cdd8ekoinekif"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -59,7 +59,35 @@ jump={
 3d_physics/layer_7="bullet"
 3d_physics/layer_8="bullet_ball"
 3d_physics/layer_9="bullet_enemy"
+3d_physics/layer_10="wall"
 
 [rendering]
 
+lights_and_shadows/use_physical_light_units=true
+global_illumination/gi/use_half_resolution=true
 anti_aliasing/quality/msaa_3d=1
+global_illumination/sdfgi/frames_to_converge=2
+global_illumination/sdfgi/frames_to_update_lights=0
+
+[shader_globals]
+
+specular_smoothness={
+"type": "float",
+"value": 0.05
+}
+fresnel_smoothness={
+"type": "float",
+"value": 0.05
+}
+outline_width={
+"type": "float",
+"value": 4.0
+}
+outline_color={
+"type": "color",
+"value": Color(0, 0, 0, 1)
+}
+diffuse_curve={
+"type": "sampler2D",
+"value": "::s6p3t"
+}
