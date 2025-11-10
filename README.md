@@ -25,6 +25,11 @@ A collection of independent game projects for practicing game development with G
 - [Cozy Voxel Skybox](https://thomasgamboa.itch.io/cozy-voxel-skybox-free-voxel-style-textures)
 - [Ultimate monster pack](https://quaternius.com/packs/ultimatemonsters.html)
 
+## Fonts
+
+- [Ma Shan Zheng](https://fonts.google.com/specimen/Ma+Shan+Zheng?lang=zh_Hans)
+- [Noto Serif Simplified Chinese](https://fonts.google.com/noto/specimen/Noto+Serif+SC?lang=zh_Hans)
+
 # Todo
 
 - Better background
