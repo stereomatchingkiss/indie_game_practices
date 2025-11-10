@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://du4uk7vhepj7j"]
+
+[ext_resource type="Theme" uid="uid://di1ynnspp1355" path="res://assets/themes/theme_menu.tres" id="1_37pjl"]
+[ext_resource type="Script" uid="uid://bv631tgro5bo1" path="res://ui/menu/main_menu.gd" id="2_or6mk"]
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_37pjl")
+script = ExtResource("2_or6mk")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -197.0
+offset_top = 41.0
+offset_right = 200.0
+offset_bottom = 132.0
+grow_horizontal = 2
+text = "Godot Practice"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -349.0
+offset_top = -172.375
+offset_right = 349.0
+offset_bottom = 172.375
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 7
+
+[node name="button_game_start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Game Start"
+
+[node name="button_options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Options
+"
+
+[node name="button_end" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "End
+"
+
+[connection signal="pressed" from="VBoxContainer/button_game_start" to="." method="_on_button_game_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/button_options" to="." method="_on_button_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/button_end" to="." method="_on_button_end_pressed"]
