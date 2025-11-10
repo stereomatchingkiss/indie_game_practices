@@ -1,0 +1,61 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://di1ynnspp1355"]
+
+[ext_resource type="FontFile" uid="uid://3tugi486qlre" path="res://assets/fonts/NotoSerifSC-Regular.ttf" id="1_8p00x"]
+[ext_resource type="FontFile" uid="uid://c7j1f6rw6r36g" path="res://assets/fonts/MaShanZheng-Regular.ttf" id="2_av4ip"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_av4ip"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pgwac"]
+bg_color = Color(0.8998068, 0.68333805, 0.6448877, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.4225492, 0.9151441, 0.6366493, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_av4ip"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.7973662, 0.524177, 0.38248953, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sc2d1"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.5127154, 0.83957833, 0.62562233, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.9424456, 0.78757125, 0.140849, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_8p00x")
+Button/styles/focus = SubResource("StyleBoxEmpty_av4ip")
+Button/styles/hover = SubResource("StyleBoxFlat_pgwac")
+Button/styles/normal = SubResource("StyleBoxFlat_av4ip")
+Button/styles/pressed = SubResource("StyleBoxFlat_sc2d1")
+Label/font_sizes/font_size = 90
+Label/fonts/font = ExtResource("2_av4ip")
