@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dfnsj40eciydt"]
+[gd_scene load_steps=7 format=3 uid="uid://dfnsj40eciydt"]
 
 [ext_resource type="Script" uid="uid://curb3uow6k0e1" path="res://stages/1/stage_1.gd" id="1_bxaci"]
 [ext_resource type="PackedScene" uid="uid://b0tmdnp32vajq" path="res://player/player.tscn" id="3_lhl68"]
-[ext_resource type="PackedScene" uid="uid://buemyqcf4b5dv" path="res://HUD/hud.tscn" id="6_4esbh"]
 [ext_resource type="MeshLibrary" uid="uid://c5yd5qmn7cwb5" path="res://assets/gridmap/tres/KayKitPlatformer_1.0_Platform_Blue.tres" id="6_e1vjl"]
 [ext_resource type="PackedScene" uid="uid://pwu6jjxts73x" path="res://enemies/dog/dog.tscn" id="6_k2umc"]
 [ext_resource type="PackedScene" uid="uid://4a51qwapbxxl" path="res://enemies/alien/alien.tscn" id="6_w3dhl"]
@@ -18,8 +17,6 @@ shadow_enabled = true
 [node name="player" parent="." instance=ExtResource("3_lhl68")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.844, -0.769286, 1)
 collision_mask = 30
-
-[node name="HUD" parent="." instance=ExtResource("6_4esbh")]
 
 [node name="Enemies" type="Node" parent="."]
 
