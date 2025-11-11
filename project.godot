@@ -11,13 +11,17 @@ config_version=5
 [application]
 
 config/name="retro_game_replicate"
-run/main_scene="uid://cdd8ekoinekif"
+run/main_scene="uid://du4uk7vhepj7j"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 SoundManager="*res://sounds/sound_manager.tscn"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [input]
 
