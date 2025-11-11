@@ -17,30 +17,37 @@ script = ExtResource("1_f05am")
 [node name="jump" type="AudioStreamPlayer" parent="sound_effects"]
 unique_name_in_owner = true
 stream = ExtResource("2_0v1q7")
+bus = &"Sound"
 
 [node name="shoot_standard_bullet" type="AudioStreamPlayer" parent="sound_effects"]
 unique_name_in_owner = true
 stream = ExtResource("3_yvcp5")
+bus = &"Sound"
 
 [node name="land" type="AudioStreamPlayer" parent="sound_effects"]
 unique_name_in_owner = true
 stream = ExtResource("4_a1hhe")
+bus = &"Sound"
 
 [node name="dead_player" type="AudioStreamPlayer" parent="sound_effects"]
 unique_name_in_owner = true
 stream = ExtResource("5_pp33v")
+bus = &"Sound"
 
 [node name="hit_enemy_by_arrow" type="AudioStreamPlayer" parent="sound_effects"]
 unique_name_in_owner = true
 stream = ExtResource("6_en5fs")
+bus = &"Sound"
 
 [node name="dead_enemy" type="AudioStreamPlayer" parent="sound_effects"]
 unique_name_in_owner = true
 stream = ExtResource("7_yvcp5")
+bus = &"Sound"
 
 [node name="musics" type="Node" parent="."]
 
 [node name="creepy_comedy" type="AudioStreamPlayer" parent="musics"]
 unique_name_in_owner = true
 stream = ExtResource("7_x2es2")
+bus = &"Music"
 parameters/looping = true
