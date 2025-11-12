@@ -44,38 +44,78 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = SubResource("Theme_nhojy")
 tab_alignment = 1
-current_tab = 1
+current_tab = 2
 
 [node name="Game" type="TabBar" parent="VBoxContainer/TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TabContainer/Game"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Game/MarginContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 8
+columns = 2
+
+[node name="label_language" type="Label" parent="VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Language"
+
+[node name="option_language" type="OptionButton" parent="VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 2
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "简体中文"
+popup/item_1/id = 1
+
+[node name="button_reset_defaults" type="Button" parent="VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Reset Defaults"
+
 [node name="Audio" type="TabBar" parent="VBoxContainer/TabContainer"]
+visible = false
 layout_mode = 2
 script = ExtResource("1_v2t1d")
 metadata/_tab_index = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TabContainer/Audio"]
-layout_mode = 0
-offset_top = 35.0
-offset_right = 1152.0
-offset_bottom = 119.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
+grow_vertical = 2
 
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/Audio/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Audio/MarginContainer"]
 layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
 columns = 2
 
-[node name="label_sound_volume" type="Label" parent="VBoxContainer/TabContainer/Audio/MarginContainer/GridContainer"]
+[node name="label_sound_volume" type="Label" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Sound Volume"
 
-[node name="slider_sound_volume" type="HSlider" parent="VBoxContainer/TabContainer/Audio/MarginContainer/GridContainer"]
+[node name="slider_sound_volume" type="HSlider" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -86,12 +126,12 @@ max_value = 1.0
 step = 0.05
 value = 1.0
 
-[node name="label_music_volume" type="Label" parent="VBoxContainer/TabContainer/Audio/MarginContainer/GridContainer"]
+[node name="label_music_volume" type="Label" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Music Volume"
 
-[node name="slider_music_volume" type="HSlider" parent="VBoxContainer/TabContainer/Audio/MarginContainer/GridContainer"]
+[node name="slider_music_volume" type="HSlider" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -102,10 +142,65 @@ max_value = 1.0
 step = 0.05
 value = 1.0
 
+[node name="button_reset_defaults" type="Button" parent="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Reset Defaults"
+
 [node name="Video" type="TabBar" parent="VBoxContainer/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TabContainer/Video"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Video/MarginContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/Video/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+columns = 2
+
+[node name="label_resolution" type="Label" parent="VBoxContainer/TabContainer/Video/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Resolution"
+
+[node name="option_resolution" type="OptionButton" parent="VBoxContainer/TabContainer/Video/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 2
+popup/item_0/text = "1920x1080"
+popup/item_0/id = 0
+popup/item_1/text = "1152x648"
+popup/item_1/id = 1
+
+[node name="label_full_screen" type="Label" parent="VBoxContainer/TabContainer/Video/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Full Screen"
+
+[node name="option_resolution2" type="OptionButton" parent="VBoxContainer/TabContainer/Video/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 2
+popup/item_0/text = "On"
+popup/item_0/id = 0
+popup/item_1/text = "Off"
+popup/item_1/id = 1
+
+[node name="button_reset_defaults" type="Button" parent="VBoxContainer/TabContainer/Video/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Reset Defaults"
 
 [node name="Controller" type="TabBar" parent="VBoxContainer/TabContainer"]
 visible = false
@@ -117,10 +212,12 @@ visible = false
 layout_mode = 2
 metadata/_tab_index = 4
 
-[node name="button_back_to_main" type="Button" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="button_back_to_main" type="Button" parent="VBoxContainer/MarginContainer"]
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
-size_flags_horizontal = 4
 text = "Back"
 
-[connection signal="value_changed" from="VBoxContainer/TabContainer/Audio/MarginContainer/GridContainer/slider_sound_volume" to="VBoxContainer/TabContainer/Audio" method="_on_slider_sound_volume_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/TabContainer/Audio/MarginContainer/VBoxContainer/GridContainer/slider_sound_volume" to="VBoxContainer/TabContainer/Audio" method="_on_slider_sound_volume_value_changed"]
