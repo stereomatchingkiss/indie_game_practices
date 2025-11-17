@@ -1,0 +1,97 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmlyp2yoyhv1v"]
+
+[ext_resource type="Theme" uid="uid://b1woour2wjax0" path="res://assets/themes/theme_options.tres" id="1_t7ssv"]
+[ext_resource type="Script" uid="uid://c7xkten4koj2v" path="res://ui/menu/options_audio.gd" id="2_8643a"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_owdm5"]
+color = Color(1, 1, 1, 1)
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_t7ssv"]
+color = Color(0.21805531, 0.2226319, 0.7727893, 1)
+thickness = 6
+
+[node name="options_audio" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_t7ssv")
+script = ExtResource("2_8643a")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="label_title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Audio"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+columns = 2
+
+[node name="label_sound_volume" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_type_variation = &"LabelNormal"
+text = "Sound Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="slider_sound_volume" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_styles/slider = SubResource("StyleBoxLine_owdm5")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_t7ssv")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_t7ssv")
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="label_music_volume" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_type_variation = &"LabelNormal"
+text = "Music Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="slider_music_volume" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_styles/slider = SubResource("StyleBoxLine_owdm5")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_t7ssv")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_t7ssv")
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="button_reset_defaults" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Reset Defaults"
+
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/slider_sound_volume" to="." method="_on_slider_sound_volume_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/slider_music_volume" to="." method="_on_slider_music_volume_value_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/button_reset_defaults" to="." method="_on_button_reset_defaults_pressed"]

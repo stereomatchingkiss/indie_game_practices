@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=3 uid="uid://bla6eukun1g5v"]
+
+[ext_resource type="Theme" uid="uid://b1woour2wjax0" path="res://assets/themes/theme_options.tres" id="1_vhesn"]
+
+[node name="options_game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme = ExtResource("1_vhesn")
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="label_title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 8
+columns = 2
+
+[node name="label_language" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_type_variation = &"LabelNormal"
+text = "Language"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="option_language" type="OptionButton" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 2
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "简体中文"
+popup/item_1/id = 1
+
+[node name="button_reset_defaults" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Reset Defaults"

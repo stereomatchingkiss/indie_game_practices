@@ -1,0 +1,117 @@
+[gd_scene load_steps=7 format=3 uid="uid://b5hwyp7pgmxp2"]
+
+[ext_resource type="Theme" uid="uid://b1woour2wjax0" path="res://assets/themes/theme_options.tres" id="1_eo0r8"]
+[ext_resource type="Texture2D" uid="uid://h1ymwuarh11r" path="res://assets/ui/input_prompts/keyboard_and_mouse/Vector/keyboard_arrows_up.svg" id="1_jeu71"]
+[ext_resource type="Texture2D" uid="uid://bjs3wpff4eju3" path="res://assets/ui/input_prompts/keyboard_and_mouse/Vector/keyboard_arrows_down.svg" id="2_eo0r8"]
+[ext_resource type="Texture2D" uid="uid://dcg2m3f6sbkpn" path="res://assets/ui/input_prompts/keyboard_and_mouse/Vector/keyboard_arrows_right.svg" id="3_qf8xt"]
+[ext_resource type="Texture2D" uid="uid://d365fidmj2gxm" path="res://assets/ui/input_prompts/keyboard_and_mouse/Vector/keyboard_z.svg" id="4_tul3x"]
+[ext_resource type="Texture2D" uid="uid://chynlo2op52pd" path="res://assets/ui/input_prompts/keyboard_and_mouse/Vector/keyboard_x.svg" id="5_t5m2u"]
+
+[node name="options_keyboard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_eo0r8")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="label_title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Keyboard"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/h_separation = 8
+columns = 4
+
+[node name="label_up" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_type_variation = &"LabelNormal"
+text = "Up"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="texture_up" type="TextureRect" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("1_jeu71")
+
+[node name="label_down" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_type_variation = &"LabelNormal"
+text = "Down"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="texture_down" type="TextureRect" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("2_eo0r8")
+
+[node name="label_left" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_type_variation = &"LabelNormal"
+text = "Left"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="texture_left" type="TextureRect" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("2_eo0r8")
+
+[node name="label_right" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_type_variation = &"LabelNormal"
+text = "Right"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="texture_right" type="TextureRect" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("3_qf8xt")
+
+[node name="label_jump" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_type_variation = &"LabelNormal"
+text = "Jump"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="texture_jump" type="TextureRect" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("4_tul3x")
+
+[node name="label_attack" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_type_variation = &"LabelNormal"
+text = "Attack"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="texture_attack" type="TextureRect" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("5_t5m2u")
+
+[node name="button_reset_defaults" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Reset Defaults"
