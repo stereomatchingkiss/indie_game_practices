@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://vfnus37h38vh"]
+[gd_scene load_steps=3 format=3 uid="uid://vfnus37h38vh"]
 
 [ext_resource type="Theme" uid="uid://b1woour2wjax0" path="res://assets/themes/theme_options.tres" id="1_kuxq1"]
+[ext_resource type="Script" uid="uid://bfp7kuutgp3x5" path="res://ui/menu/options_video.gd" id="2_xpx4q"]
 
 [node name="options_video" type="Control"]
 layout_mode = 3
@@ -10,6 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_kuxq1")
+script = ExtResource("2_xpx4q")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -77,3 +79,10 @@ popup/item_1/id = 1
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "Reset Defaults"
+
+[node name="button_back_to_options" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/button_back_to_options" to="." method="_on_button_back_to_options_pressed"]

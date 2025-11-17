@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5hwyp7pgmxp2"]
+[gd_scene load_steps=8 format=3 uid="uid://b5hwyp7pgmxp2"]
 
 [ext_resource type="Theme" uid="uid://b1woour2wjax0" path="res://assets/themes/theme_options.tres" id="1_eo0r8"]
 [ext_resource type="Texture2D" uid="uid://h1ymwuarh11r" path="res://assets/ui/input_prompts/keyboard_and_mouse/Vector/keyboard_arrows_up.svg" id="1_jeu71"]
 [ext_resource type="Texture2D" uid="uid://bjs3wpff4eju3" path="res://assets/ui/input_prompts/keyboard_and_mouse/Vector/keyboard_arrows_down.svg" id="2_eo0r8"]
+[ext_resource type="Script" uid="uid://d34kmcphvgwbe" path="res://ui/menu/options_keyboard.gd" id="2_qf8xt"]
 [ext_resource type="Texture2D" uid="uid://dcg2m3f6sbkpn" path="res://assets/ui/input_prompts/keyboard_and_mouse/Vector/keyboard_arrows_right.svg" id="3_qf8xt"]
 [ext_resource type="Texture2D" uid="uid://d365fidmj2gxm" path="res://assets/ui/input_prompts/keyboard_and_mouse/Vector/keyboard_z.svg" id="4_tul3x"]
 [ext_resource type="Texture2D" uid="uid://chynlo2op52pd" path="res://assets/ui/input_prompts/keyboard_and_mouse/Vector/keyboard_x.svg" id="5_t5m2u"]
@@ -15,6 +16,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_eo0r8")
+script = ExtResource("2_qf8xt")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -115,3 +117,10 @@ texture = ExtResource("5_t5m2u")
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "Reset Defaults"
+
+[node name="button_back_to_options" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/button_back_to_options" to="." method="_on_button_back_to_options_pressed"]
