@@ -1,4 +1,4 @@
-extends TabBar
+extends Control
 
 @onready var id_music_volume_ := AudioServer.get_bus_index("Music")
 @onready var id_sound_volume_ := AudioServer.get_bus_index("Sound")
