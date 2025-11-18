@@ -43,22 +43,18 @@ func _ready() -> void:
 	button_hover_ = 0
 
 func _navigate_buttons_up_or_down(direction : NavigateDirection):
-	for i in range(len(buttons_array_)):
-		if button_hover_ == i:
-			print_debug("button hover = ", i)
-			if direction == NavigateDirection.DOWN:
-				if button_hover_ < (len(buttons_array_) - 1):
-					print_debug("down, set hover = ", i + 1)
-					_set_hovers(i + 1)
-				else:
-					_set_hovers(ButtonName.GAME_START)
-			else:
-				if button_hover_ > 0:
-					print_debug("up, set hover = ", i - 1)
-					_set_hovers(i - 1)
-				else:
-					_set_hovers(ButtonName.GAME_END)
-			break
+	if direction == NavigateDirection.DOWN:
+		if button_hover_ < (len(buttons_array_) - 1):
+			print_debug("down, set hover = ", button_hover_ + 1)
+			_set_hovers(button_hover_ + 1)
+		else:
+			_set_hovers(ButtonName.GAME_START)
+	else:
+		if button_hover_ > 0:
+			print_debug("up, set hover = ", button_hover_ - 1)
+			_set_hovers(button_hover_ - 1)
+		else:
+			_set_hovers(ButtonName.GAME_END)
 
 func _process_key_down() ->void:
 	_navigate_buttons_up_or_down(NavigateDirection.DOWN)
