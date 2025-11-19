@@ -63,11 +63,8 @@ text = "End
 "
 
 [connection signal="mouse_entered" from="VBoxContainer/button_game_start" to="." method="_on_button_game_start_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/button_game_start" to="." method="_on_button_game_start_mouse_exited"]
 [connection signal="pressed" from="VBoxContainer/button_game_start" to="." method="_on_button_game_start_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/button_options" to="." method="_on_button_options_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/button_options" to="." method="_on_button_options_mouse_exited"]
 [connection signal="pressed" from="VBoxContainer/button_options" to="." method="_on_button_options_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/button_end" to="." method="_on_button_end_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/button_end" to="." method="_on_button_end_mouse_exited"]
 [connection signal="pressed" from="VBoxContainer/button_end" to="." method="_on_button_end_pressed"]
