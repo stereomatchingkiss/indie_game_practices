@@ -32,6 +32,7 @@ vertical_alignment = 1
 layout_mode = 2
 
 [node name="button_game" type="Button" parent="VBoxContainer/MarginContainerGame"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
 text = "Game"
@@ -40,6 +41,7 @@ text = "Game"
 layout_mode = 2
 
 [node name="button_audio" type="Button" parent="VBoxContainer/MarginContainerAudio"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
 text = "Audio"
@@ -48,6 +50,7 @@ text = "Audio"
 layout_mode = 2
 
 [node name="button_video" type="Button" parent="VBoxContainer/MarginContainerVideo"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
 text = "Video"
@@ -56,6 +59,7 @@ text = "Video"
 layout_mode = 2
 
 [node name="button_keyboard" type="Button" parent="VBoxContainer/MarginContainerKeyBoard"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
 text = "KeyBoard"
@@ -68,12 +72,18 @@ size_flags_vertical = 3
 layout_mode = 2
 
 [node name="button_back_to_main" type="Button" parent="VBoxContainer/MarginContainerBack"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
 text = "Back"
 
+[connection signal="mouse_entered" from="VBoxContainer/MarginContainerGame/button_game" to="." method="_on_button_game_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/MarginContainerGame/button_game" to="." method="_on_button_game_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/MarginContainerAudio/button_audio" to="." method="_on_button_audio_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/MarginContainerAudio/button_audio" to="." method="_on_button_audio_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/MarginContainerVideo/button_video" to="." method="_on_button_video_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/MarginContainerVideo/button_video" to="." method="_on_button_video_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/MarginContainerKeyBoard/button_keyboard" to="." method="_on_button_keyboard_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/MarginContainerKeyBoard/button_keyboard" to="." method="_on_button_keyboard_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/MarginContainerBack/button_back_to_main" to="." method="_on_button_back_to_main_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/MarginContainerBack/button_back_to_main" to="." method="_on_button_back_to_main_pressed"]
