@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://du4uk7vhepj7j"]
+[gd_scene load_steps=4 format=3 uid="uid://du4uk7vhepj7j"]
 
 [ext_resource type="Theme" uid="uid://di1ynnspp1355" path="res://assets/themes/theme_menu.tres" id="1_37pjl"]
 [ext_resource type="Script" uid="uid://bv631tgro5bo1" path="res://ui/menu/main_menu.gd" id="2_or6mk"]
+[ext_resource type="Script" uid="uid://bmwueb2ifttal" path="res://ui/menu/menu_utils.gd" id="3_gvx18"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -61,6 +62,10 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "End
 "
+
+[node name="menu_utils" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_gvx18")
 
 [connection signal="mouse_entered" from="VBoxContainer/button_game_start" to="." method="_on_button_game_start_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/button_game_start" to="." method="_on_button_game_start_pressed"]
