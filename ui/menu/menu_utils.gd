@@ -8,6 +8,26 @@ var hover_style : StyleBox
 var theme_color_font : Color
 var theme_color_hover_font : Color
 
+enum NavigateDirection{
+	UP,
+	DOWN
+}
+
+func navigate_buttons_up_or_down(buttons_array : Array[Button], direction : NavigateDirection):
+	set_buttons_to_normal_style(buttons_array)
+	if direction == NavigateDirection.DOWN:
+		if button_hover < (len(buttons_array) - 1):
+			print_debug("down, set hover = ", button_hover + 1)
+			set_hovers(buttons_array, button_hover + 1)
+		else:
+			set_hovers(buttons_array, 0)
+	else:
+		if button_hover > 0:
+			print_debug("up, set hover = ", button_hover - 1)
+			set_hovers(buttons_array, button_hover - 1)
+		else:
+			set_hovers(buttons_array, len(buttons_array) - 1)
+
 func set_buttons_to_normal_style(buttons_array : Array[Button]) -> void:
 	for val in buttons_array:
 		val.add_theme_stylebox_override("normal", normal_style)

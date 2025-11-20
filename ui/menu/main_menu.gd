@@ -21,11 +21,6 @@ enum ButtonName {
 	NONE
 }
 
-enum NavigateDirection{
-	UP,
-	DOWN
-}
-
 func _input(event):
 	if event is InputEventKey:
 		if event.pressed:
@@ -57,26 +52,11 @@ func _button_entered(bname : ButtonName) -> void:
 	menu_utils_.button_hover = bname
 	menu_utils_.set_hovers(buttons_array_, menu_utils_.button_hover)
 
-func _navigate_buttons_up_or_down(direction : NavigateDirection):
-	menu_utils_.set_buttons_to_normal_style(buttons_array_)
-	if direction == NavigateDirection.DOWN:
-		if menu_utils_.button_hover < (len(buttons_array_) - 1):
-			print_debug("down, set hover = ", menu_utils_.button_hover + 1)
-			menu_utils_.set_hovers(buttons_array_, menu_utils_.button_hover + 1)
-		else:
-			menu_utils_.set_hovers(buttons_array_, ButtonName.GAME_START)
-	else:
-		if menu_utils_.button_hover > 0:
-			print_debug("up, set hover = ", menu_utils_.button_hover - 1)
-			menu_utils_.set_hovers(buttons_array_, menu_utils_.button_hover - 1)
-		else:
-			menu_utils_.set_hovers(buttons_array_, ButtonName.GAME_END)
-
 func _process_key_down() ->void:
-	_navigate_buttons_up_or_down(NavigateDirection.DOWN)
+	menu_utils_.navigate_buttons_up_or_down(buttons_array_, menu_utils_.NavigateDirection.DOWN)
 	
 func _process_key_up() ->void:
-	_navigate_buttons_up_or_down(NavigateDirection.UP)
+	menu_utils_.navigate_buttons_up_or_down(buttons_array_, menu_utils_.NavigateDirection.UP)
 
 func _on_button_game_start_pressed() -> void:
 	get_tree().change_scene_to_file("res://stages/arena/1_0/graveyard_1_0.tscn")
