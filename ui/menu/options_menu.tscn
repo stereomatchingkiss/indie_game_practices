@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://coqfpluxwiclo"]
+[gd_scene load_steps=4 format=3 uid="uid://coqfpluxwiclo"]
 
 [ext_resource type="Theme" uid="uid://b1woour2wjax0" path="res://assets/themes/theme_options.tres" id="1_dgvto"]
 [ext_resource type="Script" uid="uid://dilunky7p71fm" path="res://ui/menu/options_menu.gd" id="2_krdqx"]
+[ext_resource type="Script" uid="uid://bmwueb2ifttal" path="res://ui/menu/menu_utils.gd" id="3_dgvto"]
 
 [node name="options_menu" type="Control"]
 layout_mode = 3
@@ -76,6 +77,10 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
 text = "Back"
+
+[node name="menu_utils" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_dgvto")
 
 [connection signal="mouse_entered" from="VBoxContainer/MarginContainerGame/button_game" to="." method="_on_button_game_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/MarginContainerGame/button_game" to="." method="_on_button_game_pressed"]
