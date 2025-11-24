@@ -16,14 +16,6 @@ button_video_, button_keyboard_, button_back_to_main_]
 	_on_button_back_to_main_pressed
 ]
 
-@onready var theme_color_font_ : Color  = button_game_.get_theme_color("font_color")
-@onready var theme_color_hover_font_ : Color = button_game_.get_theme_color("font_hover_color")
-
-@onready var original_normal_style_ : StyleBox = button_game_.get_theme_stylebox("normal")
-@onready var hover_style_ : StyleBox = button_game_.get_theme_stylebox("hover")
-
-@onready var button_hover_ : int = 0
-
 @onready var menu_utils_: Node = %menu_utils
 
 enum ButtonName {
@@ -37,8 +29,7 @@ enum ButtonName {
 
 func _button_entered(bname : ButtonName) -> void:
 	menu_utils_.set_buttons_to_normal_style(buttons_array_)
-	menu_utils_.button_hover = bname
-	menu_utils_.set_hovers(buttons_array_, menu_utils_.button_hover)
+	menu_utils_.set_hovers(buttons_array_, bname)
 
 func _process_key_down() ->void:
 	menu_utils_.navigate_buttons_up_or_down(buttons_array_, menu_utils_.NavigateDirection.DOWN)
@@ -50,22 +41,15 @@ func _input(event):
 	if event is InputEventKey:
 		if event.pressed:
 			if event.keycode == KEY_ENTER:
-				buttons_pressed_funcs[button_hover_].call()
+				buttons_pressed_funcs[menu_utils_.get_button_hover()].call()
 			elif event.keycode == KEY_DOWN:
 				_process_key_down()
 			elif event.keycode == KEY_UP:
 				_process_key_up()
 
 func _ready() -> void:
-	menu_utils_.normal_style = original_normal_style_
-	menu_utils_.hover_style = hover_style_
-
-	menu_utils_.theme_color_font  = theme_color_font_
-	menu_utils_.theme_color_hover_font = theme_color_hover_font_
-		
-	menu_utils_.set_hovers(buttons_array_, menu_utils_.button_hover)
-	
-	print_debug(theme_color_font_, ":", theme_color_hover_font_)
+	menu_utils_.init(button_audio_)
+	menu_utils_.set_hovers(buttons_array_)
 
 func _on_button_game_pressed() -> void:
 	get_tree().change_scene_to_file("res://ui/menu/options_game.tscn")

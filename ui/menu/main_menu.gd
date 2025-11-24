@@ -4,12 +4,6 @@ extends Control
 @onready var button_game_start_: Button = %button_game_start
 @onready var button_options_: Button = %button_options
 
-@onready var original_normal_style_ : StyleBox = button_game_start_.get_theme_stylebox("normal")
-@onready var hover_style_ : StyleBox = button_game_start_.get_theme_stylebox("hover")
-
-@onready var theme_color_font_ : Color = button_game_start_.get_theme_color("font_color")
-@onready var theme_color_hover_font_ : Color = button_game_start_.get_theme_color("font_hover_color")
-
 @onready var buttons_array_ : Array[Button] = [button_game_start_, button_options_, button_end_]
 
 @onready var menu_utils_: Node = %menu_utils
@@ -25,11 +19,11 @@ func _input(event):
 	if event is InputEventKey:
 		if event.pressed:
 			if event.keycode == KEY_ENTER:
-				if menu_utils_.button_hover == ButtonName.GAME_END:
+				if menu_utils_.button_hover_ == ButtonName.GAME_END:
 					_on_button_end_pressed()
-				elif menu_utils_.button_hover == ButtonName.GAME_START:
+				elif menu_utils_.button_hover_ == ButtonName.GAME_START:
 					_on_button_game_start_pressed()
-				elif menu_utils_.button_hover == ButtonName.GAME_OPTIONS:
+				elif menu_utils_.button_hover_ == ButtonName.GAME_OPTIONS:
 					_on_button_options_pressed()
 			elif event.keycode == KEY_DOWN:
 				_process_key_down()
@@ -37,20 +31,12 @@ func _input(event):
 				_process_key_up()
 		
 func _ready() -> void:
-	menu_utils_.normal_style = original_normal_style_
-	menu_utils_.hover_style = hover_style_
-
-	menu_utils_.theme_color_font  = theme_color_font_
-	menu_utils_.theme_color_hover_font = theme_color_hover_font_
-		
-	menu_utils_.set_hovers(buttons_array_, menu_utils_.button_hover)
-	
-	print_debug(theme_color_font_, ":", theme_color_hover_font_)
+	menu_utils_.init(button_end_)
+	menu_utils_.set_hovers(buttons_array_)
 
 func _button_entered(bname : ButtonName) -> void:
 	menu_utils_.set_buttons_to_normal_style(buttons_array_)
-	menu_utils_.button_hover = bname
-	menu_utils_.set_hovers(buttons_array_, menu_utils_.button_hover)
+	menu_utils_.set_hovers(buttons_array_, bname)
 
 func _process_key_down() ->void:
 	menu_utils_.navigate_buttons_up_or_down(buttons_array_, menu_utils_.NavigateDirection.DOWN)
