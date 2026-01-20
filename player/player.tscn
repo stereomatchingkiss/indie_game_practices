@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://dxslytsrd2u0b" path="res://player/states_limbo/state_shoot.gd" id="9_7hm77"]
 [ext_resource type="Script" uid="uid://b1541nx3gulkm" path="res://player/states_limbo/states_air.gd" id="10_h5f1v"]
 [ext_resource type="Script" uid="uid://busxlpipl0qi3" path="res://player/states_limbo/state_ground_jumping.gd" id="11_6lqsp"]
-[ext_resource type="Script" uid="uid://bxapnd30lbc8s" path="res://utils/input_cache.gd" id="11_um52r"]
+[ext_resource type="Script" uid="uid://bxapnd30lbc8s" path="res://player/input_cache.gd" id="11_um52r"]
 [ext_resource type="Script" uid="uid://ch7ryycuvjq2p" path="res://player/states_limbo/states_ground.gd" id="11_y07bu"]
 [ext_resource type="Script" uid="uid://8yp0bjxhvrxq" path="res://player/states_limbo/state_air_falling.gd" id="12_fsxun"]
 [ext_resource type="Script" uid="uid://c217q0xt7pdt8" path="res://player/states_limbo/state_machine_utils.gd" id="12_q3wfk"]
