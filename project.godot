@@ -72,6 +72,7 @@ global_illumination/gi/use_half_resolution=true
 anti_aliasing/quality/msaa_3d=1
 global_illumination/sdfgi/frames_to_converge=2
 global_illumination/sdfgi/frames_to_update_lights=0
+anti_aliasing/quality/screen_space_aa=1
 
 [shader_globals]
 
