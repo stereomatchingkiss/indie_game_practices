@@ -1,36 +1,38 @@
 [gd_scene load_steps=11 format=3 uid="uid://cdd8ekoinekif"]
 
 [ext_resource type="Script" uid="uid://bgs4ggtsvpbwv" path="res://stages/arena/1_0/graveyard_1_0.gd" id="1_p22id"]
-[ext_resource type="Texture2D" uid="uid://bc7b7pvrgsjxn" path="res://assets/skybox/Voxel_Skybox_free/Textures/Warm Sunrise Glow.exr" id="2_683j0"]
 [ext_resource type="PackedScene" uid="uid://b0tmdnp32vajq" path="res://player/player.tscn" id="2_nyrc0"]
 [ext_resource type="MeshLibrary" uid="uid://ctcml8l6yqyb" path="res://assets/gridmap/tres/kenny_mini_arena_ground.tres" id="2_p22id"]
+[ext_resource type="VoxelGIData" uid="uid://c7eng75nkdewy" path="res://stages/arena/1_0/voxel_gi_graveyard_1_0.tres" id="3_683j0"]
 [ext_resource type="MeshLibrary" uid="uid://cvu7h867chp5i" path="res://assets/gridmap/tres/kenny_mini_arena_platforms.tres" id="3_qso0n"]
 [ext_resource type="MeshLibrary" uid="uid://c5yd5qmn7cwb5" path="res://assets/gridmap/tres/KayKitPlatformer_1.0_Platform_Blue.tres" id="4_icvuk"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_svu5v"]
-panorama = ExtResource("2_683j0")
-energy_multiplier = 0.1
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_icvuk"]
+sky_top_color = Color(0.1375, 0.31625003, 0.55, 1)
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
 [sub_resource type="Sky" id="Sky_683j0"]
-sky_material = SubResource("PanoramaSkyMaterial_svu5v")
+sky_material = SubResource("ProceduralSkyMaterial_icvuk")
 
 [sub_resource type="Environment" id="Environment_svu5v"]
 background_mode = 2
 sky = SubResource("Sky_683j0")
-tonemap_white = 6.0
-ssao_enabled = true
-ssil_enabled = true
-sdfgi_enabled = true
-sdfgi_use_occlusion = true
-sdfgi_cascades = 2
+tonemap_mode = 2
 glow_enabled = true
-glow_normalized = true
-fog_density = 0.0001
+glow_intensity = 2.78
+glow_strength = 0.3
+glow_bloom = 0.42
+glow_blend_mode = 0
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_dig5t"]
 
 [node name="arena_1_0" type="Node3D"]
 script = ExtResource("1_p22id")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_svu5v")
+camera_attributes = SubResource("CameraAttributesPractical_dig5t")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.72090065, -0.6929296, 0.012275493, 0.66193634, -0.6831933, 0.30836228, -0.2052868, 0.23042414, 0.95118976, 77.92488, 191.4354, -650.45166)
@@ -43,13 +45,21 @@ directional_shadow_split_2 = 0.11
 directional_shadow_split_3 = 0.33
 directional_shadow_blend_splits = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_svu5v")
-camera_attributes = SubResource("CameraAttributesPractical_dig5t")
+[node name="player" parent="." instance=ExtResource("2_nyrc0")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.233, -0.47922468, 2.77)
+collision_mask = 566
 
-[node name="gridmaps" type="Node" parent="."]
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9961947, 0.08715574, 0, -0.08715574, 0.9961947, 0.3712337, 3.0874333, 8.292339)
 
-[node name="ground" type="GridMap" parent="gridmaps"]
+[node name="VoxelGI" type="VoxelGI" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.53200245, 3.3594422, -3.0934217)
+size = Vector3(18, 10, 18)
+data = ExtResource("3_683j0")
+
+[node name="gridmaps" type="Node" parent="VoxelGI"]
+
+[node name="ground" type="GridMap" parent="VoxelGI/gridmaps"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 mesh_library = ExtResource("2_p22id")
 cell_size = Vector3(1, 1, 1)
@@ -60,7 +70,7 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="platforms_arena" type="GridMap" parent="gridmaps"]
+[node name="platforms_arena" type="GridMap" parent="VoxelGI/gridmaps"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 mesh_library = ExtResource("3_qso0n")
 cell_size = Vector3(1, 1, 1)
@@ -70,7 +80,7 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(7, 0, -4)
 
-[node name="platforms_kaykit" type="GridMap" parent="gridmaps"]
+[node name="platforms_kaykit" type="GridMap" parent="VoxelGI/gridmaps"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
 mesh_library = ExtResource("4_icvuk")
 cell_size = Vector3(0.5, 0.5, 0.5)
@@ -79,7 +89,7 @@ collision_layer = 32
 collision_mask = 13
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
-[node name="roof" type="GridMap" parent="gridmaps"]
+[node name="roof" type="GridMap" parent="VoxelGI/gridmaps"]
 visible = false
 mesh_library = ExtResource("2_p22id")
 cell_size = Vector3(1, 1, 1)
@@ -90,7 +100,7 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 7, 0)
 
-[node name="wall" type="GridMap" parent="gridmaps"]
+[node name="wall" type="GridMap" parent="VoxelGI/gridmaps"]
 mesh_library = ExtResource("3_qso0n")
 cell_size = Vector3(1, 1, 1)
 collision_layer = 512
@@ -98,10 +108,3 @@ data = {
 "cells": PackedInt32Array(-8, 65528, 1441807, -8, 65529, 1441807, -8, 65530, 1441807, -8, 65531, 1441807, -8, 65532, 1441807, -8, 65533, 1441807, -8, 65534, 1441807, -8, 65535, 1441807, -8, 0, 1441807, -8, 1, 1441807, -8, 2, 1441807, -8, 3, 1441807, -8, 4, 1441807, 65528, 65528, 1441807, 65528, 65529, 1441807, 65528, 65530, 1441807, 65528, 65531, 1441807, 65528, 65532, 1441807, 65528, 65533, 1441807, 65528, 65534, 1441807, 65528, 65535, 1441807, 65528, 0, 1441807, 65528, 1, 1441807, 65528, 2, 1441807, 65528, 3, 1441807, 65528, 4, 1441807, 131064, 65528, 1441807, 131064, 65529, 1441807, 131064, 65530, 1441807, 131064, 65531, 1441807, 131064, 65532, 1441807, 131064, 65533, 1441807, 131064, 65534, 1441807, 131064, 65535, 1441807, 131064, 0, 1441807, 131064, 1, 1441807, 131064, 2, 1441807, 131064, 3, 1441807, 131064, 4, 1441807, 196600, 65528, 1441807, 196600, 65529, 1441807, 196600, 65530, 1441807, 196600, 65531, 1441807, 196600, 65532, 1441807, 196600, 65533, 1441807, 196600, 65534, 1441807, 196600, 65535, 1441807, 196600, 0, 1441807, 196600, 1, 1441807, 196600, 2, 1441807, 196600, 3, 1441807, 196600, 4, 1441807, 262136, 65528, 1441807, 262136, 65529, 1441807, 262136, 65530, 1441807, 262136, 65531, 1441807, 262136, 65532, 1441807, 262136, 65533, 1441807, 262136, 65534, 1441807, 262136, 65535, 1441807, 262136, 0, 1441807, 262136, 1, 1441807, 262136, 2, 1441807, 262136, 3, 1441807, 262136, 4, 1441807, 327672, 65528, 1441807, 327672, 65529, 1441807, 327672, 65530, 1441807, 327672, 65531, 1441807, 327672, 65532, 1441807, 327672, 65533, 1441807, 327672, 65534, 1441807, 327672, 65535, 1441807, 327672, 0, 1441807, 327672, 1, 1441807, 327672, 2, 1441807, 327672, 3, 1441807, 327672, 4, 1441807, 393208, 65528, 1441807, 393208, 65529, 1441807, 393208, 65530, 1441807, 393208, 65531, 1441807, 393208, 65532, 1441807, 393208, 65533, 1441807, 393208, 65534, 1441807, 393208, 65535, 1441807, 393208, 0, 1441807, 393208, 1, 1441807, 393208, 2, 1441807, 393208, 3, 1441807, 393208, 4, 1441807, 458744, 65528, 1441807, 458744, 65529, 1441807, 458744, 65530, 1441807, 458744, 65531, 1441807, 458744, 65532, 1441807, 458744, 65533, 1441807, 458744, 65534, 1441807, 458744, 65535, 1441807, 458744, 0, 1441807, 458744, 1, 1441807, 458744, 2, 1441807, 458744, 3, 1441807, 458744, 4, 1441807, 7, 65528, 1441807, 7, 65529, 1441807, 7, 65530, 1441807, 7, 65531, 1441807, 7, 65532, 1441807, 7, 65533, 1441807, 7, 65534, 1441807, 7, 65535, 1441807, 7, 0, 1441807, 7, 1, 1441807, 7, 2, 1441807, 7, 3, 1441807, 7, 4, 1441807, 65543, 65528, 1441807, 65543, 65529, 1441807, 65543, 65530, 1441807, 65543, 65531, 1441807, 65543, 65532, 1441807, 65543, 65533, 1441807, 65543, 65534, 1441807, 65543, 65535, 1441807, 65543, 0, 1441807, 65543, 1, 1441807, 65543, 2, 1441807, 65543, 3, 1441807, 65543, 4, 1441807, 131079, 65528, 1441807, 131079, 65529, 1441807, 131079, 65530, 1441807, 131079, 65531, 1441807, 131079, 65532, 1441807, 131079, 65533, 1441807, 131079, 65534, 1441807, 131079, 65535, 1441807, 131079, 0, 1441807, 131079, 1, 1441807, 131079, 2, 1441807, 131079, 3, 1441807, 131079, 4, 1441807, 196615, 65528, 1441807, 196615, 65529, 1441807, 196615, 65530, 1441807, 196615, 65531, 1441807, 196615, 65532, 1441807, 196615, 65533, 1441807, 196615, 65534, 1441807, 196615, 65535, 1441807, 196615, 0, 1441807, 196615, 1, 1441807, 196615, 2, 1441807, 196615, 3, 1441807, 196615, 4, 1441807, 262151, 65528, 1441807, 262151, 65529, 1441807, 262151, 65530, 1441807, 262151, 65531, 1441807, 262151, 65532, 1441807, 262151, 65533, 1441807, 262151, 65534, 1441807, 262151, 65535, 1441807, 262151, 0, 1441807, 262151, 1, 1441807, 262151, 2, 1441807, 262151, 3, 1441807, 262151, 4, 1441807, 327687, 65528, 1441807, 327687, 65529, 1441807, 327687, 65530, 1441807, 327687, 65531, 1441807, 327687, 65532, 1441807, 327687, 65533, 1441807, 327687, 65534, 1441807, 327687, 65535, 1441807, 327687, 0, 1441807, 327687, 1, 1441807, 327687, 2, 1441807, 327687, 3, 1441807, 327687, 4, 1441807, 393223, 65528, 1441807, 393223, 65529, 1441807, 393223, 65530, 1441807, 393223, 65531, 1441807, 393223, 65532, 1441807, 393223, 65533, 1441807, 393223, 65534, 1441807, 393223, 65535, 1441807, 393223, 0, 1441807, 393223, 1, 1441807, 393223, 2, 1441807, 393223, 3, 1441807, 393223, 4, 1441807, -65529, 65528, 1441807, -65529, 65529, 1441807, -65529, 65530, 1441807, -65529, 65531, 1441807, -65529, 65532, 1441807, -65529, 65533, 1441807, -65529, 65534, 1441807, -65529, 65535, 1441807, -65529, 0, 1441807, -65529, 1, 1441807, -65529, 2, 1441807, -65529, 3, 1441807, -65529, 4, 1441807, 7, 65527, 1441807, 65543, 65527, 1441807, 131079, 65527, 1441807, 196615, 65527, 1441807, 262151, 65527, 1441807, 327687, 65527, 1441807, 393223, 65527, 1441807, -65529, 65527, 1441807, -8, 65527, 1441807, 65528, 65527, 1441807, 131064, 65527, 1441807, 196600, 65527, 1441807, 262136, 65527, 1441807, 327672, 65527, 1441807, 393208, 65527, 1441807, 458744, 65527, 1441807)
 }
 metadata/_editor_floor_ = Vector3(-8, -8, 0)
-
-[node name="player" parent="." instance=ExtResource("2_nyrc0")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.233, 0.014736414, 2.77)
-collision_mask = 566
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.9961947, 0.08715574, 0, -0.08715574, 0.9961947, 0.3712337, 3.0874333, 8.292339)
