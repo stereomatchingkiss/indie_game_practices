@@ -1,14 +1,15 @@
 extends LimboState
 
-@onready
-var aux_func := %AuxiliaryFunctions
-
-@export
-var animation_player : AnimationPlayer
+@onready var aux_func_ := %AuxiliaryFunctions
+@onready var rogue_hooded_ : RogueHooded = %Rogue_Hooded
 
 const fireball = preload("res://bullets/bullet_standard.tscn")
 
 func _spawn_bullet() -> void:
+	if rogue_hooded_.is_shooting_state():
+		return
+		
+	rogue_hooded_.travel_to_shoot()
 	SoundManager.play_shoot_standard_bullet()
 	var fnode = fireball.instantiate()
 	agent.get_parent().add_child(fnode)	
@@ -26,14 +27,13 @@ func _spawn_bullet() -> void:
 
 func _shoot_bullet_again() -> void:
 	if agent.input_cache.get_shoot():
-			_spawn_bullet()
-			agent.input_cache.reset_shoot()
+		_spawn_bullet()
+		agent.input_cache.reset_shoot()
 
 # Called when the node enters the scene tree for the first time.
 func _enter() -> void:
 	print_debug("limbo : enter state_shoot, ", Time.get_unix_time_from_system())
 	agent.input_cache.reset_shoot()
-	animation_player.play("1H_Ranged_Shoot")
 			
 	_spawn_bullet()
 
@@ -48,15 +48,15 @@ func _update(delta: float) -> void:
 			get_root().dispatch(&"shoot_to_moving")
 		elif agent.input_cache.get_input_direction() == Vector2():
 			_shoot_bullet_again()
-			if !animation_player.is_playing():
+			if !rogue_hooded_.is_shooting_state():
 				print_debug("limbo : state_shoot to shoot_to_idle, ", Time.get_unix_time_from_system())
 				get_root().dispatch(&"shoot_to_idle")
 			else:
 				#without this line, the character will slide before enter idle state
-				aux_func.move_character(agent)
+				aux_func_.move_character(agent)
 	else:
 		#print_debug("limbo : state_shoot on air, ", Time.get_unix_time_from_system())	
-		aux_func.move_character(agent)
+		aux_func_.move_character(agent)
 		if agent.input_cache.get_shoot():
 			_spawn_bullet()
 			agent.input_cache.reset_shoot()

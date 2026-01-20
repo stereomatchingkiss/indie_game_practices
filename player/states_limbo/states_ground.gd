@@ -1,8 +1,5 @@
 extends LimboState
 
-@onready
-var aux_func := %AuxiliaryFunctions
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print_debug("enter ground state")

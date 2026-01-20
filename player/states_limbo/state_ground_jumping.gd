@@ -1,14 +1,13 @@
 extends LimboState
 
-@export var animation_player : AnimationPlayer
-
 @onready var aux_func_ := %AuxiliaryFunctions
+@onready var rogue_hooded_: RogueHooded = %Rogue_Hooded
 
 # Called when the node enters the scene tree for the first time.
 func _enter() -> void:
 	print_debug("enter state_ground_jumping")
 	SoundManager.play_jump()
-	animation_player.play("Jump_Start")
+	rogue_hooded_.travel_to_jump_start()
 	
 func _update(delta: float) -> void:
 	if agent.is_on_floor():
@@ -20,6 +19,7 @@ func _update(delta: float) -> void:
 		else:
 			print_debug("enter ground jump_press to idle state")
 			SoundManager.play_land()
+			rogue_hooded_.travel_to_idle(delta)
 			get_root().dispatch(&"ground_to_idle")
 	else:
 		aux_func_.move_character(agent)
