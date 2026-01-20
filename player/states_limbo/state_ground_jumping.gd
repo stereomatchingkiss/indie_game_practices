@@ -10,6 +10,7 @@ func _enter() -> void:
 	rogue_hooded_.travel_to_jump_start()
 	
 func _update(delta: float) -> void:
+	rogue_hooded_.travel_to_jump(delta)
 	if agent.is_on_floor():
 		print_debug("enter ground jump_press jumping state")
 		if agent.input_cache.get_jump():
@@ -19,7 +20,6 @@ func _update(delta: float) -> void:
 		else:
 			print_debug("enter ground jump_press to idle state")
 			SoundManager.play_land()
-			rogue_hooded_.travel_to_idle(delta)
 			get_root().dispatch(&"ground_to_idle")
 	else:
 		aux_func_.move_character(agent)
