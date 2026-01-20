@@ -8,7 +8,7 @@ color = Color(1, 1, 1, 1)
 thickness = 8
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_t7ssv"]
-color = Color(0.21805531, 0.2226319, 0.7727893, 1)
+color = Color(0.17232582, 0.2383585, 0.7768944, 1)
 thickness = 6
 
 [node name="options_audio" type="Control"]

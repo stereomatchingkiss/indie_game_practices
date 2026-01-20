@@ -1,7 +1,18 @@
-[gd_resource type="Theme" load_steps=25 format=4 uid="uid://b1woour2wjax0"]
+[gd_resource type="Theme" load_steps=28 format=4 uid="uid://b1woour2wjax0"]
 
 [ext_resource type="FontFile" uid="uid://c7j1f6rw6r36g" path="res://assets/fonts/MaShanZheng-Regular.ttf" id="1_low2l"]
 [ext_resource type="FontFile" uid="uid://3tugi486qlre" path="res://assets/fonts/NotoSerifSC-Regular.ttf" id="1_y5enw"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_low2l"]
+color = Color(0.17010874, 0.37917888, 0.2644922, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_t7ssv"]
+color = Color(0.17232582, 0.2383585, 0.7768944, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_owdm5"]
+color = Color(1, 1, 1, 1)
+thickness = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fs35"]
 content_margin_left = 4.0
@@ -1104,6 +1115,9 @@ content_margin_bottom = 0.0
 [resource]
 GridContainer/constants/h_separation = 12
 GridContainer/constants/v_separation = 8
+HSlider/styles/grabber_area = SubResource("StyleBoxLine_low2l")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxLine_t7ssv")
+HSlider/styles/slider = SubResource("StyleBoxLine_owdm5")
 Label/colors/font_color = Color(1, 1, 1, 1)
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0, 0)
