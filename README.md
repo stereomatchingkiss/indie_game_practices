@@ -21,6 +21,7 @@ A collection of independent game projects for practicing game development with G
 - [KayKit : Block Bits](https://kaylousberg.itch.io/block-bits)
 - [KayKit_Platformer_Pack_1.0_FREE](https://kaylousberg.itch.io/kaykit-platformer)
 - [Kenny mini arena](https://kenney.nl/assets/mini-arena)
+- [Kenny pirate kit](https://kenney.nl/assets/pirate-kit)
 - [AllSky Free](https://godotengine.org/asset-library/asset/579)
 - [Cozy Voxel Skybox](https://thomasgamboa.itch.io/cozy-voxel-skybox-free-voxel-style-textures)
 - [Ultimate monster pack](https://quaternius.com/packs/ultimatemonsters.html)
@@ -33,12 +34,6 @@ A collection of independent game projects for practicing game development with G
 # Todo
 
 - Better background
-- Learn how to use shader to adjust the look of the assets
-- Make the bullet trajectory parabola
-- Add upgrade items like speed up, attack range up, life up etc
 - Add menu
-- Add keyboard/gamepad bindings
-- Learn how to combine c++ with godot
+- Add keyboard bindings
 - Add HUD to display player, stages status
-- Add function of throwing the enemy turn into barrel/bomb
-- Solve the sound effect delay issue
