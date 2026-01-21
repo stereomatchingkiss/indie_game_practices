@@ -8,6 +8,7 @@ const move_path_ : String = "parameters/Move_Idle/blend_position"
 func _enter() -> void:
 	print_debug("enter state_ground_idle")
 	agent.input_cache.reset_input_direction()
+	rogue_hooded_.travel_to_idle_immediate()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _update(delta: float) -> void:

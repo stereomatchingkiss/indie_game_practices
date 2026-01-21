@@ -24,7 +24,7 @@ func travel_to_jump_start() -> void:
 	
 func travel_to_jump(delta : float) -> void:
 	animation_tree_[jump_path_] = move_toward(
-		animation_tree_[jump_path_], 1.0, delta * 2.0
+		animation_tree_[jump_path_], 1.0, delta * 1.8
 	)
 	
 func travel_to_idle(delta : float) -> void:
